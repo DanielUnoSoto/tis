@@ -3,7 +3,7 @@
 @section('content')
 
 <div>
-    <h2>bienvenido al sistema de cotizaciones</h2>
+    <h2>bienvenido al pagina de unidad de administracion</h2>
 
 
 </div>
