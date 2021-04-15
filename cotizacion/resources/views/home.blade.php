@@ -3,13 +3,13 @@
     <div class="collapse navbar-collapse">
         <a href="/" class="navbar-brand">
             <img src="imagenes/umss.png" atl="" class="d_inline-block aling-top" height="70"
-            width="50">
+            width="60">
         Universidad Mayor de San Simon
         </a>
         </div>
     <button class="btn btn-outline-primary">
         <a class="nav-link " aria-current="login" href="login" >
-            Login
+            Logout
         </a>
     </button>
           
@@ -20,6 +20,8 @@
 <br>
 <br>
 <br>
+<br>
+
     <div class="text-center" class="fw-bold">
         <h1>BIENVENIDO AL SISTEMA DE COTIZACIONES</h1>
     </div>
