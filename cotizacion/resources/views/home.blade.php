@@ -1,21 +1,33 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark item-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="collapse navbar-collapse">
         <a href="/" class="navbar-brand">
-            <img src="imagenes/umss.png" atl="" class="d_inline-block aling-top" height="80"
-            width="100">
-        Sistema de Cotizaciones
+            <img src="imagenes/umss.png" atl="" class="d_inline-block aling-top" height="70"
+            width="50">
+        Universidad Mayor de San Simon
         </a>
         </div>
-    <li class="nav-item ">
-        <a class="nav-link active" aria-current="page" href="home">Home</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="login">Login</a>
-    </li>       
+    <button class="btn btn-outline-primary">
+        <a class="nav-link " aria-current="login" href="login" >
+            Login
+        </a>
+    </button>
+          
 </nav>
-<div>
-    <h2>bienvenido al sistema de cotizaciones</h2>
-
-
-</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="text-center" class="fw-bold">
+        <h1>BIENVENIDO AL SISTEMA DE COTIZACIONES</h1>
+    </div>
+    <figure class="text-center">
+    <blockquote class="blockquote">
+        <p>Sistema de cotizaciones desarrollado para la Universidad Mayor de San Simon</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+        Create by <cite title="Source Title">EagleSoft</cite>
+    </figcaption>
+    </figure>
