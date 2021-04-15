@@ -28,7 +28,7 @@ Route::get('administracion', function () {
     return view('users.admin.index');
 })->name('admin');
 
-Route::get('unidad-gastos ', function () {
+Route::get('unidad-gastos', function () {
     return view('users.ug.index');
 })->name('ug');
 
@@ -44,8 +44,8 @@ Route::post('login', 'LoginController@login');
 Route::post('logout', 'LoginController@logout')->name('logout');
 
 //rutas de registrar
-Route::get('registrar', 'RegisterController@index')->name('register');
-Route::post('registrar', 'RegisterController@store');
+Route::get('registrar/crear', 'RegisterController@create')->name('register.create');
+Route::post('registrar', 'RegisterController@store')->name('register.store');
 
 //rutas de cotizacion ==  quotation
 //Route::get('cotizaciones', 'QuotationController@index')->name('quotation');

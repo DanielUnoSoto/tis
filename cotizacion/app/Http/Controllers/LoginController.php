@@ -61,9 +61,20 @@ class LoginController extends Controller
         $credentials = request()->only('email','password');
 
         if(Auth::attempt($credentials)){
-            //$user_role =  Auth::user()->role_id;
+            $user_role = Auth::user()->role_id;
 
-            return redirect('admin');
+            // if ($user_role == 3) {
+            //     return 'aqui es la vista para ' . $user_role;
+            // }
+
+            // return $user_role;
+            if ($user_role == 1) {
+                return redirect('administracion');
+            }elseif ($user_role == 2) {
+                return redirect('unidad-gastos');
+            }elseif ($user_role == 3) {
+                return redirect('unidad-admin');
+            }
         }
 
         return redirect('login');

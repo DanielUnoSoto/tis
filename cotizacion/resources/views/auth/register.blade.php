@@ -5,29 +5,43 @@
 <div>
 	<h2>registro de usuarios</h2>
 
-	<form method="POST" action="">
+	<form method="POST" action=" {{route('register.store')}} ">
 		@csrf
 		<p>
 			<label>
+				*Nombre(s):
+				<input type="text" name="name" placeholder="nombre">
+			</label>
+			
+		</p>
+		<p>
+			<label>
 				*Apellido(s):
-				<input type="text" name="apellido" placeholder="apellidos">
+				<input type="text" name="last_name" placeholder="apellidos">
 			</label>
 			
 		</p>
 		<p>
 			<label>
 				*Telefono:
-				<input type="text" name="Telefono" placeholder="telefono">
+				<input type="text" name="phone" placeholder="telefono">
 			</label>
 			
 		</p>
-		<label>
+			<label>
 			*Rol:
-			<select>
-				<option>administrador</option>
+				<input type="text" name="rol" list="rol" placeholder="Seleccione un rol">
+				<datalist id="rol">
+					<option>administrador</option>
+					<option>unidad de gastos</option>
+					<option>unidad administrativa</option>
+					
+				</datalist>
+			{{-- <select  id="rol">
+
+				<option name="rol_id">administrador</option>
 			</select>
-			{{-- <input type="text" name="rol" placeholder="rol"> --}}
-		</label>
+ --}}		</label>
 		<p>
 			<label>
 				*Correo:
