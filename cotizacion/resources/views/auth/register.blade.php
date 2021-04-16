@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('auth.registerlay')
 @section('content')
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="collapse navbar-collapse">
@@ -8,8 +8,13 @@
         Universidad Mayor de San Simon
         </a>
         </div>
+	<button class="btn btn-outline-primary">
+        <a class="nav-link " aria-current="logout" href="administracion" >
+            Volver
+        </a>
+    </button>
 </nav>
-@csrf
+
 <br>
 <div  class="fw-bold">
 	<h2>Registro de Usuarios</h2>
@@ -55,4 +60,3 @@
 	</form>
 	</div>
 </div>
-@endsection

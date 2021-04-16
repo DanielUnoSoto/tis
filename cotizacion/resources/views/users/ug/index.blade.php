@@ -11,7 +11,7 @@
         </a>
         </div>
     <button class="btn btn-outline-primary">
-        <a class="nav-link " aria-current="logout" href="logout" >
+        <a class="nav-link " aria-current="logout" href="login" >
             Logout
         </a>
     </button>
