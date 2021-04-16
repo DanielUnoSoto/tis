@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout');
 });
 
 Route::get('administracion', function () {
@@ -52,3 +52,7 @@ Route::post('registrar', 'RegisterController@store');
 
 //rutas de solicitudes == requisition
 //Route::get('solicitudes', 'RequisitionController@index')->name('requisition');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
