@@ -8,7 +8,7 @@
     <title>Sistema de Unidad Administrativa</title>
 </head>
 <body>
-    @include ('index')
+  
     @yield('mycontent')
 </body>
 </html>

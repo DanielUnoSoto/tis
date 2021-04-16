@@ -9,7 +9,7 @@
         </div>
     <button class="btn btn-outline-primary">
         <a class="nav-link " aria-current="login" href="login" >
-            Logout
+            Login
         </a>
     </button>
           

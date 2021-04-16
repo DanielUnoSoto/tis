@@ -1,3 +1,6 @@
+@extends('users.ua.layout')
+
+@section('content')
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="collapse navbar-collapse">
         <a href="/" class="navbar-brand">
