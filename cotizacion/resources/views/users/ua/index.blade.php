@@ -36,11 +36,11 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Generar Solicitudes
+          Unidad de gastos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Solicitudes de compra</a>
-          <a class="dropdown-item" href="#">Solicitudes de Alquiler</a>
+          <a class="dropdown-item" href="#">UG1</a>
+          <a class="dropdown-item" href="#">UG2</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Otro</a>
         </div>
