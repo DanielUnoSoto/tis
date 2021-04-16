@@ -1,5 +1,4 @@
 
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <!-- Latest compiled JavaScript -->
@@ -9,9 +8,7 @@
 
 	<link href="css/login.css" rel="stylesheet">
 
-
-
-
+	
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="collapse navbar-collapse">
         <a href="/" class="navbar-brand">

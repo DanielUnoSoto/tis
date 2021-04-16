@@ -31,7 +31,7 @@
 
 <div class="d-flex justify-content-center text-center containerPrincipal">
 
-	<form class="bg-light" method="post">
+	<form class="bg-light" method="post" action="{{ route('login') }}">
 		@csrf	
 				<label class="title-inicio">
 					<h2><b>
@@ -40,7 +40,7 @@
 	
 				</label>
 				<div class="form-group">
-					<label>Correo Electrónico:</label>
+					<label>{{ __('Correo Electrónico:') }}</label>
 	
 					<div class="input-group">
 					
@@ -48,27 +48,43 @@
 								<span class="input-group-text"><i class="fas fa-envelope"></i></span>
 						</div>
 	
-						<input type="email" name="email" class="form-control" placeholder="Ingrese su correo">
-	
+						<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Ingrese su correo">
+						
+						@error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+
 					</div>
 					
 				</div>
 	
 				<div class="form-group">
-					<label>Contraseña:</label>
+					<label for="password">{{ __('Contraseña:') }}</label>
 	
 					<div class="input-group">
 					
 						<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-lock"></i></i></span>
 						</div>
-					<input type="password" name="password" class="form-control" placeholder="Ingrese su contraseña">
-						</div>
+					<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Ingrese su contraseña">
+						
+						@error('password')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror
+						
 					</div>
+				</div>
 				
 				<br>
 	
-				<button type="submit" class="btn btn-primary">Ingresar</button>
+				
+				<button type="submit" class="btn btn-primary">{{ __('Ingresar') }}</button>
+
+				
 	</form>
 	
 	</div>
