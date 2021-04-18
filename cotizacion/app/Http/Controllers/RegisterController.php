@@ -13,7 +13,7 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        return view('auth.register');
+        
     }
 
     /**
@@ -23,7 +23,7 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.register');
     }
 
     /**
@@ -34,7 +34,9 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        return 'usuario registrado correctamente';
+        return $request->all(); //nos muestra todos los datos recibidos
+        // $request->input('nombre'); //devuelve el nombre
+        //return 'usuario registrado correctamente';
     }
 
     /**

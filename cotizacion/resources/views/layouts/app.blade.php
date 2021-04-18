@@ -15,16 +15,16 @@
 			{{-- @if(auth()->user()->role_id === 1)
 				<a href="{{route('register')}}">registrar</a>
 			@endif
-			
+			 --}}
 			@if(auth()->user()->role_id === 3)
-				<a href=" {{route('quotation')}} ">cotizaciones</a>
-				
+				{{-- <a href=" {{route('quotation')}} ">cotizaciones</a> --}}
+				<a href="#">cotizaciones</a>
 			@endif
 
 			@if(auth()->user()->role_id === 3 || auth()->user()->role_id === 2)
-				<a href=" {{route('requisition')}} ">solicitudes</a>
-			@endif --}}
-
+				{{-- <a href=" {{route('requisition')}} ">solicitudes</a> --}}
+				<a href="#">solicitudes</a>
+			@endif 
 			
 			<a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             cerrar sesion</a>
@@ -34,7 +34,7 @@
 			{{-- <a href="{{ route('logout') }}">logout</a> --}}
 		@else
 			<a href="{{ route('login') }}">login</a>
-			<a href="{{route('register')}}">registrar</a>
+			<a href="{{route('register.create')}}">registrar</a>
 		@endauth
 	</nav>
 

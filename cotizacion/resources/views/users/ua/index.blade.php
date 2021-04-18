@@ -69,3 +69,4 @@
     <div class="text-center" class="fw-bold">
         <h1>BIENVENIDO AL SISTEMA DE LA UNIDAD DE ADMINISTRACION</h1>
     </div>
+@endsection
