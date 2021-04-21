@@ -9,7 +9,7 @@
         </a>
         </div>
 	<button class="btn btn-outline-primary">
-        <a class="nav-link " aria-current="logout" href="administracion" >
+        <a class="nav-link " aria-current="logout" href=" {{route('admin')}} " >
             Volver
         </a>
     </button>

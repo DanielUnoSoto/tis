@@ -53,6 +53,6 @@ Route::post('registrar', 'RegisterController@store')->name('register.store');
 //rutas de solicitudes == requisition
 //Route::get('solicitudes', 'RequisitionController@index')->name('requisition');
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
