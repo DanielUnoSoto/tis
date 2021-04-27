@@ -5,13 +5,19 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Role;
+use App\Unit;
 
 class User extends Authenticatable
 {
     use Notifiable;
 
     public function role(){
-         return $this->BelongsTo('App\Role');
+         return $this->BelongsTo(Role::class, 'role_id');
+    }
+
+    public function unit(){
+         return $this->BelongsTo(Unit::class);
     }
 
 

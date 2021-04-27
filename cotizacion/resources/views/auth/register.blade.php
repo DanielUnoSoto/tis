@@ -22,17 +22,22 @@
 <br>
 <div class="container">
   <div class="form-check-inline">
-	<form class="row g-3">
+	<form class="row g-3" method="POST" action="{{route('register.store')}}">
+	@csrf
 	<div class="col-md-4">
-		<label for="inputEmail4" class="form-label">Email</label>
+		<label for="inputName4" class="form-label">Nombre(s)*</label>
+		<input type="text" class="form-control" id="inputName4">
+	</div>
+	<div class="col-md-4">
+		<label for="inputEmail4" class="form-label">Email*</label>
 		<input type="email" class="form-control" id="inputEmail4">
 	</div>
 	<div class="col-md-4">
-		<label for="inputPassword4" class="form-label">Contraseña</label>
+		<label for="inputPassword4" class="form-label">Contraseña*</label>
 		<input type="password" class="form-control" id="inputPassword4">
 	</div>
 	<div class="col-8">
-		<label for="inputName" class="form-label">Apellido</label>
+		<label for="inputName" class="form-label">Apellido(s)*</label>
 		<input type="text" class="form-control" id="inputApellidos" placeholder="Apellidos">
 	</div>
 	<div class="col-8">

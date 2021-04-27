@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 //     $user->save();
 
 //     $rol = new App\Role;
-//     $rol->name = 'ua';
-//     $rol->display_name = 'unidad de administracion';
+//     $rol->name = 'personal';
+//     $rol->display_name = 'personal de la unidad';
 //     $rol->save();
 
 //     return 'listo';
@@ -24,19 +24,13 @@ Route::get('/', function () {
     return view('layout');
 });
 
-Route::get('administracion', function () {
-    return view('users.admin.index');
-})->name('admin');
+Route::get('administracion', 'AdminController@index')->name('admin');
 
-Route::get('unidad-gastos', function () {
-    return view('users.ug.index');
-})->name('ug');
+Route::get('unidad-gastos', 'UgController@index')->name('ug');
 
-Route::get('unidad-admin', function () {
-    return view('users.ua.index');
-})->name('ua');
+Route::get('unidad-admin', 'UaController@index')->name('ua');
 
-
+Route::get('user', 'UserController@index');
 
 // rutas de login
 Route::get('login', 'LoginController@show')->name('login');

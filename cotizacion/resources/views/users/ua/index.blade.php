@@ -18,7 +18,7 @@
 </nav>
 <br>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Unidad Administrativa</a>
+  <a class="navbar-brand" href="#">Unidad Administrativa {{$user->unit->name}}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -68,5 +68,7 @@
 <br>
     <div class="text-center" class="fw-bold">
         <h1>BIENVENIDO AL SISTEMA DE LA UNIDAD DE ADMINISTRACION</h1>
+        <br>
+        <h1> {{$user->name}} </h1>
     </div>
 @endsection
