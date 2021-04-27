@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 Route::get('administracion', 'AdminController@index')->name('admin');
 
-Route::get('unidad-gastos', 'UgController@index')->name('ug');
+Route::get('unidad-gastos/{unit?}', 'UgController@index')->name('ug');
 
 Route::get('unidad-admin', 'UaController@index')->name('ua');
 

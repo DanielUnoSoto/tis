@@ -23,6 +23,8 @@ class RegisterController extends Controller
      */
     public function create()
     {
+        // $roles = \App\Role::;
+        // dd($roles); 
         return view('auth.register');
     }
 
@@ -34,7 +36,12 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all(); //nos muestra todos los datos recibidos
+        
+        // $this->require([
+        // ]);
+
+
+        return $request; //nos muestra todos los datos recibidos
         // $request->input('nombre'); //devuelve el nombre
         //return 'usuario registrado correctamente';
     }

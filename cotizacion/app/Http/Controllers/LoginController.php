@@ -65,7 +65,7 @@ class LoginController extends Controller
             $unit_type = $user->unit->type_id;
             // return $user_role;
             if ($unit_type == 1) {
-                return redirect()->route('ug');
+                return redirect()->route('ug', $user->unit->name );
             }elseif ($unit_type == 2) {
                 return redirect()->route('ua');
             }elseif ($unit_type == 3) {
