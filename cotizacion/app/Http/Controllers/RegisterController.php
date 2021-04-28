@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use \App\Unit;
+use \App\Role;
+use \App\User;
 class RegisterController extends Controller
 {
     /**
@@ -23,9 +25,9 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        // $roles = \App\Role::;
-        // dd($roles); 
-        return view('auth.register');
+        $units = Unit::get(['id','name']);
+        $roles = Role::get(['id','name']);
+        return view('auth.register',compact('units','roles'));
     }
 
     /**
@@ -37,13 +39,18 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         
-        // $this->require([
-        // ]);
+        //User::created($request->all());
+        User::create([
+            "name" => $request->input('name'),
+            "last_name" => $request->input('last_name'),
+            "phone" => $request->input('phone'),
+            "role_id" => $request->input('role_id'),
+            "unit_id" => $request->input('unit_id'),
+            "email" => $request->input('email'),
+            "password" => bcrypt($request->input('password'))
+        ]);
 
-
-        return $request; //nos muestra todos los datos recibidos
-        // $request->input('nombre'); //devuelve el nombre
-        //return 'usuario registrado correctamente';
+        return 'se registro con exito';
     }
 
     /**
