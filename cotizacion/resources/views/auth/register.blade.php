@@ -9,54 +9,73 @@
         </a>
         </div>
 	<button class="btn btn-outline-primary">
-        <a class="nav-link " aria-current="logout" href="administracion" >
-            Volver
-        </a>
+		@if(Auth::user()->unit->type_id === 1)
+	        <a class="nav-link " aria-current="logout" href="{{route('ug')}}">
+	            Volver
+	        </a>
+		@elseif(Auth::user()->unit->type_id === 2)
+			<a class="nav-link " aria-current="logout" href=" {{route('ua')}} " >
+	            Volver
+	        </a>
+	    @endif
     </button>
 </nav>
 
 <br>
 <div  class="fw-bold">
 	<h2>Registro de Usuarios</h2>
-<br>
-<br>
-<div class="container">
-  <div class="form-check-inline">
-	<form class="row g-3">
-	<div class="col-md-4">
-		<label for="inputEmail4" class="form-label">Email</label>
-		<input type="email" class="form-control" id="inputEmail4">
-	</div>
-	<div class="col-md-4">
-		<label for="inputPassword4" class="form-label">Contraseña</label>
-		<input type="password" class="form-control" id="inputPassword4">
-	</div>
-	<div class="col-8">
-		<label for="inputName" class="form-label">Apellido</label>
-		<input type="text" class="form-control" id="inputApellidos" placeholder="Apellidos">
-	</div>
-	<div class="col-8">
-		<label for="inputTelf" class="form-label">Telefono</label>
-		<input type="tel" class="form-control" id="inputTelf" placeholder="Telefono">
-	</div>
 	<br>
 	<br>
-	<br>
-		<div class="col-md-8">
-			<label for="inputRol" class="form-label">Seleccione Rol</label>
-				<select class="form-select" >
+	<div class="container">
+	  <div class="form-check-inline">
+		<form class="row g-3" method="POST" action="{{ route('register.store') }}">
+			@csrf
+			<div class="col-md-4">
+				<label for="inputName4" class="form-label">Nombre(s)*</label>
+				<input type="text" class="form-control" name="name" id="inputName4">
+			</div>
+			<div class="col-md-4">
+				<label for="inputEmail4" class="form-label">Email*</label>
+				<input type="email" class="form-control" name="email" id="inputEmail4">
+			</div>
+			<div class="col-md-4">
+				<label for="inputPassword4" class="form-label">Contraseña*</label>
+				<input type="password" class="form-control" name="password" id="inputPassword4">
+			</div>
+			<div class="col-8">
+				<label for="inputName" class="form-label">Apellido(s)*</label>
+				<input type="text" class="form-control" name="last_name" id="inputApellidos" placeholder="Apellidos">
+			</div>
+			<div class="col-8">
+				<label for="inputTelf" class="form-label">Telefono</label>
+				<input type="tel" class="form-control" name="phone" id="inputTelf" placeholder="Telefono">
+			</div>
+			<br>
+			<br>
+			<br>
+			<div class="col-md-8">
+				<label for="inputRol" class="form-label">Seleccione un Rol</label>
+				<select class="form-select" name="role_id">
 					<option selected></option>
-					<option value="1">Administrador</option>
-					<option value="2">Unidad Administrativa</option>
-					<option value="3">Unidad de Gastos</option>
+					<@foreach($roles as $role)
+						<option value="{{$role->id}}">{{$role->name}}</option>
+					@endforeach
 				</select>
+			</div>
 
-		</div>
- 
-		</div>
-		<div class="col-12">
-			<button type="submit" class="btn btn-primary">Registrar</button>
-		</div>
-	</form>
+			<div class="col-md-8">
+				<label for="inputRol" class="form-label">Seleccione una Unidad</label>
+				<select class="form-select" name="unit_id">
+					<option selected></option>
+					@foreach($units as $unit)
+						<option value="{{$unit->id}}">{{$unit->name}}</option>
+					@endforeach
+				</select>
+			</div>
+			<div class="col-12">
+				<button type="submit" class="btn btn-primary">Registrar</button>
+			</div>
+		</form>
+	  </div>
 	</div>
 </div>

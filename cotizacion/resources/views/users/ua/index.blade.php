@@ -1,6 +1,6 @@
 @extends('users.ua.layout')
 
-@section('content')
+@section('mycontent')
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="collapse navbar-collapse">
         <a href="/" class="navbar-brand">
@@ -18,7 +18,7 @@
 </nav>
 <br>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Unidad Administrativa</a>
+  <a class="navbar-brand" href="#">Unidad Administrativa <br> {{$user->unit->name}}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -28,6 +28,11 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
+      @if(Auth::user()->role->name == 'jefe')
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('register.create')}}">Registrar Usuario</a>
+        </li>
+      @endif
       <li class="nav-item">
         <a class="nav-link" href="#">Registrar Empresa</a>
       </li>
@@ -68,4 +73,8 @@
 <br>
     <div class="text-center" class="fw-bold">
         <h1>BIENVENIDO AL SISTEMA DE LA UNIDAD DE ADMINISTRACION</h1>
+        <br>
+        <h1> {{$user->name}} </h1>
+        <h1>{{$user->role->name}}</h1>
     </div>
+@endsection

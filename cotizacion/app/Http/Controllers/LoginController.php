@@ -61,9 +61,16 @@ class LoginController extends Controller
         $credentials = request()->only('email','password');
 
         if(Auth::attempt($credentials)){
-            //$user_role =  Auth::user()->role_id;
-
-            return redirect('admin');
+            $user = Auth::user(); 
+            $unit_type = $user->unit->type_id;
+            // return $user_role;
+            if ($unit_type == 1) {
+                return redirect()->route('ug');
+            }elseif ($unit_type == 2) {
+                return redirect()->route('ua');
+            }elseif ($unit_type == 3) {
+                return redirect()->route('admin');
+            }
         }
 
         return redirect('login');

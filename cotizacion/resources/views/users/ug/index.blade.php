@@ -19,7 +19,7 @@
 </nav>
 <br>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Unidad de Gastos</a>
+  <a class="navbar-brand" href="#">Unidad de gastos <br> {{ $user->unit->name }}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -29,6 +29,11 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
+      @if(Auth::user()->role->name == 'jefe')
+        <li class="nav-item active">
+          <a class="nav-link" href=" {{route('register.create')}} ">Registrar Usuario <span class="sr-only">(current)</span></a>
+        </li>
+      @endif
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Generar Solicitudes
@@ -53,6 +58,10 @@
 <br>
 <br>
     <div class="text-center" class="fw-bold">
-        <h1>BIENVENIDO AL SISTEMA DE LA UNIDAD DE GASTOS</h1>
+        <h1>BIENVENIDO SISTEMA DE UNIDAD DE GASTOS</h1>
+        <br>
+        <h1>{{ $user->name }}</h1>
+        <br>
+        <h1>{{ $user->role->name }}</h1>
     </div>
 

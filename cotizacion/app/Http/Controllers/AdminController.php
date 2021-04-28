@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Unit;
-use \App\Role;
-use \App\User;
-class RegisterController extends Controller
+use Illuminate\Support\Facades\Auth;
+
+
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,8 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        
+        $user = Auth::user();
+        return view('users.admin.index', compact('user'));
     }
 
     /**
@@ -25,9 +26,7 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        $units = Unit::get(['id','name']);
-        $roles = Role::get(['id','name']);
-        return view('auth.register',compact('units','roles'));
+        //
     }
 
     /**
@@ -38,19 +37,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        
-        //User::created($request->all());
-        User::create([
-            "name" => $request->input('name'),
-            "last_name" => $request->input('last_name'),
-            "phone" => $request->input('phone'),
-            "role_id" => $request->input('role_id'),
-            "unit_id" => $request->input('unit_id'),
-            "email" => $request->input('email'),
-            "password" => bcrypt($request->input('password'))
-        ]);
-
-        return 'se registro con exito';
+        //
     }
 
     /**
