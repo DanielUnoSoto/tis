@@ -13,7 +13,7 @@ class UgController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($unit = desconocido)
+    public function index()
     {
         $user = Auth::user();
         return view('users.ug.index', compact('user'));

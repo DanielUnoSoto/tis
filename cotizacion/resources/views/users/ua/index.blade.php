@@ -28,6 +28,11 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
+      @if(Auth::user()->role->name == 'jefe')
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('register.create')}}">Registrar Usuario</a>
+        </li>
+      @endif
       <li class="nav-item">
         <a class="nav-link" href="#">Registrar Empresa</a>
       </li>
@@ -70,5 +75,6 @@
         <h1>BIENVENIDO AL SISTEMA DE LA UNIDAD DE ADMINISTRACION</h1>
         <br>
         <h1> {{$user->name}} </h1>
+        <h1>{{$user->role->name}}</h1>
     </div>
 @endsection

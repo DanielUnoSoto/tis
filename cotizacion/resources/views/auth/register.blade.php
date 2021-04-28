@@ -9,9 +9,15 @@
         </a>
         </div>
 	<button class="btn btn-outline-primary">
-        <a class="nav-link " aria-current="logout" href=" {{route('admin')}} " >
-            Volver
-        </a>
+		@if(Auth::user()->unit->type_id === 1)
+	        <a class="nav-link " aria-current="logout" href="{{route('ug')}}">
+	            Volver
+	        </a>
+		@elseif(Auth::user()->unit->type_id === 2)
+			<a class="nav-link " aria-current="logout" href=" {{route('ua')}} " >
+	            Volver
+	        </a>
+	    @endif
     </button>
 </nav>
 

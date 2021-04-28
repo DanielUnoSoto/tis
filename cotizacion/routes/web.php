@@ -2,23 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Route::get('user', function(){
-//     $user = new App\User;
-//     $user->name = 'juan';
-//     $user->last_name = 'perez';
-//     $user->role_id = 3;
-//     $user->phone = 123456;
-//     $user->email = 'juan@gmail.com';
-//     $user->password = bcrypt('123456');
-//     $user->save();
-
-//     $rol = new App\Role;
-//     $rol->name = 'personal';
-//     $rol->display_name = 'personal de la unidad';
-//     $rol->save();
-
-//     return 'listo';
-// });
 
 Route::get('/', function () {
     return view('layout');
@@ -26,7 +9,7 @@ Route::get('/', function () {
 
 Route::get('administracion', 'AdminController@index')->name('admin');
 
-Route::get('unidad-gastos/{unit?}', 'UgController@index')->name('ug');
+Route::get('unidad-gastos', 'UgController@index')->name('ug');
 
 Route::get('unidad-admin', 'UaController@index')->name('ua');
 
