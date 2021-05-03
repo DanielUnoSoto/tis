@@ -1,9 +1,10 @@
 @extends('auth.registerlay')
 @section('content')
+<link rel="stylesheet" href="../css/register.css">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="collapse navbar-collapse">
         <a href="/" class="navbar-brand">
-            <img src="imagenes/umss.png" atl="" class="d_inline-block aling-top" height="70"
+            <img src="../imagenes/umss.png" atl="" class="d_inline-block aling-top" height="70"
             width="50">
         Universidad Mayor de San Simon
         </a>
@@ -22,38 +23,40 @@
 </nav>
 
 <br>
-<div  class="fw-bold">
-	<h2>Registro de Usuarios</h2>
+
+<div class="d-flex justify-content-center text-center form-register">
+	<form class="bg-light" method="POST" action="{{ route('register.store') }}">
+<div  class="title-inicio">
+	<h2><b>Registro de Usuarios</b></h2>
 	<br>
 	<br>
-	<div class="container">
-	  <div class="form-check-inline">
-		<form class="row g-3" method="POST" action="{{ route('register.store') }}">
+	
+		
 			@csrf
-			<div class="col-md-4">
+			<div class="form-group">
 				<label for="inputName4" class="form-label">Nombre(s)*</label>
-				<input type="text" class="form-control" name="name" id="inputName4">
+				<input type="text" class="form-control" name="name" id="inputName4" placeholder="Ingrese sus nombres" size="40" required autofocus>
 			</div>
-			<div class="col-md-4">
+			<div class="form-group">
 				<label for="inputEmail4" class="form-label">Email*</label>
-				<input type="email" class="form-control" name="email" id="inputEmail4">
+				<input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Ingrese su dirección de correo" size="40" required>
 			</div>
-			<div class="col-md-4">
+			<div class="form-group">
 				<label for="inputPassword4" class="form-label">Contraseña*</label>
-				<input type="password" class="form-control" name="password" id="inputPassword4">
+				<input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Ingrese su contraseña" size="40" required>
 			</div>
-			<div class="col-8">
+			<div class="form-group">
 				<label for="inputName" class="form-label">Apellido(s)*</label>
-				<input type="text" class="form-control" name="last_name" id="inputApellidos" placeholder="Apellidos">
+				<input type="text" class="form-control" name="last_name" id="inputApellidos" placeholder="Ingrese sus apellidos" size="40" required>
 			</div>
-			<div class="col-8">
+			<div class="form-group">
 				<label for="inputTelf" class="form-label">Telefono</label>
-				<input type="tel" class="form-control" name="phone" id="inputTelf" placeholder="Telefono">
+				<input type="tel" class="form-control" name="phone" id="inputTelf" placeholder="Ingrese su número de teléfono" size="40" required>
 			</div>
 			<br>
 			<br>
 			<br>
-			<div class="col-md-8">
+			<div class="form-group">
 				<label for="inputRol" class="form-label">Seleccione un Rol</label>
 				<select class="form-select" name="role_id">
 					<option selected></option>
@@ -63,7 +66,7 @@
 				</select>
 			</div>
 
-			<div class="col-md-8">
+			<div class="form-group">
 				<label for="inputRol" class="form-label">Seleccione una Unidad</label>
 				<select class="form-select" name="unit_id">
 					<option selected></option>
@@ -73,9 +76,11 @@
 				</select>
 			</div>
 			<div class="col-12">
-				<button type="submit" class="btn btn-primary">Registrar</button>
+				<button type="submit" class="btn btn-primary" style="background-color: rgb(46, 46, 46)">Registrar</button>
 			</div>
-		</form>
+		
 	  </div>
-	</div>
+	
+</form>
+
 </div>
