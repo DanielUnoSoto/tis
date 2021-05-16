@@ -7,6 +7,12 @@ Route::get('/', function () {
     return view('layout');
 });
 
+// rutas de login
+Route::get('login', 'LoginController@show')->name('login');
+Route::post('login', 'LoginController@login');
+Route::post('logout', 'LoginController@logout')->name('logout');
+
+//
 Route::get('administracion', 'AdminController@index')->name('admin');
 
 Route::get('unidad-gastos', 'UgController@index')->name('ug');
@@ -15,10 +21,7 @@ Route::get('unidad-admin', 'UaController@index')->name('ua');
 
 Route::get('user', 'UserController@index');
 
-// rutas de login
-Route::get('login', 'LoginController@show')->name('login');
-Route::post('login', 'LoginController@login');
-Route::post('logout', 'LoginController@logout')->name('logout');
+Route::get('facultades', 'SchoolController@index')->name('school.index');
 
 //rutas de registrar
 Route::get('registrar/crear', 'RegisterController@create')->name('register.create');
