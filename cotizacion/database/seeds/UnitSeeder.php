@@ -22,5 +22,11 @@ class UnitSeeder extends Seeder
         $rol->type_id = 2;//uniad administrativa
         $rol->school_id = 1;//fcyt
         $rol->save();
+
+        $rol = new App\Unit;
+        $rol->name = 'administracion';//3
+        $rol->type_id = 3;//soporte tecnico
+        $rol->school_id = 1;//fcyt
+        $rol->save();
     }
 }
