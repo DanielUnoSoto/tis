@@ -8,10 +8,11 @@ Route::get('/', function () {
 });
 
 Route::get('administracion', 'AdminController@index')->name('admin');
-
-Route::get('unidad-gastos/{name}', 'UgController@index')->name('ug');
-
+Route::get('unidad-gastos', 'UgController@index')->name('ug');
 Route::get('unidad-admin', 'UaController@index')->name('ua');
+
+Route::get('unidad/{name}', 'UnitController@index')->name('unit.index');
+
 
 Route::get('user', 'UserController@index');
 

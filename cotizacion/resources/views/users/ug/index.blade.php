@@ -11,7 +11,7 @@
         </a>
         </div>
     <button class="btn btn-outline-primary">
-        <a class="nav-link " aria-current="logout" href="{{route('logout')}} " >
+        <a class="nav-link " aria-current="logout" href="{{route('logout')}}">
             Logout
         </a>
     </button>

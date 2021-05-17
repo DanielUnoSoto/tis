@@ -3,17 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\School;
 
-class LoginController extends Controller
+class SchoolController extends Controller
 {
-
-    use AuthenticatesUsers;
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
     /**
      * Display a listing of the resource.
      *
@@ -21,17 +14,18 @@ class LoginController extends Controller
      */
     public function index()
     {
-        //
+        $facultades = School::all();
+        return view('facultad.index', compact('facultades'));
     }
 
     /**
      * Show the form for creating a new resource.
-     *
+     *  
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('facultad.register');
     }
 
     /**
@@ -42,7 +36,12 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        School::create([
+            "name" => $request->input('name')
+        ]);
+
+        return redirect()->route('school.index');
     }
 
     /**
@@ -51,37 +50,11 @@ class LoginController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        return view('layouts.login');
+        //
     }
 
-    public function login()
-    {
-        $credentials = request()->only('email','password');
-
-        if(Auth::attempt($credentials)){
-            $user = Auth::user(); 
-            $unit_name = $user->unit->name;
-            return redirect()->route('unit.index', ['name' => $unit_name]);
-
-            // $unit_type = $user->unit->type_id;
-            // if ($unit_type == 1) {
-            //     return redirect()->route('ug', ['name' => $user->name]);
-            // }elseif ($unit_type == 2) {
-            //     return redirect()->route('ua');
-            // }elseif ($unit_type == 3) {
-            //     return redirect()->route('admin');
-            // }
-        }
-
-        return redirect('login');
-    }
-
-    // public function logout()
-    // {
-    //     return 'adios';
-    // }
     /**
      * Show the form for editing the specified resource.
      *
