@@ -36,10 +36,10 @@
 	        <a class="nav-link" href="{{route('register.create')}}">Regitrar Usuario <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href=" {{route('school.index')}} ">Facultades</a>
+	        <a class="nav-link" href="{{route('school.index')}}">Facultades</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Cuadro Comparativo</a>
+	        <a class="nav-link" href="{{route('unit.index')}}">Unidades</a>
 	      </li>
 	      <li class="nav-item dropdown">
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

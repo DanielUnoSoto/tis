@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\School;
 
 class SchoolController extends Controller
 {
@@ -13,7 +14,8 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        return view('facultad.index');
+        $facultades = School::all();
+        return view('facultad.index', compact('facultades'));
     }
 
     /**
@@ -23,7 +25,7 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        //
+        return view('facultad.register');
     }
 
     /**
@@ -34,7 +36,12 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        School::create([
+            "name" => $request->input('name')
+        ]);
+
+        return redirect()->route('school.index');
     }
 
     /**

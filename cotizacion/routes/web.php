@@ -22,6 +22,8 @@ Route::get('unidad-admin', 'UaController@index')->name('ua');
 Route::get('user', 'UserController@index');
 
 Route::get('facultades', 'SchoolController@index')->name('school.index');
+Route::get('facultades/crear', 'SchoolController@create')->name('school.create');
+Route::post('facultades', 'SchoolController@store')->name('school.store');
 
 //rutas de registrar
 Route::get('registrar/crear', 'RegisterController@create')->name('register.create');
