@@ -12,6 +12,16 @@ class UserSeeder extends Seeder
     public function run()
     {
 
+	    $user = new App\User;
+	    $user->name = 'admin';//1
+	    $user->last_name = 'admin';
+	    $user->role_id = 1; //admin
+	    $user->unit_id = 3; //adminstracion
+	    $user->phone = 123456;
+	    $user->email = 'admin@gmail.com';
+	    $user->password = bcrypt('123456');
+	    $user->save();
+
 	    $user2 = new App\User;
 	    $user2->name = 'pedro';//1
 	    $user2->last_name = 'perez';

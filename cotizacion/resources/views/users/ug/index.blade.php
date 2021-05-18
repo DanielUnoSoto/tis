@@ -3,23 +3,22 @@
 @section('content')
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="collapse navbar-collapse">
-        <a href="/" class="navbar-brand">
-            <img src="imagenes/umss.png" atl="" class="d_inline-block aling-top" height="70"
-            width="50">
-        Universidad Mayor de San Simon
-        </a>
-        </div>
-    <button class="btn btn-outline-primary">
-        <a class="nav-link " aria-current="logout" href="login" >
-            Logout
-        </a>
-    </button>
-          
+  <div class="collapse navbar-collapse">
+    <a href="/" class="navbar-brand">
+      <img src="imagenes/umss.png" atl="" class="d_inline-block aling-top" height="70"
+      width="50">
+    Universidad Mayor de San Simon
+    </a>
+      </div>
+  <button class="btn btn-outline-primary">
+    <a class="nav-link " aria-current="logout" href="{{route('logout')}}">
+      Logout
+    </a>
+  </button>
 </nav>
 <br>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Unidad de gastos <br> {{ $user->unit->name }}</a>
+  <a class="navbar-brand" href="{{route('unit.index', ['name' => Auth::user()->unit->name])}}">Unidad de gastos <br> {{ $user->unit->name }}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -31,7 +30,7 @@
       </li>
       @if(Auth::user()->role->name == 'jefe')
         <li class="nav-item active">
-          <a class="nav-link" href=" {{route('register.create')}} ">Registrar Usuario <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href=" {{route('registrar.create')}} ">Registrar Usuario <span class="sr-only">(current)</span></a>
         </li>
       @endif
       <li class="nav-item dropdown">
@@ -57,11 +56,11 @@
 <br>
 <br>
 <br>
-    <div class="text-center" class="fw-bold">
-        <h1>BIENVENIDO SISTEMA DE UNIDAD DE GASTOS</h1>
-        <br>
-        <h1>{{ $user->name }}</h1>
-        <br>
-        <h1>{{ $user->role->name }}</h1>
-    </div>
+<div class="text-center" class="fw-bold">
+  <h1>BIENVENIDO SISTEMA DE UNIDAD DE GASTOS</h1>
+  <br>
+  <h1>{{ $user->name }}</h1>
+  <br>
+  <h1>{{ $user->role->name }}</h1>
+</div>
 

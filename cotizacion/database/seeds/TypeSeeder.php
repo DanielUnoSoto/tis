@@ -18,5 +18,9 @@ class TypeSeeder extends Seeder
         $rol = new App\Type;
         $rol->description = 'unidad administrativa';//2
         $rol->save();
+
+        $rol = new App\Type;
+        $rol->description = 'soporte tecnico';//3
+        $rol->save();
     }
 }

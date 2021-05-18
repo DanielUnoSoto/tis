@@ -11,4 +11,8 @@ class School extends Model
     public function untis(){
     	return $this->hasMany(Unit::class);
     }
+
+    protected $fillable = [
+        'name'
+    ];
 }

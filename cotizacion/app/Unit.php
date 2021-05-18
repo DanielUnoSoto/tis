@@ -20,4 +20,8 @@ class Unit extends Model
     public function type(){
     	return $this->BelongsTo(Type::class);
     }
+
+    protected $fillable = [
+        'name','type_id', 'school_id'
+    ];
 }

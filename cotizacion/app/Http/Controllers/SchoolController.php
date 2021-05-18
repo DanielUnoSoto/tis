@@ -3,31 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\School;
 
-
-class UgController extends Controller
+class SchoolController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($name)
+    public function index()
     {
-        $user = Auth::user();
-        //$name = $user->name;
-        return view('users.ug.index', compact('user'));
+        $facultades = School::all();
+        return view('facultad.index', compact('facultades'));
     }
 
     /**
      * Show the form for creating a new resource.
-     *
+     *  
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('facultad.register');
     }
 
     /**
@@ -38,7 +36,12 @@ class UgController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        School::create([
+            "name" => $request->input('name')
+        ]);
+
+        return redirect()->route('facultades.index');
     }
 
     /**

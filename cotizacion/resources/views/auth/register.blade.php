@@ -10,7 +10,7 @@
         </a>
         </div>
 	<button class="btn btn-outline-primary">
-		@if(Auth::user()->unit->type_id === 1)
+		{{-- @if(Auth::user()->unit->type_id === 1)
 	        <a class="nav-link " aria-current="logout" href="{{route('ug')}}">
 	            Volver
 	        </a>
@@ -18,14 +18,17 @@
 			<a class="nav-link " aria-current="logout" href=" {{route('ua')}} " >
 	            Volver
 	        </a>
-	    @endif
+	    @endif --}}
+	    <a class="nav-link " aria-current="logout" href="{{route('unit.index', ['name' => Auth::user()->unit->name])}}">
+            Volver
+        </a>
     </button>
 </nav>
 
 <br>
 
 <div class="d-flex justify-content-center text-center form-register">
-	<form class="bg-light" method="POST" action="{{ route('register.store') }}">
+	<form class="bg-light" method="POST" action="{{ route('registrar.store') }}">
 <div  class="title-inicio">
 	<h2><b>Registro de Usuarios</b></h2>
 	<br>

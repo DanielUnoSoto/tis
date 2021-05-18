@@ -34,7 +34,7 @@
 			{{-- <a href="{{ route('logout') }}">logout</a> --}}
 		@else
 			<a href="{{ route('login') }}">login</a>
-			<a href="{{route('register.create')}}">registrar</a>
+			<a href="{{route('registrar.create')}}">registrar</a>
 		@endauth
 	</nav>
 
