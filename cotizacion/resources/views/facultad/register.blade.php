@@ -2,7 +2,7 @@
 
 @section('mycontent')
 <div>
-  <form method="POST" action="{{ route('school.store') }}">
+  <form method="POST" action="{{ route('facultades.store') }}">
     @csrf
     <div>
         <label for="inputFacName" class="form-label">Nombre*</label>

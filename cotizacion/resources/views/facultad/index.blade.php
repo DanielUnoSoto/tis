@@ -8,7 +8,7 @@
   <h4>facultades</h4>
   <div>
   	<button>
-  		<a href=" {{route('school.create')}} "> registrar</a>
+  		<a href=" {{route('facultades.create')}} "> registrar</a>
   	</button>
   </div>
   <ul>

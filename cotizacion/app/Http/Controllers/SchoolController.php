@@ -41,7 +41,7 @@ class SchoolController extends Controller
             "name" => $request->input('name')
         ]);
 
-        return redirect()->route('school.index');
+        return redirect()->route('facultades.index');
     }
 
     /**

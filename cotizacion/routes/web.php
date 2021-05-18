@@ -12,23 +12,23 @@ Route::get('login', 'LoginController@show')->name('login');
 Route::post('login', 'LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-//
-Route::get('administracion', 'AdminController@index')->name('admin');
-Route::get('unidad-gastos', 'UgController@index')->name('ug');
-Route::get('unidad-admin', 'UaController@index')->name('ua');
-
+//ruta al momento de hacer login
 Route::get('unidad/{name}', 'UnitController@index')->name('unit.index');
+
+// rutas para crear una unidad
 Route::get('unidades', 'UnitController@units')->name('units.all');
 Route::get('unidades/crear', 'UnitController@create')->name('unit.create');
 Route::post('unidades', 'UnitController@store')->name('unit.store');
 
-Route::get('facultades', 'SchoolController@index')->name('school.index');
-Route::get('facultades/crear', 'SchoolController@create')->name('school.create');
-Route::post('facultades', 'SchoolController@store')->name('school.store');
 
-//rutas de registrar
-Route::get('registrar/crear', 'RegisterController@create')->name('register.create');
-Route::post('registrar', 'RegisterController@store')->name('register.store');
+
+Route::resource('facultades', 'SchoolController');
+
+Route::resource('registrar', 'RegisterController');
+
+// Route::get('administracion', 'AdminController@index')->name('admin');
+// Route::get('unidad-gastos', 'UgController@index')->name('ug');
+// Route::get('unidad-admin', 'UaController@index')->name('ua');
 
 
 //Route::get('user', 'UserController@index');
@@ -40,4 +40,4 @@ Route::post('registrar', 'RegisterController@store')->name('register.store');
 
 //Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
