@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Unit;
+use App\School;
+use App\Type;
 
 class UnitController extends Controller
 {
@@ -24,7 +27,13 @@ class UnitController extends Controller
         }elseif ($unit_type == 3) {
             return view('users.admin.index', compact('user'));
         }
-}
+    }
+
+    //Muestra todos las unidades
+    public function units(){
+        $units = Unit::all();
+        return view('unidades.index', compact('units'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -33,7 +42,9 @@ class UnitController extends Controller
      */
     public function create()
     {
-        //
+        $schools = School::get(['id','name']);
+        $types = Type::get(['id','description']);
+        return view('unidades.register', compact('schools', 'types'));
     }
 
     /**
@@ -44,7 +55,13 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Unit::create([
+            "name" => $request->input('name'),
+            "type_id" => $request->input('type_id'),
+            "school_id" => $request->input('school_id')
+        ]);
+
+        return redirect()->route('units.all');
     }
 
     /**

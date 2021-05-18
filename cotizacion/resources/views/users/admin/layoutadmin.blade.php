@@ -17,7 +17,7 @@
 	        </a>
         </div>
 	    <button class="btn btn-outline-primary">
-	        <a class="nav-link " aria-current="logout" href="login" >
+	        <a class="nav-link " aria-current="logout" href="{{route('logout')}}" >
 	            Logout
 	        </a>
 	    </button>
@@ -25,7 +25,7 @@
 	</nav>
 	<br>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Adminitrador</a>
+		<a class="navbar-brand" href=" {{route('unit.index', ['name' => Auth::user()->unit->name])}} ">Adminitrador</a>
 	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  	</button>
@@ -39,7 +39,7 @@
 	        <a class="nav-link" href="{{route('school.index')}}">Facultades</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="{{route('unit.index')}}">Unidades</a>
+	        <a class="nav-link" href="{{route('units.all')}}">Unidades</a>
 	      </li>
 	      <li class="nav-item dropdown">
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

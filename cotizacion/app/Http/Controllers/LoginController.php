@@ -63,6 +63,7 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){
             $user = Auth::user(); 
             $unit_name = $user->unit->name;
+            //dd($unit_name);
             return redirect()->route('unit.index', ['name' => $unit_name]);
 
             // $unit_type = $user->unit->type_id;
