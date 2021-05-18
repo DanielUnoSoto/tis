@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->string('code')->unique();
             $table->string('name');
+            $table->string('description');
             $table->integer('stock_id');
             $table->timestamps();
         });

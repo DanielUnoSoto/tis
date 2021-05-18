@@ -20,7 +20,7 @@ class TypeSeeder extends Seeder
         $rol->save();
 
         $rol = new App\Type;
-        $rol->description = 'soporte tecnico';//3
+        $rol->description = 'admin del sitio';//3
         $rol->save();
     }
 }
