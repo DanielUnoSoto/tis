@@ -46,8 +46,8 @@
 								<span class="input-group-text"><i class="fas fa-envelope"></i></span>
 						</div>
 	
-						<input type="email" name="email" class="form-control" placeholder="Ingrese su correo">
-	
+						<input type="email" name="email" class="form-control" placeholder="Ingrese su correo" id="email" required autofocus>
+						
 					</div>
 					
 				</div>
@@ -60,14 +60,49 @@
 						<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-lock"></i></i></span>
 						</div>
-					<input type="password" name="password" class="form-control" placeholder="Ingrese su contraseña">
+					<input type="password" name="password" class="form-control" placeholder="Ingrese su contraseña" id="password" required>
 						</div>
+						<br> 
+						<input type="checkbox" onclick="myFunction()"> Mostrar contraseña
+							<script>
+								function myFunction() {
+								var x = document.getElementById("password");
+								if (x.type === "password") {
+									x.type = "text";
+								} else {
+									x.type = "password";
+								}
+								}
+							</script>
 					</div>
 				
-				<br>
+				<div class="form-group">	
+						<p id="text">¡ADVERTENCIA! <br>Mayúsculas está activado.</p>
+				</div>
 	
 				<button type="submit" class="btn btn-primary">Ingresar</button>
+				<script>
+					var input = document.getElementById("email");  
+					var input2 = document.getElementById("password");
+					var text = document.getElementById("text");
+					input.addEventListener("keyup", function(event) {
+					
+					if (event.getModifierState("CapsLock")) {
+						text.style.display = "block";
+					  } else {
+						text.style.display = "none"
+					  }
+					});
+					input2.addEventListener("keyup", function(event) {
+					
+					if (event.getModifierState("CapsLock")) {
+						text.style.display = "block";
+					  } else {
+						text.style.display = "none"
+					  }
+					});
+					
+					</script>
 	</form>
 	
 	</div>
-

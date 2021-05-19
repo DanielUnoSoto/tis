@@ -56,9 +56,6 @@
 				<label for="inputTelf" class="form-label">Telefono</label>
 				<input type="tel" class="form-control" name="phone" id="inputTelf" placeholder="Ingrese su número de teléfono" size="40" required>
 			</div>
-			<br>
-			<br>
-			<br>
 			<div class="form-group">
 				<label for="inputRol" class="form-label">Seleccione un Rol</label>
 				<select class="form-select" name="role_id">

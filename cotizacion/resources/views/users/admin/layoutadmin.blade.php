@@ -11,7 +11,7 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     	<div class="collapse navbar-collapse">
 	        <a href="/" class="navbar-brand">
-	            <img src="imagenes/umss.png" atl="" class="d_inline-block aling-top" height="70"
+	            <img src="../imagenes/umss.png" atl="" class="d_inline-block aling-top" height="70"
 	            width="50">
 	        Universidad Mayor de San Simon
 	        </a>
@@ -25,7 +25,7 @@
 	</nav>
 	<br>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href=" {{route('unit.index', ['name' => Auth::user()->unit->name])}} ">Adminitrador</a>
+		<a class="navbar-brand" href=" {{route('unit.index', ['name' => Auth::user()->unit->name])}} ">Administrador</a>
 	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  	</button>
@@ -33,7 +33,7 @@
   		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="{{route('registrar.create')}}">Regitrar Usuario <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href="{{route('registrar.create')}}">Registrar Usuario <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="{{route('facultades.index')}}">Facultades</a>
