@@ -7,16 +7,13 @@ Route::get('/', function () {
     return view('layout');
 });
 
-// rutas de login
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
+// // rutas de login
+Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 //ruta al momento de hacer login
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-// rutas para crear una unidad
 Route::resource('unidades', 'UnitController');
 
 Route::resource('registrar', 'RegisterController');
@@ -25,11 +22,10 @@ Route::resource('facultades', 'SchoolController');
 
 Route::resource('empresas', 'CompanyController');
 
-//Route::get('user', 'UserController@index');
 //rutas de cotizacion ==  quotation
-//Route::get('cotizaciones', 'QuotationController@index')->name('quotation');
+//Route::resource('cotizaciones', 'QuotationController');
 
 //rutas de solicitudes == requisition
-//Route::get('solicitudes', 'RequisitionController@index')->name('requisition');
+//Route::resource('solicitudes', 'RequisitionController');
 
-//Auth::routes();
+//Route::get('user', 'UserController@index');
