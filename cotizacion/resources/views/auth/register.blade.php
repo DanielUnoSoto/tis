@@ -19,7 +19,7 @@
 	            Volver
 	        </a>
 	    @endif --}}
-	    <a class="nav-link " aria-current="logout" href="{{route('unit.index', ['name' => Auth::user()->unit->name])}}">
+	    <a class="nav-link " aria-current="logout" href="{{route('home')}}">
             Volver
         </a>
     </button>

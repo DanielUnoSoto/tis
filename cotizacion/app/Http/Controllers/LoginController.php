@@ -64,16 +64,7 @@ class LoginController extends Controller
             $user = Auth::user(); 
             $unit_name = $user->unit->name;
             //dd($unit_name);
-            return redirect()->route('unit.index', ['name' => $unit_name]);
-
-            // $unit_type = $user->unit->type_id;
-            // if ($unit_type == 1) {
-            //     return redirect()->route('ug', ['name' => $user->name]);
-            // }elseif ($unit_type == 2) {
-            //     return redirect()->route('ua');
-            // }elseif ($unit_type == 3) {
-            //     return redirect()->route('admin');
-            // }
+            return redirect()->route('unidades.index', ['name' => $unit_name]);
         }
 
         return redirect('login');

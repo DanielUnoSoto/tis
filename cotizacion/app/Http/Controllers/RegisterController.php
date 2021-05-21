@@ -50,7 +50,7 @@ class RegisterController extends Controller
             "password" => bcrypt($request->input('password'))
         ]);
 
-        return 'se registro con exito';
+        return redirect()->route('home');
     }
 
     /**

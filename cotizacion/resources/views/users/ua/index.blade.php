@@ -3,7 +3,7 @@
 @section('mycontent')
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="collapse navbar-collapse">
-        <a href="/" class="navbar-brand">
+        <a href="#" class="navbar-brand">
             <img src="../imagenes/umss.png" atl="" class="d_inline-block aling-top" height="70"
             width="50">
         Universidad Mayor de San Simon
@@ -18,7 +18,7 @@
 </nav>
 <br>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{{route('unit.index', ['name' => Auth::user()->unit->name])}}">Unidad Administrativa <br> {{$user->unit->name}}</a>
+  <a class="navbar-brand" href="{{route('home')}}">Unidad Administrativa <br> {{$user->unit->name}}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
