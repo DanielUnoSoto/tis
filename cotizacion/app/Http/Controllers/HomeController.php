@@ -23,7 +23,8 @@ class HomeController extends Controller
             return view('users.ua.index', compact('user'));
         }elseif ($unit_type == 3) {
             return view('users.admin.index', compact('user'));
-        }    }
+        }    
+    }
 
     /**
      * Show the form for creating a new resource.

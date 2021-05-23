@@ -22,6 +22,10 @@ Route::resource('facultades', 'SchoolController');
 
 Route::resource('empresas', 'CompanyController');
 
+Route::resource('inventarios', 'StockController');
+
+Route::resource('articulos', 'ArticleController');
+
 //rutas de cotizacion ==  quotation
 //Route::resource('cotizaciones', 'QuotationController');
 
