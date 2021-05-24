@@ -6,14 +6,34 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller
-{
 
-    use AuthenticatesUsers;
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+class CompanyLoginController extends Controller
+{
+    
+   use AuthenticatesUsers;
+
+    protected $companyloginview = "empresas.login";
+    //protected $guard = 'companies';
+
+     protected function guard()
+    {
+        return Auth::guard('companies');
+    }
+
+    public function showLoginForm()
+    {
+        return view('empresas.login');
+    }
+
+    public function authenticated(){
+        return redirect()->route('empresa.home');
+    }
+
+    public function home(){
+        return view('empresas.home');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -51,29 +71,11 @@ class LoginController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        return view('layouts.login');
+        //
     }
 
-    public function login()
-    {
-        $credentials = request()->only('email','password');
-
-        if(Auth::attempt($credentials)){
-            $user = Auth::user(); 
-            $unit_name = $user->unit->name;
-            //dd($unit_name);
-            return redirect()->route('unidades.index', ['name' => $unit_name]);
-        }
-
-        return redirect('login');
-    }
-
-    // public function logout()
-    // {
-    //     return 'adios';
-    // }
     /**
      * Show the form for editing the specified resource.
      *
