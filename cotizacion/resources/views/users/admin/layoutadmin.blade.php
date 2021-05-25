@@ -10,7 +10,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     	<div class="collapse navbar-collapse">
-	        <a href="/" class="navbar-brand">
+	        <a href="#" class="navbar-brand">
 	            <img src="../imagenes/umss.png" atl="" class="d_inline-block aling-top" height="70"
 	            width="50">
 	        Universidad Mayor de San Simon
@@ -25,7 +25,7 @@
 	</nav>
 	<br>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href=" {{route('unit.index', ['name' => Auth::user()->unit->name])}} ">Administrador</a>
+		<a class="navbar-brand" href=" {{route('home')}} ">Administrador</a>
 	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  	</button>
@@ -39,9 +39,12 @@
 	        <a class="nav-link" href="{{route('facultades.index')}}">Facultades</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="{{route('units.all')}}">Unidades</a>
+	        <a class="nav-link" href="{{route('unidades.index')}}">Unidades</a>
 	      </li>
-	      <li class="nav-item dropdown">
+	      <li class="nav-item">
+	        <a class="nav-link" href="{{route('empresas.index')}}">Empresas</a>
+	      </li>
+	      {{-- <li class="nav-item dropdown">
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	          Administrador
 	        </a>
@@ -52,7 +55,7 @@
 	          <a class="dropdown-item" href="#">Otro</a>
 	        </div>
 	      </li>
-	      <li class="nav-item dropdown">
+ --}}	      <li class="nav-item dropdown">
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	          Formulario de Cotizaciones
 	        </a>

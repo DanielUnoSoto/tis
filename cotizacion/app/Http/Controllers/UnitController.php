@@ -15,22 +15,8 @@ class UnitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($name)
+    public function index()
     {
-        $user = Auth::user();
-        $unit_type = $user->unit->type_id;
-        $unit_name = $user->unit->name;
-        if ($unit_type == 1) {
-            return view('users.ug.index', compact('user'));
-        }elseif ($unit_type == 2) {
-            return view('users.ua.index', compact('user'));
-        }elseif ($unit_type == 3) {
-            return view('users.admin.index', compact('user'));
-        }
-    }
-
-    //Muestra todos las unidades
-    public function units(){
         $units = Unit::all();
         return view('unidades.index', compact('units'));
     }
@@ -61,7 +47,7 @@ class UnitController extends Controller
             "school_id" => $request->input('school_id')
         ]);
 
-        return redirect()->route('units.all');
+        return redirect()->route('unidades.index');
     }
 
     /**

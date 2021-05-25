@@ -41,7 +41,7 @@
   <div class="form-group d-flex justify-content-center text-center">
 	  <br> <br>
   <button class="btn btn-primary" style="background-color: rgb(46, 46, 46)">
-  		<a href=" {{route('unit.create')}} " style="color:white"> Registrar</a>
+  		<a href=" {{route('unidades.create')}} " style="color:white"> Registrar</a>
   	</button>
   </div>
 

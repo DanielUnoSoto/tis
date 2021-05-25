@@ -7,37 +7,36 @@ Route::get('/', function () {
     return view('layout');
 });
 
-// rutas de login
-Route::get('login', 'LoginController@show')->name('login');
-Route::post('login', 'LoginController@login');
+// rutas de login usuarios
+Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+//ruta al momento de hacer login de los usuarios
+Route::get('/home', 'HomeController@index')->name('home');
 
-//ruta al momento de hacer login
-Route::get('unidad/{name}', 'UnitController@index')->name('unit.index');
-
-// rutas para crear una unidad
-Route::get('unidades', 'UnitController@units')->name('units.all');
-Route::get('unidades/crear', 'UnitController@create')->name('unit.create');
-Route::post('unidades', 'UnitController@store')->name('unit.store');
-
+// rutas de login emrpesas
+Route::get('empresa/login', 'CompanyLoginController@showLoginForm')->name('empresa.login');
+Route::post('empresa/login', 'CompanyLoginController@login')->name('empresa.form');
+Route::get('empresa/logout', 'CompanyLoginController@logout')->name('empresa.logout');
+//ruta al momento de hacer login de las empresas
+Route::get('empresa/home', 'CompanyLoginController@home')->name('empresa.home');
 
 
-Route::resource('facultades', 'SchoolController');
+Route::resource('unidades', 'UnitController');
 
 Route::resource('registrar', 'RegisterController');
 
-// Route::get('administracion', 'AdminController@index')->name('admin');
-// Route::get('unidad-gastos', 'UgController@index')->name('ug');
-// Route::get('unidad-admin', 'UaController@index')->name('ua');
+Route::resource('facultades', 'SchoolController');
 
+Route::resource('empresas', 'CompanyController');
 
-//Route::get('user', 'UserController@index');
+Route::resource('inventarios', 'StockController');
+
+Route::resource('articulos', 'ArticleController');
+
 //rutas de cotizacion ==  quotation
-//Route::get('cotizaciones', 'QuotationController@index')->name('quotation');
+//Route::resource('cotizaciones', 'QuotationController');
 
 //rutas de solicitudes == requisition
-//Route::get('solicitudes', 'RequisitionController@index')->name('requisition');
+//Route::resource('solicitudes', 'RequisitionController');
 
-//Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('user', 'UserController@index');

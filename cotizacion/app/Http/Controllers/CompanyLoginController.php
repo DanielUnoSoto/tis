@@ -4,10 +4,36 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 
-class AdminController extends Controller
+class CompanyLoginController extends Controller
 {
+    
+   use AuthenticatesUsers;
+
+    protected $companyloginview = "empresas.login";
+    //protected $guard = 'companies';
+
+     protected function guard()
+    {
+        return Auth::guard('companies');
+    }
+
+    public function showLoginForm()
+    {
+        return view('empresas.login');
+    }
+
+    public function authenticated(){
+        return redirect()->route('empresa.home');
+    }
+
+    public function home(){
+        return view('empresas.home');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +41,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('users.admin.index', compact('user'));
+        //
     }
 
     /**

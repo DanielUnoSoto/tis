@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-
-class UaController extends Controller
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class UaController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('users.ua.index', compact('user'));
+        return view('empresas.index');
     }
 
     /**
@@ -26,7 +23,7 @@ class UaController extends Controller
      */
     public function create()
     {
-        //
+        return view('empresas.register');
     }
 
     /**

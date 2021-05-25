@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <!-- Latest compiled JavaScript -->
@@ -28,14 +27,15 @@
 
 
 <div class="d-flex justify-content-center text-center containerPrincipal">
+	<a class="nav-link " aria-current="login" href=" {{route('login') }} " >
+            Login usuarios
+        </a>
 
-	<a href=" {{route('empresa.login')}} ">empresas</a>
-
-	<form class="bg-light" method="post">
+	<form class="bg-light" method="POST" action=" {{route('empresa.form')}} ">
 		@csrf	
 				<label class="title-inicio">
 					<h2><b>
-						Inicio de sesión
+						Inicio de sesión para empresas
 					</b></h2>
 	
 				</label>

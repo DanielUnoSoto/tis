@@ -5,19 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
-class UgController extends Controller
+class StockController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($name)
+    public function index()
     {
-        $user = Auth::user();
-        //$name = $user->name;
-        return view('users.ug.index', compact('user'));
+        return view('inventario.index');
     }
 
     /**
@@ -27,7 +24,11 @@ class UgController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $unit = $user->unit;
+        $unit_type = $user->unit->type_id;
+        $unit_name = $user->unit->name;
+        return view('inventario.register', compact('unit'));
     }
 
     /**
@@ -38,7 +39,7 @@ class UgController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**

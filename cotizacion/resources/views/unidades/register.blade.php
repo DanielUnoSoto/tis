@@ -42,7 +42,7 @@
 <br>
 <br>
 <div class="d-flex justify-content-center text-center containerPrincipal">
-  <form method="POST" action="{{ route('unit.store') }}" class="bg-light">
+  <form method="POST" action="{{ route('unidades.store') }}" class="bg-light">
   <label class="title-inicio">
 		<h2><b>
 			Registro de Unidades
