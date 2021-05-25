@@ -31,7 +31,7 @@
 	<form class="bg-light" method="POST" action="{{ route('registrar.store') }}">
 <div  class="title-inicio">
 	<h2><b>Registro de Usuarios</b></h2>
-	<br>
+	
 	<br>
 	
 		
