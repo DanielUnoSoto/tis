@@ -40,13 +40,13 @@
           <a class="nav-link" href="{{route('registrar.create')}}">Registrar Usuario</a>
         </li>
       @endif
-      {{-- <li class="nav-item">
-        <a class="nav-link" href="#">Registrar Empresa</a>
-      </li> --}}
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('empresas.index')}}">Registrar Empresa</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Cuadro Comparativo</a>
       </li>
-{{--       <li class="nav-item dropdown">
+       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Unidad de gastos
         </a>
