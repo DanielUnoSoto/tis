@@ -5,7 +5,7 @@
 <link href="../css/registroEmpresas.css" rel="stylesheet">
 <div class="d-flex justify-content-center text-center form-register">
 
-<form class="bg-light">
+<form class="bg-light" method="POST" action=" {{route('empresas.store')}} ">
 <div  class="title-inicio">
 	<h2><b>Registro de Empresas</b></h2>
 	
@@ -33,7 +33,7 @@
 			</div>
          <div class="form-group">
 				<label for="inputDir" class="form-label">Dirección:</label>
-				<input type="text" class="form-control" name="direccion" id="direccion" placeholder="Ingrese su dirección" size="40" required>
+				<input type="text" class="form-control" name="direction" id="direction" placeholder="Ingrese su dirección" size="40" required>
 			</div>
          <div class="form-group">
 				<label for="inputNit" class="form-label">NIT:</label>

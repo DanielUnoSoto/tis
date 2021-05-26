@@ -9,5 +9,12 @@ use Illuminate\Notifications\Notifiable;
 
 class Company extends Authenticatable
 {
-    //
+   
+
+
+
+   protected $fillable = [
+        'name','area','description','direction', 'nit','city', 'phone', 'email', 'password',
+   ];
+
 }

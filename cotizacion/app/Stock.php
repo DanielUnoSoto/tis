@@ -15,4 +15,10 @@ class Stock extends Model
 	public function articles(){
 		return $this->hasMany(Article::class);
 	}
+
+
+
+	protected $fillable = [
+        'title','description','year','unit_id'
+    ];
 }

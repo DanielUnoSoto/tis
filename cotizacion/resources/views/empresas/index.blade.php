@@ -6,8 +6,13 @@
 	<form class="bg-light">
 	  <label class="title-inicio">
 		<h2><b>
-			empresas se veran aqui:
+			empresas Registradas
 		</b></h2>
+		<ul>
+			@foreach($companies as $company)
+				<li>{{$company->name}}</li>
+			@endforeach
+		</ul>
 
 	</label>
    	<div class="form-group">
