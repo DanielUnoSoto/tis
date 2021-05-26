@@ -19,7 +19,7 @@
 	            Volver
 	        </a>
 	    @endif --}}
-	    <a class="nav-link " aria-current="logout" href="{{route('unit.index', ['name' => Auth::user()->unit->name])}}">
+	    <a class="nav-link " aria-current="logout" href="{{route('home')}}">
             Volver
         </a>
     </button>
@@ -31,7 +31,7 @@
 	<form class="bg-light" method="POST" action="{{ route('registrar.store') }}">
 <div  class="title-inicio">
 	<h2><b>Registro de Usuarios</b></h2>
-	<br>
+	
 	<br>
 	
 		

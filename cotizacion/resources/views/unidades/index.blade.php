@@ -1,27 +1,7 @@
 @extends('users.admin.layoutadmin')
 
 @section('mycontent')
-<style>
-	.accordion {
-	  background-color: #eee;
-	  color: #444;
-	  cursor: pointer;
-	  padding: 18px;
-	  width: 100%;
-	  border: none;
-	  text-align: left;
-	  outline: none;
-	  font-size: 15px;
-	  transition: 0.4s;
-	}
-		
-	.panelesacordion {
-	  padding: 0 18px;
-	  display: none;
-	  background-color: white;
-	  overflow: hidden;
-	}
-	</style>
+<link href="../css/login.css" rel="stylesheet">
 <br>
 <br>
 <br>
@@ -41,7 +21,7 @@
   <div class="form-group d-flex justify-content-center text-center">
 	  <br> <br>
   <button class="btn btn-primary" style="background-color: rgb(46, 46, 46)">
-  		<a href=" {{route('unit.create')}} " style="color:white"> Registrar</a>
+  		<a href=" {{route('unidades.create')}} " style="color:white"> Registrar</a>
   	</button>
   </div>
 

@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
-class AdminController extends Controller
+class StockController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('users.admin.index', compact('user'));
+        return view('inventario.index');
     }
 
     /**
@@ -26,7 +24,11 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $unit = $user->unit;
+        $unit_type = $user->unit->type_id;
+        $unit_name = $user->unit->name;
+        return view('inventario.register', compact('unit'));
     }
 
     /**
@@ -37,7 +39,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
