@@ -1,27 +1,33 @@
 @extends('users.ug.layout')
 
 @section('mycontent')
+<link href="../css/login.css" rel="stylesheet">
+<div class="d-flex justify-content-center text-center containerPrincipal">
+  <form method="POST" action="{{ route('facultades.store') }}" class="bg-light">
+    <label class="title-inicio">
+      <h2><b>
+	  Registro inventarios
+      </b></h2>
+  
+    </label>
 
-<div>
-	<h1>registro de un inventario</h1>
-	<div>
 		<form method="POST" action="{{ route('inventarios.store') }}" class="bg-light">
 			@csrf
 			<div class="form-group">
 				<br>
-			  <label for="title" class="form-label">titulo:</label>
+			  <label for="title" class="form-label">Titulo:</label>
 			  <input type="text" name="title" id="title" size="25" required autofocus>
 			</div>
 
 			<div class="form-group">
 				<br>
-			  <label for="description" class="form-label">descripcion:</label>
+			  <label for="description" class="form-label">Descripcion:</label>
 			  <input type="text" name="description" id="description" size="25" required autofocus>
 			</div>
 
 			<div class="form-group">
 				<br>
-			  <label for="year" class="form-label">año:</label>
+			  <label for="year" class="form-label">Año:</label>
 			  <input type="number" name="year" id="year" size="25" required autofocus>
 			</div>
 
