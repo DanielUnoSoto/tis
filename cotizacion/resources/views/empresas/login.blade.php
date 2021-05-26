@@ -5,18 +5,27 @@
 <!--Ultima version de fotawesome-->
 <script src="https://kit.fontawesome.com/f5ab984d8e.js" crossorigin="anonymous"></script>
 
-	<link href="css/login.css" rel="stylesheet">
+	<link href="../css/login.css" rel="stylesheet">
 
 	
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="collapse navbar-collapse">
         <a href="/" class="navbar-brand">
-            <img src="imagenes/umss.png" atl="" class="d_inline-block aling-top" height="70"
+            <img src="../imagenes/umss.png" atl="" class="d_inline-block aling-top" height="70"
             width="50">
         Universidad Mayor de San Simon
         </a>
         </div>
-    <button class="btn btn-outline-primary">
+
+	<div style="padding-right: 5px">	
+	<button class="btn btn-outline-primary">
+        <a class="nav-link " aria-current="login" href=" {{route('login') }} " >
+            Login usuarios
+        </a>
+    </button>
+	</div>
+
+	<button class="btn btn-outline-primary">
         <a class="nav-link " aria-current="login" href="/" >
             Home
         </a>
@@ -27,15 +36,12 @@
 
 
 <div class="d-flex justify-content-center text-center containerPrincipal">
-	<a class="nav-link " aria-current="login" href=" {{route('login') }} " >
-            Login usuarios
-        </a>
 
 	<form class="bg-light" method="POST" action=" {{route('empresa.form')}} ">
 		@csrf	
 				<label class="title-inicio">
 					<h2><b>
-						Inicio de sesión para empresas
+						Inicio de sesión <br> para empresas
 					</b></h2>
 	
 				</label>
