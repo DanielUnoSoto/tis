@@ -12,6 +12,11 @@
 		<h2><b>
 			INVENTARIO:
 		</b></h2>
+		<ul>
+			@foreach($stocks as $stock)
+				<li>{{$stock->title}}</li>
+			@endforeach
+		</ul>
 
 	</label>
 	<div class="form-group">

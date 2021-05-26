@@ -3,8 +3,8 @@
 @section('mycontent')
 <link href="../css/login.css" rel="stylesheet">
 <div class="d-flex justify-content-center text-center containerPrincipal">
-  <form method="POST" action="{{ route('facultades.store') }}" class="bg-light">
-    <label class="title-inicio">
+  {{-- <form method="POST" action="{{ route('facultades.store') }}" class="bg-light">
+ --}}    <label class="title-inicio">
       <h2><b>
 	  Registro inventarios
       </b></h2>
