@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Stock;
+
 
 class StockController extends Controller
 {
@@ -14,7 +16,11 @@ class StockController extends Controller
      */
     public function index()
     {
-        return view('inventario.index');
+        $user = Auth::user();
+        $id_unit = $user->unit->id;
+        $stocks = Stock::all()->where('unit_id', $id_unit);
+        //return $stocks; 
+        return view('inventario.index', compact('stocks'));
     }
 
     /**
@@ -39,7 +45,16 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        
+        Stock::create([
+            "title" => $request->input('title'),
+            "description" => $request->input('description'),
+            "year" => $request->input('year'),
+            "unit_id" => $request->input('unit_id'),
+        ]);
+
+
+        return redirect()->route('inventarios.index');
     }
 
     /**

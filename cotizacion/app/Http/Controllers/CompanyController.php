@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Company; 
+
 
 class CompanyController extends Controller
 {
@@ -13,7 +15,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return view('empresas.index');
+        $companies = Company::all();
+        return view('empresas.index', compact('companies'));
     }
 
     /**
@@ -34,7 +37,19 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         Company::create([
+            "name" => $request->input('name'),
+            "area" => $request->input('area'),
+            "description" => $request->input('descrip'),
+            "direction" => $request->input('direction'),
+            "nit" => $request->input('nit'),
+            "city" => $request->input('city'),
+            "phone" => $request->input('phone'),
+            "email" => $request->input('email'),
+            "password" => bcrypt($request->input('password'))
+        ]);
+
+        return redirect()->route('empresas.index');
     }
 
     /**

@@ -13,7 +13,11 @@ class CompanyLoginController extends Controller
    use AuthenticatesUsers;
 
     protected $companyloginview = "empresas.login";
-    //protected $guard = 'companies';
+
+    function __construct(){
+
+        $this->middleware('auth:companies', ['only' => ['home']]);
+    }
 
      protected function guard()
     {

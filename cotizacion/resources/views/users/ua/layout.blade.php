@@ -40,13 +40,17 @@
           <a class="nav-link" href="{{route('registrar.create')}}">Registrar Usuario</a>
         </li>
       @endif
-      <li class="nav-item">
+{{--       <li class="nav-item">
         <a class="nav-link" href="{{route('empresas.index')}}">Registrar Empresa</a>
-      </li>
+      </li> --}}
       <li class="nav-item">
         <a class="nav-link" href="#">Cuadro Comparativo</a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Solicitudes</a>
+      </li>
+      
+{{--        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Unidad de gastos
         </a>
@@ -56,8 +60,8 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Otro</a>
         </div>
-      </li>
-      <li class="nav-item dropdown">
+      </li> --}}
+        {{-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Formulario de Cotizaciones
         </a>
@@ -65,7 +69,7 @@
           <a class="dropdown-item" href="#">Cotizacion1</a>
           <a class="dropdown-item" href="#">Cotizacion2</a>
         </div>
-      </li>
+      </li> --}}
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
