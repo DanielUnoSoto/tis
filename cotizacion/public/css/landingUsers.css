@@ -1,0 +1,42 @@
+    .contenedor {
+        display: flex;
+        justify-content: center;
+    }
+    .caja1{
+      background-color: transparent;
+      width: 550px;
+      height: 300px;
+      float: left;
+      border: rgb(46, 46, 46) 3px solid;
+      border-radius: 20px;
+      padding: 24px;
+      margin: 10px;
+    }
+    .caja2{
+      background-color: transparent;
+      width: 550px;
+      height: 300px;
+      float: left;
+      border: rgb(46, 46, 46) 3px solid;
+      border-radius: 20px;
+      padding: 24px;
+      margin: 10px;
+    }
+
+    .letras1{
+      background-color: transparent;
+      width: 550px;
+      height: 110px;
+      float: left;
+      padding: 20px;
+      top: 60%;
+    }
+
+    .letras2{
+        background-color: transparent;
+        width: 550px;
+        height: 110px;
+        float: left;
+        padding: 20px;
+        top: 60%;
+    }

@@ -23,7 +23,6 @@
     </button>
           
 </nav>
-<br>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="{{route('home')}}">Unidad Administrativa <br> {{ Auth::user()->unit->name }}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,11 +76,6 @@
     </form>
   </div>
 </nav>
-<br>
-<br>
-<br>
-<br>
-<br>
    @yield('mycontent')
 </body>
 </html>

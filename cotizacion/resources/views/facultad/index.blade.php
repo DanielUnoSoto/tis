@@ -18,12 +18,9 @@
 		<li>{{$facultad->name}}</li> 
 		@endforeach
 	</ul>
-  <div class="form-group">
-  	<button class="btn btn-primary" style="background-color: rgb(46, 46, 46)">
-  		<a href=" {{route('facultades.create')}} " style="color:white"> Registrar</a>
-  	</button>
-  </div>
   
+  	<a class="btn btn-primary" href=" {{route('facultades.create')}} " style="background-color: rgb(46, 46, 46); color:white"> Registrar</a>
+
 </form> 
 </div>
 
