@@ -33,10 +33,12 @@ Route::resource('inventarios', 'StockController');
 
 Route::resource('articulos', 'ArticleController');
 
+Route::resource('solicitudes', 'PetitionController');
+
+
 //rutas de cotizacion ==  quotation
 //Route::resource('cotizaciones', 'QuotationController');
 
 //rutas de solicitudes == requisition
-//Route::resource('solicitudes', 'RequisitionController');
 
 //Route::get('user', 'UserController@index');

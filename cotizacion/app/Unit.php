@@ -7,6 +7,7 @@ use App\User;
 use App\School;
 use App\Type;
 use App\Stock;
+use App\Petition;
 
 class Unit extends Model
 {
@@ -25,6 +26,11 @@ class Unit extends Model
    public function stocks(){
    return $this->hasMany(Stock::class);
    }
+
+   public function petitions(){
+   return $this->hasMany(Petition::class);
+   }
+
 
    protected $fillable = [
      'name','type_id', 'school_id'
