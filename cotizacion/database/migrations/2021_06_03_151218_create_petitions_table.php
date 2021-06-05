@@ -15,11 +15,12 @@ class CreatePetitionsTable extends Migration
     {
         Schema::create('petitions', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->integer('user_id');
             $table->integer('unit_id');
             $table->integer('petitionstate_id');
-            $table->string('description');
-            $table->integer('price');
+            $table->mediumText('description');
+            $table->integer('price')->nullable();
             $table->timestamps();
         });
     }

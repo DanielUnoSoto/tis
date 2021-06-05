@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Petition;
+use App\PetitionState;
 
 
 class PetitionController extends Controller
@@ -15,7 +17,8 @@ class PetitionController extends Controller
      */
     public function index()
     {
-        $petitions = Petition::all();
+        $petitions = Petition::with('user','unit','state')->get();
+
         return view('solicitudes.index', compact('petitions'));
     }
 
@@ -26,7 +29,10 @@ class PetitionController extends Controller
      */
     public function create()
     {
-        //
+        // $user = Auth::user();
+        // $user_name = $user->name;
+        // $unit_name = $user->unit->name;
+        return view('solicitudes.register');
     }
 
     /**
@@ -37,7 +43,23 @@ class PetitionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $user = Auth::user();
+        $user_id = $user->id;
+        $unit_id = $user->unit->id;
+        $state = PetitionState::get()->where('name', 'espera')->first();
+        //return $request;
+        Petition::create([
+            "title" => $request->input('title'),
+            "user_id" => $user_id,
+            "unit_id" => $unit_id,
+            "petitionstate_id" => $state->id,
+            "description" => $request->input('description'),
+            "price" => $request->input('price')
+
+        ]);
+
+        return redirect()->route('solicitudes.index');
     }
 
     /**
