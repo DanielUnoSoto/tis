@@ -24,8 +24,8 @@
 
 			<div class="form-group">
 				<br>
-			  <label for="year" class="form-label">Año:</label>
-			  <input type="number" name="year" id="year" size="25" required autofocus>
+			  	<label for="year" class="form-label">Año:</label>
+			  	<input type="number" name="year" id="year" size="25" required autofocus>
 			</div>
 
 			<div class="form-group">
@@ -34,7 +34,26 @@
 					<option  value="{{$unit->id}}">{{$unit->name}}</option>
 				</select>
 			</div>
-
+			<table>
+				<thead>
+					<tr>
+						<th>codigo</th>
+						<th>articulo</th>
+						<th>descripcion</th>
+						<th>Cantidad</th>
+					</tr>
+				</thead>
+				<tbody>
+					@for ($i = 1; $i <= 2; $i++)
+						<tr>
+							<td><input type="text" name="code[]" id="code" size="25" required autofocus></td>
+							<td><input type="text" name="name[]" id="name" size="25" required autofocus></td>
+							<td><input type="text" name="Artdescription[]" id="Artdescription" size="25" required autofocus></td>
+							<td><input type="text" name="quantity[]" id="quantity" size="25" required autofocus></td>
+						</tr>
+					@endfor
+				</tbody>
+			</table>
 			<div class="col-12">
 			  <button type="submit" class="btn btn-primary" style="background-color: rgb(46, 46, 46)">Registrar</button>
 			</div>

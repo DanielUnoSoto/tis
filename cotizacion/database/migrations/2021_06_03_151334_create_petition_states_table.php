@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticlesTable extends Migration
+class CreatePetitionStatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('petition_states', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique();
-            $table->string('name');
-            $table->string('description');
-            $table->integer('stock_id');
-            $table->integer('quantity');
+            $table->string('name')->unique();
+            $table->string('state_description');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('petition_states');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticlesTable extends Migration
+class CreatePetitionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('petitions', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique();
-            $table->string('name');
-            $table->string('description');
-            $table->integer('stock_id');
-            $table->integer('quantity');
+            $table->string('title');
+            $table->integer('user_id');
+            $table->integer('unit_id');
+            $table->integer('petitionstate_id');
+            $table->mediumText('description');
+            $table->integer('price')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('petitions');
     }
 }

@@ -11,4 +11,9 @@ class Article extends Model
 	public function stock(){
    return $this->BelongsTo(Stock::class);
    }
+
+   protected $fillable = [
+     'code', 'name', 'description', 'stock_id', 'quantity'
+   ];
+
 }

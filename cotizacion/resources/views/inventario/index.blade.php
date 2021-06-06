@@ -14,7 +14,7 @@
 		</b></h2>
 		<ul>
 			@foreach($stocks as $stock)
-				<li>{{$stock->title}}</li>
+				<li><a href=" {{route('inventarios.show', $stock->id)}} ">{{$stock->title}}</a></li>
 			@endforeach
 		</ul>
 

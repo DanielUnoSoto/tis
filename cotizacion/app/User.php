@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Role;
 use App\Unit;
+use App\Petition;
+
 
 class User extends Authenticatable
 {
@@ -20,6 +22,9 @@ class User extends Authenticatable
          return $this->BelongsTo(Unit::class);
     }
 
+    public function petitions(){
+         return $this->hasMany(Petition::class);
+    }
 
     /**
      * The attributes that are mass assignable.
