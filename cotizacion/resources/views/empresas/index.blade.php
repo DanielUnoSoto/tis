@@ -6,7 +6,7 @@
 	<form class="bg-light">
 	  <label class="title-inicio">
 		<h2><b>
-			empresas Registradas
+			Empresas registradas
 		</b></h2>
 		<ul>
 			@foreach($companies as $company)
@@ -16,9 +16,7 @@
 
 	</label>
    	<div class="form-group">
-	  	<button class="btn btn-primary" style="background-color: rgb(46, 46, 46)">
-	  		<a href=" {{route('empresas.create')}} " style="color:white"> Registrar</a>
-	  	</button>
+	  		<a class="btn btn-primary" href=" {{route('empresas.create')}} " style="background-color: rgb(46, 46, 46); color:white"> Registrar</a>
 	  </div>
 	</form>   
    </div>

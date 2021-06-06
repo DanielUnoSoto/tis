@@ -20,9 +20,7 @@
 
 	</label>
 	<div class="form-group">
-  	<button class="btn btn-primary" style="background-color: rgb(46, 46, 46)">
-  		<a href=" {{route('inventarios.create')}}" style="color:white"> Registrar</a>
-  	</button>
+  		<a class="btn btn-primary" href=" {{route('inventarios.create')}}" style="background-color: rgb(46, 46, 46); color:white"> Registrar</a>
   </div>
   
 </form> 

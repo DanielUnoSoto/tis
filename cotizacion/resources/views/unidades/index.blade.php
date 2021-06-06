@@ -18,11 +18,9 @@
 	@endforeach
 </div>
 	<br>
-  <div class="form-group d-flex justify-content-center text-center">
-	  <br> <br>
-  <button class="btn btn-primary" style="background-color: rgb(46, 46, 46)">
-  		<a href=" {{route('unidades.create')}} " style="color:white"> Registrar</a>
-  	</button>
+  <div class="form-group justify-content-center text-center">
+	 
+  	<a class="btn btn-primary" href=" {{route('unidades.create')}} " style="background-color: rgb(46, 46, 46); color:white">Registrar</a>
   </div>
 
 </div>

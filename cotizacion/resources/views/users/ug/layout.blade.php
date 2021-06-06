@@ -68,7 +68,6 @@
     </form>
   </div>
 </nav>
-<br>
 
    @yield('mycontent')
 </body>
