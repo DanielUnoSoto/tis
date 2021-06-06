@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Stock;
-
+use App\Article;
 
 class StockController extends Controller
 {
@@ -53,6 +53,18 @@ class StockController extends Controller
             "unit_id" => $request->input('unit_id'),
         ]);
 
+        $stock_id = Stock::get()->last()->id;
+        $names = $request->input('name');
+
+        for ($i=0; $i < count($names); $i++) { 
+            Article::create([
+                "code" => $request->input('code')[$i],
+                "name" => $request->input('name')[$i],
+                "description" => $request->input('Artdescription')[$i],
+                "stock_id" => $stock_id,
+                "quantity" => $request->input('quantity')[$i],
+            ]);
+        }
 
         return redirect()->route('inventarios.index');
     }
@@ -65,7 +77,10 @@ class StockController extends Controller
      */
     public function show($id)
     {
-        //
+        $stock = Stock::where('id', $id)
+            ->with('articles','unit')->first();
+
+        return view('inventario.show', compact('stock'));
     }
 
     /**

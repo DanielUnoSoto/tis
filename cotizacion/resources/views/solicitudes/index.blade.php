@@ -12,7 +12,7 @@
 	<div>
 		@foreach($petitions as $petition)
 			<li>
-				solicitud: <a href="">{{$petition->title}} </a>
+				solicitud: <a href=" {{route('solicitudes.show', $petition->id)}} ">{{$petition->title}} </a>
 				<ul>
 					solicitante: {{$petition->user->name}}
 				</ul>
@@ -23,6 +23,6 @@
 		@endforeach()
 		
 	</div>
-</div>
+</div>	
 
 @stop

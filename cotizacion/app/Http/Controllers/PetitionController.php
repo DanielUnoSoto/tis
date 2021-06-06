@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Petition;
 use App\PetitionState;
+use App\Acquisition;
 
 
 class PetitionController extends Controller
@@ -48,7 +49,7 @@ class PetitionController extends Controller
         $user_id = $user->id;
         $unit_id = $user->unit->id;
         $state = PetitionState::get()->where('name', 'espera')->first();
-        //return $request;
+
         Petition::create([
             "title" => $request->input('title'),
             "user_id" => $user_id,
@@ -57,6 +58,15 @@ class PetitionController extends Controller
             "description" => $request->input('description'),
             "price" => $request->input('price')
 
+        ]);
+
+        $petition_id = Petition::get()->last()->id;
+
+        Acquisition::create([
+            "petition_id" => $petition_id,
+            "name" => $request->input('name'),
+            "details" => $request->input('details'),
+            "quantity" => $request->input('quantity'),
         ]);
 
         return redirect()->route('solicitudes.index');
@@ -70,7 +80,11 @@ class PetitionController extends Controller
      */
     public function show($id)
     {
-        //
+        $petition = Petition::where('id', $id)
+                                ->with('acquisitions','user','unit')
+                                ->first();
+
+        return view('solicitudes.show', compact('petition'));
     }
 
     /**

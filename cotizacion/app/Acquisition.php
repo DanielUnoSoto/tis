@@ -12,6 +12,6 @@ class Acquisition extends Model
     }
 
    protected $fillable = [
-     // 
+     'petition_id', 'name', 'details', 'quantity'
    ];
 }

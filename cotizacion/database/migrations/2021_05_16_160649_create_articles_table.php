@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->integer('stock_id');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
