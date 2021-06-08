@@ -1,11 +1,12 @@
 @extends('users.ug.layout')
 
 @section('mycontent')
-
-<div>
+<link href="../css/login.css" rel="stylesheet">
+<br>
+<div class="d-flex justify-content-center text-center">
 	<div>
 		<h2>
-			solicitudes
+			SOLICITUDES:
 		</h2>
 	</div>
 	</div>
