@@ -20,6 +20,9 @@
 				<ul>
 					unidad: {{$petition->unit->name}}
 				</ul>
+				<ul>
+					estado: {{$petition->state->name}}
+				</ul>
 			</li>
 		@endforeach()
 		
