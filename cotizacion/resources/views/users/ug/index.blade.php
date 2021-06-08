@@ -19,8 +19,8 @@
   <div class="text-center caja1">
     <h2>INFORMACIÓN PERSONAL:</h2>
     <br>
-    <h1> <i class="fas fa-user"></i> {{$user->name}} </h1>
-    <h1>{{$user->role->name}}</h1>
+    <h1> <i class="fas fa-user"></i> {{$user->name}} {{$user->last_name}}  </h1>
+    <h1>rol: {{$user->role->name}}</h1>
   </div>
   <div class="text-center caja2">
     <h2>AVISOS IMPORTANTES</h2>

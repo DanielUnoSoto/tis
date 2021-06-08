@@ -17,7 +17,7 @@ class UnitController extends Controller
      */
     public function index()
     {
-        $units = Unit::all();
+        $units = Unit::with('school','type')->get();
         return view('unidades.index', compact('units'));
     }
 
