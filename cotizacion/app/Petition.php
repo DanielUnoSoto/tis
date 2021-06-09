@@ -30,7 +30,7 @@ class Petition extends Model
    //relacion con cotizaciones
 
    protected $fillable = [
-     'title', 'user_id', 'unit_id', 'petitionstate_id', 'description', 'price',
+     'title', 'user_id', 'unit_id', 'petitionstate_id', 'description', 'price', 'comment'
    ];
 
 

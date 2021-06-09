@@ -12,8 +12,8 @@
   	  	
   <button class="accordion">{{ $unit->name }}</button>
 <div class="panelesacordion">
-	<p>{{ $unit->school_id }}</p>
-	<p>{{ $unit->type_id }}</p>
+	<p>Facultad: {{ $unit->school->name }}</p>
+	<p>tipo de unidad: {{ $unit->type->description }}</p>
 </div>
 	@endforeach
 </div>

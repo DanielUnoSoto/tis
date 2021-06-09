@@ -34,7 +34,8 @@ class CompanyLoginController extends Controller
     }
 
     public function home(){
-        return view('empresas.home');
+        $company = Auth::user();
+        return view('empresas.home', compact('company'));
     }
 
 
