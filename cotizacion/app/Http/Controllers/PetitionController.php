@@ -95,7 +95,10 @@ class PetitionController extends Controller
      */
     public function edit($id)
     {
-        //
+        // mandamos la vista para actualizar
+        $petition = Petition::where('id', $id)->first();
+
+        return view('solicitudes.response', compact('petition'));
     }
 
     /**
@@ -107,7 +110,15 @@ class PetitionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // actualizamos
+        $new_state = PetitionState::where('name', $request->input('estado'))->first();
+
+        $petition = Petition::where('id', $id)->update([
+            "petitionstate_id" => $new_state->id,
+            "comment" => $request->input('comment'),
+        ]);
+
+        return redirect()->route('solicitudes.index');
     }
 
     /**

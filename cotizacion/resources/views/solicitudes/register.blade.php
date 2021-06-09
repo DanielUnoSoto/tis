@@ -1,8 +1,8 @@
 @extends('users.ug.layout')
 
 @section('mycontent')
-
-<div>
+<link href="../css/login.css" rel="stylesheet">
+<div class="d-flex justify-content-center text-center containerSolicitud">
 	<form method="POST" action="{{ route('solicitudes.store') }}" class="bg-light">
     <label class="title-inicio">
       <h2><b> Nueva solicitud </b></h2>
@@ -10,20 +10,20 @@
     @csrf
     <div class="form-group">
       <br>
-        <label for="title" class="form-label">Titulo:</label>
-        <input type="text" name="title" id="title" size="25">
+        <label for="title" class="form-label">Título:</label>
+        <input type="text" name="title" id="title" size="25" required autofocus>
     </div>
     <div class="form-group">
         <br>
-        <label for="description" class="form-label">descripcion:</label>
-        <input type="text" name="description" id="description" size="25">
+        <label for="description" class="form-label">Descripción:</label>
+        <input type="text" name="description" id="description" size="25" required>
     </div>
-    <h2><b> adquirir </b></h2>
+    <h2><b> Adquirir </b></h2>
       <table>
       <thead>
         <tr>
-          <th>nombre</th>
-          <th>detalle</th>
+          <th>Nombre</th>
+          <th>Detalle</th>
           <th>Cantidad</th>
         </tr>
       </thead>
@@ -37,7 +37,7 @@
     </table>
     <br>
     <div class="col-12">
-        <button type="submit">Registrar</button>
+        <button class="btn btn-primary" type="submit">Registrar</button>
     </div>
   </form>
 </div>

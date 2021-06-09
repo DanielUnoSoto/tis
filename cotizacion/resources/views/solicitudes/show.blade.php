@@ -12,6 +12,7 @@
 	<p>Solicitante: {{$petition->user->name}} {{$petition->user->last_name}} </p>
 	<p>Unidad: {{$petition->unit->name}} </p>
 	<p>estado de la solicitud: {{$petition->state->name}} </p>
+	<p>comentario: {{$petition->comment}} </p>
 </div>
 
 <div>
@@ -36,6 +37,9 @@
 			@endforeach
 		</tbody>
 	</table>
+	@if(Auth::user()->role->name = 'jefe')
+		<a href=" {{route('solicitudes.edit', $petition->id)}} ">responder</a>
+	@endif
 </div>
 
 @stop

@@ -18,6 +18,10 @@
   <div class="text-center caja1">
     <h2>INFORMACIÓN PERSONAL:</h2>
     <br>
+    </h4> empresa: {{$company->name}} </h4><br>
+    </h4> descripcion: {{$company->description}} </h4><br>
+    </h4> direccion:{{$company->direction}} </h4><br>
+    </h4> ciudad: {{$company->city}} </h4><br>
   </div>
   <div class="text-center caja2">
     <h2>AVISOS IMPORTANTES</h2>

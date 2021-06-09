@@ -37,9 +37,9 @@
 			<table>
 				<thead>
 					<tr>
-						<th>codigo</th>
-						<th>articulo</th>
-						<th>descripcion</th>
+						<th>Código</th>
+						<th>Artículo</th>
+						<th>Descripción</th>
 						<th>Cantidad</th>
 					</tr>
 				</thead>
