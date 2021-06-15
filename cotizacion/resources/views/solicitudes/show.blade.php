@@ -37,7 +37,7 @@
 			@endforeach
 		</tbody>
 	</table>
-	@if(Auth::user()->role->name = 'jefe')
+	@if(Auth::user()->role->name == 'jefe')
 		<a href=" {{route('solicitudes.edit', $petition->id)}} ">responder</a>
 	@endif
 </div>

@@ -11,6 +11,7 @@
 	</div>
 	</div>
 	<div>
+		<h4>en espera</h4>
 		@foreach($petitions as $petition)
 			<li>
 				solicitud: <a href=" {{route('solicitudes.show', $petition->id)}} ">{{$petition->title}} </a>
@@ -24,7 +25,7 @@
 					estado: {{$petition->state->name}}
 				</ul>
 			</li>
-		@endforeach()
+		@endforeach
 		
 	</div>
 </div>	
