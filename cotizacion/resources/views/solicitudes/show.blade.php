@@ -46,7 +46,7 @@
 						@endforeach
 					</tbody>
 				</table>
-				@if(Auth::user()->role->name = 'jefe')
+				@if(Auth::user()->role->name == 'jefe' && $petition->comment == null)
 					</br>
 					<div class="d-grid gap-2 d-md-flex justify-content-md-center">
 						<button class="btn btn-primary" style="background-color: rgb(46, 46, 46)" type="submit" >
