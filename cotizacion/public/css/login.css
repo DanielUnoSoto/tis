@@ -65,7 +65,9 @@
 	  font-size: 15px;
 	  transition: 0.4s;
 	}
-		
+	.active, .accordion:hover {
+    background-color: #ccc; 
+  }
 	.panelesacordion {
 	  padding: 0 18px;
 	  display: none;

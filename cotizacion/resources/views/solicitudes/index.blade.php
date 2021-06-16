@@ -13,21 +13,36 @@
 	<div>
 		<h4>en espera</h4>
 		@foreach($petitions as $petition)
-			<li>
-				solicitud: <a href=" {{route('solicitudes.show', $petition->id)}} ">{{$petition->title}} </a>
+		<button class="accordion"><b>Solicitud:</b> <a href=" {{route('solicitudes.show', $petition->id)}} ">{{$petition->title}} </a></button>
+		<div class="panelesacordion">
 				<ul>
-					solicitante: {{$petition->user->name}}
+					<b>Solicitante:</b> {{$petition->user->name}}
 				</ul>
 				<ul>
-					unidad: {{$petition->unit->name}}
+					<b>Unidad:</b> {{$petition->unit->name}}
 				</ul>
 				<ul>
-					estado: {{$petition->state->name}}
+					<b>Estado:</b> {{$petition->state->name}}
 				</ul>
 			</li>
 		@endforeach
 		
 	</div>
 </div>	
-
+<script>
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+	
+	for (i = 0; i < acc.length; i++) {
+	  acc[i].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var panelesacordion = this.nextElementSibling;
+		if (panelesacordion.style.display === "block") {
+		  panelesacordion.style.display = "none";
+		} else {
+		  panelesacordion.style.display = "block";
+		}
+	  });
+	}
+	</script>
 @stop
