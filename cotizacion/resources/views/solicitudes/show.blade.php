@@ -2,7 +2,7 @@
 
 @section('mycontent')
 <link href="../css/login.css" rel="stylesheet">
-<div class="d-flex justify-content-center  containerSolicitud">
+<div class="d-flex justify-content-center  containerRespSolicitud">
 	<form method="GET" action="{{ route('solicitudes.edit', $petition->id) }} " class="bg-light">
 		<div>
 			<h2 class= "transformacion1 text-center font-weight-bold">
