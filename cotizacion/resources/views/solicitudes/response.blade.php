@@ -2,14 +2,14 @@
 
 @section('mycontent')
 <link href="../../css/login.css" rel="stylesheet">
-<div class="d-flex justify-content-center text-center containerSolicitud">
+<div class="d-flex justify-content-center text-center containerRespSolicitud">
 	<form method="POST" action="{{ route('solicitudes.update', $petition->id) }}" class="bg-light">
 	<div>
-		<h4 style="display: inline; padding: 24px">Id solicitud: {{$petition->id}}</h4>
-		<h4 style="display: inline; padding: 24px">Fecha: </h4>
-		<div ><h4>Descripción Solicitud: </h4> <p>{{$petition->description}}</p> </div>
+		<h4 style="display: inline; padding: 88px; padding-left: 0px">Id solicitud: {{$petition->id}}</h4>
+		<h4 style="display: inline; padding: 88px; padding-right: 0px">Fecha: </h4>
 	</div>
-	
+	<br>
+	<div><h4>Descripción Solicitud: </h4> <p>{{$petition->description}}</p> </div>
 	    <label class="title-inicio">
 	      <h2><b> Repuesta solicitud </b></h2>
 	    </label>
