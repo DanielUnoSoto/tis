@@ -9,11 +9,13 @@
 			SOLICITUDES:
 		</h2>
 	</div>
-	</div>
-	<div>
-		@foreach($petitions as $petition)
+</div>
+<div>
+	<h4>en espera</h4>
+	@foreach($petitions as $petition)
 		<button class="accordion"><b>Solicitud:</b> <a href=" {{route('solicitudes.show', $petition->id)}} ">{{$petition->title}} </a></button>
 		<div class="panelesacordion">
+			<li>
 				<ul>
 					<b>Solicitante:</b> {{$petition->user->name}}
 				</ul>
@@ -23,11 +25,9 @@
 				<ul>
 					<b>Estado:</b> {{$petition->state->name}}
 				</ul>
+			</li>
 		</div>
-			
-		@endforeach()
-		
-	</div>
+	@endforeach
 </div>	
 <script>
 	var acc = document.getElementsByClassName("accordion");

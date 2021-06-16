@@ -58,22 +58,39 @@
 			</div>
 			<div class="form-group">
 				<label for="inputRol" class="form-label">Seleccione un Rol</label>
-				<select class="form-select" name="role_id">
-					<option selected></option>
-					<@foreach($roles as $role)
-						<option value="{{$role->id}}">{{$role->name}}</option>
-					@endforeach
-				</select>
+				@if(Auth::user()->role->name == 'admin')
+					<select class="form-select" name="role_id">
+						<option selected></option>
+						@foreach($roles as $role)
+							<option value="{{$role->id}}">{{$role->name}}</option>
+						@endforeach
+					</select>
+				@else
+					<select class="form-select" name="role_id">
+						<option selected></option>
+						@foreach($roles as $role)
+							@if($role->name !== 'admin')
+							<option value="{{$role->id}}">{{$role->name}}</option>
+							@endif
+						@endforeach
+					</select>
+				@endif 
 			</div>
 
 			<div class="form-group">
 				<label for="inputRol" class="form-label">Seleccione una Unidad</label>
-				<select class="form-select" name="unit_id">
-					<option selected></option>
-					@foreach($units as $unit)
-						<option value="{{$unit->id}}">{{$unit->name}}</option>
-					@endforeach
-				</select>
+				@if(Auth::user()->role->name == 'admin')
+					<select class="form-select" name="unit_id">
+						<option selected></option>
+						@foreach($units as $unit)
+							<option value="{{$unit->id}}">{{$unit->name}}</option>
+						@endforeach
+					</select>
+				@else
+					<select class="form-select" name="unit_id">
+							<option value="{{Auth::user()->unit->id}}">{{Auth::user()->unit->name}}</option>
+					</select>
+				@endif
 			</div>
 			<div class="col-12">
 				<button type="submit" class="btn btn-primary" style="background-color: rgb(46, 46, 46)">Registrar</button>
