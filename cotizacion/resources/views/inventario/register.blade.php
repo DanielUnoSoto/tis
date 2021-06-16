@@ -34,6 +34,9 @@
 					<option  value="{{$unit->id}}">{{$unit->name}}</option>
 				</select>
 			</div>
+			<h2><b>
+	 		 Articulos
+     		 </b></h2>
 			<table>
 				<thead>
 					<tr>

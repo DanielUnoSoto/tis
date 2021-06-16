@@ -2,6 +2,11 @@
 <html lang ="en">
 <head>
     <meta charset="UTF-8">
+    <style type="text/css"> 
+   .transformacion1 { text-transform: capitalize;}   
+   .transformacion2 { text-transform: uppercase;}   
+   .transformacion3 { text-transform: lowercase;}   
+   </style> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
@@ -30,21 +35,21 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="{{route('home')}}">Home <span class="sr-only">(current)</span></a>
       </li>
       @if(Auth::user()->role->name == 'jefe')
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href=" {{route('registrar.create')}} ">Registrar Usuario <span class="sr-only">(current)</span></a>
         </li>
       @endif
-      	<li class="nav-item active">
+      	<li class="nav-item">
           <a class="nav-link" href=" {{route('inventarios.index')}} ">Inventario <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="{{route('solicitudes.index')}}">Solicitudes <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="{{route('solicitudes.create')}}">Nueva Solicitud <span class="sr-only">(current)</span></a>
         </li>
 
