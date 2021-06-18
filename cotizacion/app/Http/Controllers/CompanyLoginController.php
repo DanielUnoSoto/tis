@@ -17,6 +17,7 @@ class CompanyLoginController extends Controller
     function __construct(){
 
         $this->middleware('auth:companies', ['only' => ['home']]);
+        $this->middleware('deletedCache', ['only' => ['home']]);
     }
 
      protected function guard()
