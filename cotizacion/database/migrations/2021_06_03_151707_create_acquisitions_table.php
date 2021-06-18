@@ -18,6 +18,7 @@ class CreateAcquisitionsTable extends Migration
             $table->integer('petition_id');
             $table->string('name');
             $table->string('details');
+            $table->string('unit_type');
             $table->integer('quantity');
             $table->timestamps();
         });

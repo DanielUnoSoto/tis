@@ -1,4 +1,4 @@
-@extends('users.ug.layout')
+@extends($navbar)
 
 @section('mycontent')
 <link href="../css/login.css" rel="stylesheet">
@@ -25,6 +25,14 @@
 				<ul>
 					<b>Estado:</b> {{$petition->state->name}}
 				</ul>
+				@if($petition->state->name == 'aceptado')
+					<ul>
+						<b>cotizaciones:</b> ninguno
+					</ul>
+				@endif
+        		@if (auth('companies')->user())
+					 <a href="#">cotizar</a>
+        		@endif
 			</li>
 		</div>
 	@endforeach

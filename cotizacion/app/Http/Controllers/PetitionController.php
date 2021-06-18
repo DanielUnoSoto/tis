@@ -18,9 +18,21 @@ class PetitionController extends Controller
      */
     public function index()
     {
-        $petitions = Petition::with('user','unit','state')->get();
+        //dd(!auth('companies')->user()->role);
+        $navbar = '';
+        $petitions;
 
-        return view('solicitudes.index', compact('petitions'));
+        if (auth('companies')->user()) {
+            $navbar = 'empresas.layout';
+            $petitions = Petition::with('user','unit','state')->get()
+                                    ->where('state.name', 'aceptado');
+        } else {
+            $navbar = 'users.ug.layout';
+            $petitions = Petition::with('user','unit','state')->get();
+        }
+        
+
+        return view('solicitudes.index', compact('petitions', 'navbar'));
     }
 
     /**
@@ -30,9 +42,6 @@ class PetitionController extends Controller
      */
     public function create()
     {
-        // $user = Auth::user();
-        // $user_name = $user->name;
-        // $unit_name = $user->unit->name;
         return view('solicitudes.register');
     }
 
@@ -66,6 +75,7 @@ class PetitionController extends Controller
             "petition_id" => $petition_id,
             "name" => $request->input('name'),
             "details" => $request->input('details'),
+            "unit_type" => $request->input('unit_type'),
             "quantity" => $request->input('quantity'),
         ]);
 
