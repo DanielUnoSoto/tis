@@ -35,10 +35,4 @@ Route::resource('articulos', 'ArticleController');
 
 Route::resource('solicitudes', 'PetitionController');
 
-
-//rutas de cotizacion ==  quotation
-//Route::resource('cotizaciones', 'QuotationController');
-
-//rutas de solicitudes == requisition
-
-//Route::get('user', 'UserController@index');
+Route::resource('prodcutos', 'ProductController');
