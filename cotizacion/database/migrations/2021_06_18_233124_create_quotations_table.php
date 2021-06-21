@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAcquisitionsTable extends Migration
+class CreateQuotationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateAcquisitionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('acquisitions', function (Blueprint $table) {
+        Schema::create('quotations', function (Blueprint $table) {
             $table->id();
             $table->integer('petition_id');
-            $table->string('name');
-            $table->string('details');
-            $table->string('unit_type');
+            $table->integer('company_id');
             $table->integer('quantity');
+            $table->string('type_unit');
+            $table->string('details');
+            $table->integer('unit_value');
+            $table->integer('total_value');
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreateAcquisitionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acquisitions');
+        Schema::dropIfExists('quotations');
     }
 }

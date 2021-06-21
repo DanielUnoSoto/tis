@@ -43,7 +43,7 @@
         <a class="nav-link" href="{{route('empresas.index')}}">Registrar Empresa</a>
       </li> --}}
       <li class="nav-item">
-        <a class="nav-link" href="#">Cuadro Comparativo</a>
+        <a class="nav-link" href=" {{route('comparaciones.index')}} ">Cuadro Comparativo</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Solicitudes</a>

@@ -1,4 +1,4 @@
-@extends('users.ug.layout')
+@extends($navbar)
 
 @section('mycontent')
 <link href="../css/login.css" rel="stylesheet">
@@ -11,7 +11,6 @@
 	</div>
 </div>
 <div>
-	<h4>en espera</h4>
 	@foreach($petitions as $petition)
 		<button class="accordion"><b>Solicitud:</b> <a href=" {{route('solicitudes.show', $petition->id)}} ">{{$petition->title}} </a></button>
 		<div class="panelesacordion">
@@ -25,6 +24,22 @@
 				<ul>
 					<b>Estado:</b> {{$petition->state->name}}
 				</ul>
+				<form method="POST" action="{{route('solicitudes.destroy', $petition->id)}}">
+					@csrf
+					@method('DELETE')
+					<button type="submit">eliminar</button>
+				</form>
+				@if($petition->state->name == 'aceptado')
+					<ul>
+						<b>cotizaciones:</b> {{count($petition->quotations)}}
+						@if( Auth::user() && count($petition->quotations) >= 3)
+							<p>lista para enviarse</p>
+						@endif
+					</ul>
+				@endif
+        		@if (auth('companies')->user())
+					 <a href="{{route('cotizaciones.create', ['id' => $petition->id])}}">cotizar</a>
+        		@endif
 			</li>
 		</div>
 	@endforeach

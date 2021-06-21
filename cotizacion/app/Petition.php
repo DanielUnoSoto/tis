@@ -7,7 +7,7 @@ use App\User;
 use App\PetitionState;
 use App\Unit;
 use App\Acquisition;
-
+use App\Quotation;
 
 class Petition extends Model
 {
@@ -25,6 +25,10 @@ class Petition extends Model
 
    public function acquisitions(){
    	return $this->hasMany(Acquisition::class);
+   }
+
+   public function quotations(){
+      return $this->hasMany(Quotation::class);     
    }
 
    //relacion con cotizaciones

@@ -29,16 +29,15 @@ Route::resource('facultades', 'SchoolController');
 
 Route::resource('empresas', 'CompanyController');
 
+Route::resource('productos', 'ProductController');
+
 Route::resource('inventarios', 'StockController');
 
 Route::resource('articulos', 'ArticleController');
 
 Route::resource('solicitudes', 'PetitionController');
 
+Route::resource('cotizaciones', 'QuotationController');
 
-//rutas de cotizacion ==  quotation
-//Route::resource('cotizaciones', 'QuotationController');
+Route::resource('comparaciones', 'ComparativeController');
 
-//rutas de solicitudes == requisition
-
-//Route::get('user', 'UserController@index');
