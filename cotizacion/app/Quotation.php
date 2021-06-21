@@ -16,4 +16,8 @@ class Quotation extends Model
 	public function company() {
 		return $this->BelongsTo(Company::class, 'company_id');
 	}
+
+	protected $fillable = [
+     'petition_id', 'company_id', 'quantity', 'type_unit', 'details', 'unit_value', 'total_value'
+   	];
 }

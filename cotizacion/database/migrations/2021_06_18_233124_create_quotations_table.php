@@ -19,7 +19,7 @@ class CreateQuotationsTable extends Migration
             $table->integer('company_id');
             $table->integer('quantity');
             $table->string('type_unit');
-            $table->integer('details');
+            $table->string('details');
             $table->integer('unit_value');
             $table->integer('total_value');
             $table->timestamps();

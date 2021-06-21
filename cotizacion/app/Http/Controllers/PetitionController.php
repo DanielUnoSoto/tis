@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Petition;
 use App\PetitionState;
 use App\Acquisition;
-
+use App\Quotation;
 
 class PetitionController extends Controller
 {
@@ -19,19 +19,14 @@ class PetitionController extends Controller
     public function index()
     {
         //dd(!auth('companies')->user()->role);
-        $navbar = '';
-        $petitions;
+        $navbar = 'users.ug.layout';
+        $petitions = Petition::with('user','unit','state', 'quotations')->get();
 
         if (auth('companies')->user()) {
             $navbar = 'empresas.layout';
-            $petitions = Petition::with('user','unit','state')->get()
-                                    ->where('state.name', 'aceptado');
-        } else {
-            $navbar = 'users.ug.layout';
-            $petitions = Petition::with('user','unit','state')->get();
+            $petitions = $petitions->where('state.name', 'aceptado');
         }
         
-
         return view('solicitudes.index', compact('petitions', 'navbar'));
     }
 
@@ -94,7 +89,15 @@ class PetitionController extends Controller
                                 ->with('acquisitions','user','unit')
                                 ->first();
 
-        return view('solicitudes.show', compact('petition'));
+        $quotations = Quotation::where('petition_id', $id)->with('company')->get();
+
+        if (auth('companies')->user()) {
+            $navbar = 'empresas.layout';
+        } else {
+            $navbar = 'users.ug.layout';
+        }
+        
+        return view('solicitudes.show', compact('petition', 'navbar', 'quotations'));
     }
 
     /**
@@ -139,6 +142,11 @@ class PetitionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Quotation::where('petition_id', $id)->delete();
+        Acquisition::where('petition_id', $id)->delete();
+        Petition::where('id', $id)->delete();
+
+        return redirect()->route('solicitudes.index');
+
     }
 }

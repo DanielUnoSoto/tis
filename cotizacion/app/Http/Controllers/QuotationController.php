@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Quotation;
+use App\Petition;
 
 class QuotationController extends Controller
 {
@@ -13,7 +16,12 @@ class QuotationController extends Controller
      */
     public function index()
     {
-        //
+
+        $company_id = auth('companies')->user()->id;
+
+        $quotations = Quotation::where('company_id', $company_id)->get();
+
+        return view('cotizaciones.index', compact('quotations'));
     }
 
     /**
@@ -21,9 +29,16 @@ class QuotationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        //dd($request->fullUrl());
+        $petition_id = $request->get('id');
+
+        $petition = Petition::where('id', $petition_id)
+                                ->with('acquisitions')
+                                ->first();
+
+        return view('cotizaciones.register', compact('petition'));
     }
 
     /**
@@ -34,7 +49,23 @@ class QuotationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        //estoy reciviendo el id de la solicitud por la url
+        //la creo como un array en el action del form [id => $petition_id]
+        //$request->get('petition_id')
+
+        $company_id = auth('companies')->user()->id;
+        Quotation::create([
+            "petition_id" => $request->input('petition_id'),
+            "company_id" => $company_id,
+            "quantity" => $request->input('quantity'),
+            "type_unit" => $request->input('type_unit'),
+            "details" => $request->input('details'),
+            "unit_value" => $request->input('unit_value'),
+            "total_value" => $request->input('total_value'),
+        ]);
+
+        return redirect()->route('solicitudes.index');
     }
 
     /**
