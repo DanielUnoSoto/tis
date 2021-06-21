@@ -39,3 +39,5 @@ Route::resource('solicitudes', 'PetitionController');
 
 Route::resource('cotizaciones', 'QuotationController');
 
+Route::resource('comparaciones', 'ComparativeController');
+

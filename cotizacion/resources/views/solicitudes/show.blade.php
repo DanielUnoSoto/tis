@@ -69,8 +69,18 @@
 					<p>valor unitario: {{ $quotation->unit_value }}</p>
 					<p>valor total: {{ $quotation->total_value }}</p>
 					<p>---------------------------------------</p>
-				@endforeach				
+				@endforeach			
 			</div>
+		@endif
+		@if(count($quotations) >= 3 && $petition->state->name !== 'enviado')
+			<form method="POST" action="{{ route('solicitudes.update', $petition->id) }}">
+				@method('PUT')
+	    		@csrf
+	    		<input type="hidden" name="estado" value="enviado">
+				<button class="btn btn-primary" style="background-color: rgb(46, 46, 46)" type="submit" >
+					Enviar
+				</button>
+			</form>
 		@endif
 	</div>
 </div>

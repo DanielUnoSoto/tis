@@ -32,6 +32,9 @@
 				@if($petition->state->name == 'aceptado')
 					<ul>
 						<b>cotizaciones:</b> {{count($petition->quotations)}}
+						@if( Auth::user() && count($petition->quotations) >= 3)
+							<p>lista para enviarse</p>
+						@endif
 					</ul>
 				@endif
         		@if (auth('companies')->user())

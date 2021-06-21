@@ -126,11 +126,19 @@ class PetitionController extends Controller
         // actualizamos
         $new_state = PetitionState::where('name', $request->input('estado'))->first();
 
-        $petition = Petition::where('id', $id)->update([
+        if ($request->input('comment')) {
+        
+            $petition = Petition::where('id', $id)->update([
             "petitionstate_id" => $new_state->id,
             "comment" => $request->input('comment'),
-        ]);
+            ]);
 
+        } else {
+            $petition = Petition::where('id', $id)->update([
+                "petitionstate_id" => $new_state->id
+            ]);
+        }
+        
         return redirect()->route('solicitudes.index');
     }
 
