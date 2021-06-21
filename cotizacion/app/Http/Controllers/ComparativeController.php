@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Petition;
+use App\PetitionState;
+use App\Quotation;
 
-class ArticleController extends Controller
+class ComparativeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $state_id = PetitionState::where('name', 'enviado')->first()->id;
+        $petitions = Petition::where('petitionstate_id', $state_id)->get();
+
+        return view('comparaciones.index', compact('petitions'));
     }
 
     /**
@@ -45,7 +51,12 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        $petition = Petition::where('id', $id)
+                            ->with('unit', 'user')->first();
+        $quotations = Quotation::where('petition_id', $id)
+                        ->with('company')->get();
+
+        return view('comparaciones.show', compact('petition', 'quotations'));
     }
 
     /**

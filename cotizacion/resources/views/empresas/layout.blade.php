@@ -32,10 +32,19 @@
   		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Cotizaciones <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href=" {{route('solicitudes.index')}} ">Solicitudes <span class="sr-only">(current)</span></a>
 	      </li>
 	    </ul>
   		</div>
+
+  		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    	<ul class="navbar-nav mr-auto">
+	      		<li class="nav-item active">
+	        		<a class="nav-link" href=" {{route('cotizaciones.index')}} ">Cotizaciones <span class="sr-only">(current)</span></a>
+	      		</li>
+	    	</ul>
+  		</div>
+
 	</nav>
     @yield('mycontent')
 </body>

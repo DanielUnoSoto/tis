@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Petition;
 use App\PetitionState;
 use App\Acquisition;
-
+use App\Quotation;
 
 class PetitionController extends Controller
 {
@@ -18,9 +18,16 @@ class PetitionController extends Controller
      */
     public function index()
     {
-        $petitions = Petition::with('user','unit','state')->get();
+        //dd(!auth('companies')->user()->role);
+        $navbar = 'users.ug.layout';
+        $petitions = Petition::with('user','unit','state', 'quotations')->get();
 
-        return view('solicitudes.index', compact('petitions'));
+        if (auth('companies')->user()) {
+            $navbar = 'empresas.layout';
+            $petitions = $petitions->where('state.name', 'aceptado');
+        }
+        
+        return view('solicitudes.index', compact('petitions', 'navbar'));
     }
 
     /**
@@ -30,9 +37,6 @@ class PetitionController extends Controller
      */
     public function create()
     {
-        // $user = Auth::user();
-        // $user_name = $user->name;
-        // $unit_name = $user->unit->name;
         return view('solicitudes.register');
     }
 
@@ -66,6 +70,7 @@ class PetitionController extends Controller
             "petition_id" => $petition_id,
             "name" => $request->input('name'),
             "details" => $request->input('details'),
+            "unit_type" => $request->input('unit_type'),
             "quantity" => $request->input('quantity'),
         ]);
 
@@ -84,7 +89,15 @@ class PetitionController extends Controller
                                 ->with('acquisitions','user','unit')
                                 ->first();
 
-        return view('solicitudes.show', compact('petition'));
+        $quotations = Quotation::where('petition_id', $id)->with('company')->get();
+
+        if (auth('companies')->user()) {
+            $navbar = 'empresas.layout';
+        } else {
+            $navbar = 'users.ug.layout';
+        }
+        
+        return view('solicitudes.show', compact('petition', 'navbar', 'quotations'));
     }
 
     /**
@@ -113,11 +126,19 @@ class PetitionController extends Controller
         // actualizamos
         $new_state = PetitionState::where('name', $request->input('estado'))->first();
 
-        $petition = Petition::where('id', $id)->update([
+        if ($request->input('comment')) {
+        
+            $petition = Petition::where('id', $id)->update([
             "petitionstate_id" => $new_state->id,
             "comment" => $request->input('comment'),
-        ]);
+            ]);
 
+        } else {
+            $petition = Petition::where('id', $id)->update([
+                "petitionstate_id" => $new_state->id
+            ]);
+        }
+        
         return redirect()->route('solicitudes.index');
     }
 
@@ -129,6 +150,11 @@ class PetitionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Quotation::where('petition_id', $id)->delete();
+        Acquisition::where('petition_id', $id)->delete();
+        Petition::where('id', $id)->delete();
+
+        return redirect()->route('solicitudes.index');
+
     }
 }
