@@ -14,7 +14,6 @@
 	@foreach($petitions as $petition)
 		<button class="accordion"><b>Solicitud:</b> <a href=" {{route('solicitudes.show', $petition->id)}} ">{{$petition->title}} </a></button>
 		<div class="panelesacordion">
-			<li>
 				<ul>
 					<b>Solicitante:</b> {{$petition->user->name}}
 				</ul>
@@ -27,20 +26,23 @@
 				<form method="POST" action="{{route('solicitudes.destroy', $petition->id)}}">
 					@csrf
 					@method('DELETE')
-					<button type="submit">eliminar</button>
-				</form>
+					<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+						<button class="btn btn-primary" type="submit">Eliminar</button>
+					</div>
+					</form>
 				@if($petition->state->name == 'aceptado')
 					<ul>
-						<b>cotizaciones:</b> {{count($petition->quotations)}}
+						<b>Cotizaciones:</b> {{count($petition->quotations)}}
 						@if( Auth::user() && count($petition->quotations) >= 3)
 							<p>lista para enviarse</p>
 						@endif
 					</ul>
 				@endif
         		@if (auth('companies')->user())
-					 <a href="{{route('cotizaciones.create', ['id' => $petition->id])}}">cotizar</a>
-        		@endif
-			</li>
+				<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+					<a class="btn btn-primary" href="{{route('cotizaciones.create', ['id' => $petition->id])}}">Cotizar</a>
+				</div>
+				@endif
 		</div>
 	@endforeach
 </div>	

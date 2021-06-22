@@ -1,13 +1,21 @@
 @extends('empresas.layout')
 
 @section('mycontent')
-
-<div>	
-	<h3>Solicitud</h3>
-	<p>titulo: {{$petition->title}}</p>
-	<p>descripcion: {{$petition->description}}</p>
-
-	<table class= "table-light " width="1000" border="1" >
+<link href="../css/login.css" rel="stylesheet">
+<div class="d-flex justify-content-center  containerCotEmpr">
+	<form method="POST" action="{{route('cotizaciones.store', ['petition_id' => $petition->id])}}">
+<div>
+	<div class= "transformacion1 text-center font-weight-bold">
+		<h3>Solicitud</h3>
+	</div>
+	<br>
+	<div class= "container">
+		<p class="font-weight-bold" style = "float: left">Título: </p>
+		<p> &nbsp{{$petition->title}}</p>
+		<p class="font-weight-bold" style = "float: left">Descripción: </p>
+		<p> &nbsp{{$petition->description}}</p>
+	</div>
+	<table class= "table-dark" width="1000" border="1" >
 		<thead>
 			<tr>
 				<th>N°</th>
@@ -29,42 +37,42 @@
 	</table>
 </div>
 <div>
-	<h3>Formulario de Cotizacion</h3>
-	<form method="POST" action="{{route('cotizaciones.store', ['petition_id' => $petition->id])}}">
+	<br>
+	<h3 class= "transformacion1 text-center font-weight-bold">Formulario de Cotización</h3>
 		@csrf
-
-		<div class="form-group">
-	      	<br>
-	        <label for="quantity" class="form-label">Cantidad:</label>
+		<br>
+		<div class="justify-content-center text-center">
+			<div class="form-group">
+	        <label for="quantity" class="form-label"><b>Cantidad:</b></label>
 	        <input type="text" name="quantity" id="quantity" size="25" required autofocus>
-    	</div>
-    	<div class="form-group">
-	      	<br>
-	        <label for="type_unit" class="form-label">Undidad:</label>
+			</div>
+			<div class="form-group">
+	        <label for="type_unit" class="form-label"><b>Undidad:</b></label>
 	        <input type="text" name="type_unit" id="type_unit" size="25" required autofocus>
-    	</div>
-    	<div class="form-group">
-	      	<br>
-	        <label for="details" class="form-label">Detalle:</label>
+			</div>
+			<div class="form-group" style="padding-left: 6px">
+	        <label for="details" class="form-label"><b>Detalle:</b></label>
 	        <input type="text" name="details" id="details" size="25" required autofocus>
-    	</div>
-    	<div class="form-group">
-	      	<br>
-	        <label for="unit_value" class="form-label">Valor unitario:</label>
+			</div>
+			<div class="form-group" style="padding-right: 46px">
+	        <label for="unit_value" class="form-label"><b>Valor unitario:</b></label>
 	        <input type="text" name="unit_value" id="unit_value" size="25" required autofocus>
-    	</div>
-    	<div class="form-group">
-	      	<br>
-	        <label for="total_value" class="form-label">Valor total:</label>
+    		</div>
+			<div class="form-group" style="padding-right: 20px">
+	        <label for="total_value" class="form-label"><b>Valor total:</b></label>
 	        <input type="text" name="total_value" id="total_value" size="25" required autofocus>
+			</div>
     	</div>
-    	<div class="col-12">
-        	<button class="btn btn-primary" type="submit">Registrar</button>
+    	<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+			<div style="padding-right: 5px">
+				<a class="btn btn-primary" href="{{ URL::previous() }}">Volver</a>
+			</div>
+			<button class="btn btn-primary" type="submit">Registrar</button>        	
     	</div>
-
+		
 	</form>
-	<button><a href="{{ URL::previous() }}">volver</a></button>
+	
 </div>
-
+</div>
 
 @stop
