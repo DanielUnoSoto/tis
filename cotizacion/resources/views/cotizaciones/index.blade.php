@@ -1,8 +1,11 @@
 @extends('empresas.layout')
 
 @section('mycontent')
-<div>
-	<h4>cotizaiciones</h4>
+<link href="../css/login.css" rel="stylesheet">
+<div class="d-flex justify-content-center text-center containerPrincipal">
+	<div class="title-inicio">
+		<h2 ><b>Cotizaciones</b></h2>
+	<br>
 	<ul>
 		@foreach($quotations as $quotation)
 			<li>
@@ -10,5 +13,7 @@
 			</li>
 		@endforeach
 	</ul>
+	</div>
+	
 </div>
 @stop

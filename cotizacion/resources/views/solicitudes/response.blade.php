@@ -5,8 +5,8 @@
 <div class="d-flex justify-content-center text-center containerRespSolicitud">
 	<form method="POST" action="{{ route('solicitudes.update', $petition->id) }}" class="bg-light">
 	<div>
-		<h4 style="display: inline; padding: 88px; padding-left: 0px">Id solicitud: {{$petition->id}}</h4>
-		<h4 style="display: inline; padding: 88px; padding-right: 0px">Fecha: {{$petition->created_at}}</h4>
+		<h4 style="display: inline; padding: 54px; padding-left: 0px">Id solicitud: {{$petition->id}}</h4>
+		<h4 style="display: inline; padding: 54px; padding-right: 0px">Fecha: {{$petition->created_at}}</h4>
 	</div>
 	<br>
 	<div><h4>Descripción Solicitud: </h4> <p>{{$petition->description}}</p> </div>
