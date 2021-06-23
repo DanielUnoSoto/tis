@@ -24,7 +24,7 @@
 	</div>
 	<br>
 	<div>
-		<h3>Solicitamos</h3>
+		<h3 class="text-center">Solicitamos</h3>
 		
 		<table class= "table-dark " width="1000" border="1" >
 			<thead>
@@ -47,8 +47,11 @@
 			</tbody>
 		</table>
 		@if(auth('companies')->user())
-			<a class="btn btn-primary" href="{{route('cotizaciones.create', ['id' => $petition->id]) }}">cotizar</a>
-		@else
+		<br>
+			<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+				<a class="btn btn-primary" href="{{route('cotizaciones.create', ['id' => $petition->id]) }}">Cotizar</a>		
+			</div>
+			@else
 			@if(Auth::user()->role->name == 'jefe' && $petition->comment == null)
 				<br>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-center">

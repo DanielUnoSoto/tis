@@ -47,6 +47,17 @@
 		</div>
 
 </div>
-
+<?php
+		foreach ($quotations as $k => $v) {
+  			$tArray[$k] = $v['total_value'];
+		}
+		$min_value = min($tArray);
+		$max_value = max($tArray);
+	?>
+	<h3 id="valorTotal" style="text-align: center">Mejor opción: {{$min_value}}</h3>
+</div>
+<script type="text/javascript">
+	var input = document.getElementById("valorTotal").style.color="black"; 				
+</script>
 
 @stop
