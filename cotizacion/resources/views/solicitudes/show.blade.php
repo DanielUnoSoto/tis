@@ -1,8 +1,8 @@
 @extends($navbar)
 
 @section('mycontent')
-<link href="../css/login.css" rel="stylesheet">
-<div class="d-flex justify-content-center containerSolicitudCompleto">
+
+<div class= "container">
 	<form method="POST" action="{{ route('solicitudes.update', $petition->id) }}">
 		<h2 class= "transformacion1 text-center font-weight-bold">
 			Solicitud: {{ $petition->title }}
@@ -26,8 +26,8 @@
 	<div>
 		<h3 class="text-center">Solicitamos</h3>
 		
-		<table class= "table-dark " width="1000" border="1" >
-			<thead>
+		<table class= "table table-hover table-bordered"  >
+			<thead class="thead-dark">
 				<tr>
 					<th>N°</th>
 					<th>Nombre</th>

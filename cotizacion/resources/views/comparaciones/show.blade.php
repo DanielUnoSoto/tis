@@ -18,8 +18,8 @@
 	</div>
 		<div>
 			<h2 class= "transformacion1 text-center font-weight-bold">Tabla comparativa</h2>
-			<table class="table table-dark table-hover"  border="1">
-			<thead>
+			<table class="table table-hover table-bordered"  >
+			<thead class="thead-dark">
 				<tr>
 					<th>Empresa</th>
 					<th>Cantidad</th>
@@ -30,6 +30,24 @@
 				</tr>
 				<tbody>	
 				@foreach($quotations as $quotation)
+				<?php
+					foreach ($quotations as $k => $v) {
+						$tArray[$k] = $v['total_value'];
+					}
+					$min_value = min($tArray);
+					$max_value = max($tArray);
+				?>
+				@if($min_value == $quotation->total_value)
+				<tr class="table-success">
+				
+						<td> {{$quotation->company->name}} </td>
+						<td> {{$quotation->quantity}} </td>
+						<td> {{$quotation->details}} </td>
+						<td> {{$quotation->type_unit}} </td>
+						<td> {{$quotation->unit_value}} </td>
+						<td> {{$quotation->total_value}}  </td>
+					</tr>
+				@else
 				<tr>
 				
 						<td> {{$quotation->company->name}} </td>
@@ -39,6 +57,7 @@
 						<td> {{$quotation->unit_value}} </td>
 						<td> {{$quotation->total_value}}  </td>
 					</tr>
+				@endif
 					@endforeach
 				</tbody>
 			</thead>
@@ -47,14 +66,6 @@
 		</div>
 
 </div>
-<?php
-		foreach ($quotations as $k => $v) {
-  			$tArray[$k] = $v['total_value'];
-		}
-		$min_value = min($tArray);
-		$max_value = max($tArray);
-	?>
-	<h3 id="valorTotal" style="text-align: center">Mejor opción: {{$min_value}}</h3>
 </div>
 <script type="text/javascript">
 	var input = document.getElementById("valorTotal").style.color="black"; 				
