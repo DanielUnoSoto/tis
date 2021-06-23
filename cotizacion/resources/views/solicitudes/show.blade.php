@@ -32,6 +32,7 @@
 					<th>N°</th>
 					<th>Nombre</th>
 					<th>Detalles</th>
+					<th>Unidad</th>
 					<th>Cantidad</th>
 				</tr>
 			</thead>
@@ -41,6 +42,7 @@
 						<td>  </td>
 						<td> {{$acquisition->name}} </td>
 						<td> {{$acquisition->details}} </td>
+						<td> {{$acquisition->unit_type}} </td>
 						<td> {{$acquisition->quantity}} </td>
 					</tr>
 				@endforeach
