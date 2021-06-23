@@ -32,6 +32,7 @@
 					<th>N°</th>
 					<th>Nombre</th>
 					<th>Detalles</th>
+					<th>Unidad</th>
 					<th>Cantidad</th>
 				</tr>
 			</thead>
@@ -41,6 +42,7 @@
 						<td>  </td>
 						<td> {{$acquisition->name}} </td>
 						<td> {{$acquisition->details}} </td>
+						<td> {{$acquisition->unit_type}} </td>
 						<td> {{$acquisition->quantity}} </td>
 					</tr>
 				@endforeach
@@ -63,34 +65,27 @@
 			@endif
 		@endif
 		<br>
-		@if(Auth::user() && !empty($quotations))
-			
-		<h3 class= "transformacion1 text-center font-weight-bold">Cotizaciones</h3>
-			
-					@foreach($quotations as $quotation)
-			<div  class="card border-dark mb-3">
-			<div class="card-header bg-dark border-success">	<p class="font-weight-bold text-white" style = "float: left">Empresa: </p>
-			<p class ="text-white"> &nbsp{{ $quotation->company->name }}</p></div>
-			<div class="card-body">
-				
-					<p class="font-weight-bold" style = "float: left">Cantidad: </p>
-					<p> &nbsp{{ $quotation->quantity }}</p>
-					<p class="font-weight-bold" style = "float: left">Unidad: </p>
-					<p> &nbsp{{ $quotation->type_unit }}</p>
-					<p class="font-weight-bold" style = "float: left">Detalles: </p>
-					<p> &nbsp{{ $quotation->details }}</p>
-					<p class="font-weight-bold" style = "float: left">Valor unitario: </p>
-					<p> &nbsp{{ $quotation->unit_value }}</p>
-					<p class="font-weight-bold" style = "float: left">Valor total: </p>
-					<p> &nbsp{{ $quotation->total_value }}</p>
-				</div>		
-			</div>
-					@endforeach	
-			
-					
-		@endif
-		@if(count($quotations) >= 3 && $petition->state->name !== 'enviado')
-			
+		@if(Auth::user() && $petition->state->name == 'aceptado')	
+			<h3 class= "transformacion1 text-center font-weight-bold">Cotizaciones</h3>
+			@foreach($quotations as $quotation)
+				<div  class="card text-white bg-dark mb-3">
+					<div class="card-body">
+						<p class="font-weight-bold" style = "float: left">Empresa: </p>
+						<p> &nbsp{{ $quotation->company->name }}</p>
+						<p class="font-weight-bold" style = "float: left">Cantidad: </p>
+						<p> &nbsp{{ $quotation->quantity }}</p>
+						<p class="font-weight-bold" style = "float: left">Unidad: </p>
+						<p> &nbsp{{ $quotation->type_unit }}</p>
+						<p class="font-weight-bold" style = "float: left">Detalles: </p>
+						<p> &nbsp{{ $quotation->details }}</p>
+						<p class="font-weight-bold" style = "float: left">Valor unitario: </p>
+						<p> &nbsp{{ $quotation->unit_value }}</p>
+						<p class="font-weight-bold" style = "float: left">Valor total: </p>
+						<p> &nbsp{{ $quotation->total_value }}</p>
+					</div>		
+				</div>
+			@endforeach
+			@if(count($quotations) >= 3)
 				@method('PUT')
 	    		@csrf
 	    		<input type="hidden" name="estado" value="enviado">
@@ -100,7 +95,8 @@
 					</button>
 				</div>
 				
-			</form>
+				</form>
+			@endif
 		@endif
 	</div>
 </div>

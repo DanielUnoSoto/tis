@@ -23,13 +23,6 @@
 					<ul>
 						<b>Estado:</b> {{$petition->state->name}}
 					</ul>
-					<form method="POST" action="{{route('solicitudes.destroy', $petition->id)}}">
-						@csrf
-						@method('DELETE')
-						<div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding-bottom: 4px">
-						<button class="btn btn-primary" type="submit">Eliminar</button>
-						</div>
-					</form>
 					<div class="d-grid gap-2 d-md-flex justify-content-md-center">
 					<a class="btn btn-primary" href=" {{route('comparaciones.show', $petition->id)}} ">Crear</a>
 					</div>
