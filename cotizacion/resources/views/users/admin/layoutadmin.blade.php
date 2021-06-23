@@ -11,8 +11,8 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     	<div class="collapse navbar-collapse">
 	        <a href="#" class="navbar-brand">
-	            <img src="../imagenes/umss.png" atl="" class="d_inline-block aling-top" height="70"
-	            width="50">
+	            <img src="../imagenes/umss.png" atl="" class="d_inline-block aling-top" height="40"
+	            width="30">
 	        Universidad Mayor de San Simon
 	        </a>
         </div>
@@ -54,10 +54,7 @@
 	        </div> --}}
 	      </li>
 	    </ul>
-	    <form class="form-inline my-2 my-lg-0">
-	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-	    </form>
+	    
   		</div>
 	</nav>
 

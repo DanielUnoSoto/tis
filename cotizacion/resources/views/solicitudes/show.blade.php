@@ -1,8 +1,8 @@
 @extends($navbar)
 
 @section('mycontent')
-<link href="../css/login.css" rel="stylesheet">
-<div class="d-flex justify-content-center containerSolicitudCompleto">
+
+<div class= "container">
 	<form method="POST" action="{{ route('solicitudes.update', $petition->id) }}">
 		<h2 class= "transformacion1 text-center font-weight-bold">
 			Solicitud: {{ $petition->title }}
@@ -26,8 +26,8 @@
 	<div>
 		<h3 class="text-center">Solicitamos</h3>
 		
-		<table class= "table-dark " width="1000" border="1" >
-			<thead>
+		<table class= "table table-hover table-bordered"  >
+			<thead class="thead-dark">
 				<tr>
 					<th>N°</th>
 					<th>Nombre</th>
@@ -68,10 +68,11 @@
 		<h3 class= "transformacion1 text-center font-weight-bold">Cotizaciones</h3>
 			
 					@foreach($quotations as $quotation)
-			<div  class="card text-white bg-dark mb-3">
+			<div  class="card border-dark mb-3">
+			<div class="card-header bg-dark border-success">	<p class="font-weight-bold text-white" style = "float: left">Empresa: </p>
+			<p class ="text-white"> &nbsp{{ $quotation->company->name }}</p></div>
 			<div class="card-body">
-					<p class="font-weight-bold" style = "float: left">Empresa: </p>
-					<p> &nbsp{{ $quotation->company->name }}</p>
+				
 					<p class="font-weight-bold" style = "float: left">Cantidad: </p>
 					<p> &nbsp{{ $quotation->quantity }}</p>
 					<p class="font-weight-bold" style = "float: left">Unidad: </p>
