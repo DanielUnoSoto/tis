@@ -20,28 +20,32 @@
 				<ul>
 					<b>Unidad:</b> {{$petition->unit->name}}
 				</ul>
-				<ul>
+				@if(Auth::user())
+					<ul>
 					<b>Estado:</b> {{$petition->state->name}}
-				</ul>
-				<form method="POST" action="{{route('solicitudes.destroy', $petition->id)}}">
-					@csrf
-					@method('DELETE')
-					<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-						<button class="btn btn-primary" type="submit">Eliminar</button>
-					</div>
-					</form>
+					</ul>
+				@endif
+				
 				@if($petition->state->name == 'aceptado')
 					<ul>
 						<b>Cotizaciones:</b> {{count($petition->quotations)}}
 						@if( Auth::user() && count($petition->quotations) >= 3)
-							<p>lista para enviarse</p>
+							<p class="text-info">listo para enviarse</p>
 						@endif
 					</ul>
 				@endif
-        		@if (auth('companies')->user())
-				<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-					<a class="btn btn-primary" href="{{route('cotizaciones.create', ['id' => $petition->id])}}">Cotizar</a>
-				</div>
+				@if (auth('companies')->user())
+					<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+						<a class="btn btn-primary" href="{{route('cotizaciones.create', ['id' => $petition->id])}}">Cotizar</a>
+					</div>
+				@elseif($petition->user->name == Auth::user()->name && $petition->state->name == 'espera')
+					<form method="POST" action="{{route('solicitudes.destroy', $petition->id)}}">
+						@csrf
+						@method('DELETE')
+						<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+						<button class="btn btn-primary" type="submit">Eliminar</button>
+						</div>
+					</form>
 				@endif
 		</div>
 	@endforeach
