@@ -2,28 +2,49 @@
 
 @section('mycontent')
 
-<h5>Cuadro comparativo</h5>
-
-<div>
-	<p> ID solicitud: {{$petition->id}} </p>
-	<p> emision: {{$petition->created_at}} </p>
-	<p>Unidad solicitante: {{$petition->unit->name}} </p>
-	<p>Nombre solicitante: {{$petition->user->name}} {{$petition->user->last_name}} </p>
-
-	<div>
-		<h5>tabla de comparacion</h5>
-		<ul>
-			@foreach($quotations as $quotation)
-				<li> empresa: {{$quotation->company->name}} </li>
-				<li> cantidad: {{$quotation->quantity}} </li>
-				<li> detalles: {{$quotation->details}} </li>
-				<li> unidad: {{$quotation->type_unit}} </li>
-				<li> valor unitario: {{$quotation->unit_value}} </li>
-				<li> valor total: {{$quotation->total_value}} </li>
-				<hr>
-			@endforeach
-		</ul>
+<h2 class= "transformacion1 text-center font-weight-bold">Cuadro comparativo</h2>
+<div class="container">
+	<div class="card border-success mb-3">
+		<div class="card-body">
+			<p class="font-weight-bold" style = "float: left"> ID solicitud:</p>
+			<p>&nbsp {{$petition->id}} </p>
+			<p class="font-weight-bold" style = "float: left"> Emision: </p>
+			<p>&nbsp{{$petition->created_at}} </p>
+			<p class="font-weight-bold" style = "float: left">Unidad solicitante:</p>
+			<p class="text-capitalize"> &nbsp{{$petition->unit->name}} </p>
+			<p class="font-weight-bold" style = "float: left">Nombre solicitante:</p>
+			<p class="text-capitalize">&nbsp {{$petition->user->name}} {{$petition->user->last_name}} </p>
+		</div>
 	</div>
+		<div>
+			<h2 class= "transformacion1 text-center font-weight-bold">Tabla comparativa</h2>
+			<table class="table table-dark table-hover"  border="1">
+			<thead>
+				<tr>
+					<th>Empresa</th>
+					<th>Cantidad</th>
+					<th>Detalles</th>
+					<th>Unidad</th>
+					<th>Valor Unitario</th>
+					<th>Valor Total</th>
+				</tr>
+				<tbody>	
+				@foreach($quotations as $quotation)
+				<tr>
+				
+						<td> {{$quotation->company->name}} </td>
+						<td> {{$quotation->quantity}} </td>
+						<td> {{$quotation->details}} </td>
+						<td> {{$quotation->type_unit}} </td>
+						<td> {{$quotation->unit_value}} </td>
+						<td> {{$quotation->total_value}}  </td>
+					</tr>
+					@endforeach
+				</tbody>
+			</thead>
+			</table>
+		
+		</div>
 
 </div>
 
