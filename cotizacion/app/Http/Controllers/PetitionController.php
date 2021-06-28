@@ -65,14 +65,17 @@ class PetitionController extends Controller
         ]);
 
         $petition_id = Petition::get()->last()->id;
+        $names = $request->input('name');
 
-        Acquisition::create([
-            "petition_id" => $petition_id,
-            "name" => $request->input('name'),
-            "details" => $request->input('details'),
-            "unit_type" => $request->input('unit_type'),
-            "quantity" => $request->input('quantity'),
-        ]);
+        for ($i=0; $i < count($names); $i++) { 
+            Acquisition::create([
+                "petition_id" => $petition_id,
+                "name" => $request->input('name')[$i],
+                "details" => $request->input('details')[$i],
+                "unit_type" => $request->input('unit_type')[$i],
+                "quantity" => $request->input('quantity')[$i],
+            ]);
+        }
 
         return redirect()->route('solicitudes.index');
     }

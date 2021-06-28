@@ -29,12 +29,14 @@
         </tr>
       </thead>
       <tbody>
-          <tr>
-            <td> <input type="text" name="name" id="name" > </td>
-            <td> <input type="text" name="details" id="details" size="25"> </td>
-            <td> <input type="text" name="unit_type" id="unit_type" size="25"> </td>
-            <td> <input type="text" name="quantity" id="quantity" size="25"> </td>
-          </tr>
+          @for ($i = 1; $i <= 2; $i++)
+            <tr>
+              <td> <input type="text" name="name[]" id="name" > </td>
+              <td> <input type="text" name="details[]" id="details" size="25"> </td>
+              <td> <input type="text" name="unit_type[]" id="unit_type" size="25"> </td>
+              <td> <input type="text" name="quantity[]" id="quantity" size="25"> </td>
+            </tr>
+          @endfor
       </tbody>
     </table>
     <br>
@@ -42,6 +44,7 @@
         <button class="btn btn-primary" type="submit">Registrar</button>
     </div>
   </form>
+  estoy aquiiiiiii
 </div>
 
 @stop

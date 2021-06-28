@@ -49,7 +49,7 @@
 	        <input type="text" name="quantity" id="quantity" size="25" required autofocus>
 			</div>
 			<div class="form-group">
-	        <label for="type_unit" class="form-label"><b>Undidad:</b></label>
+	        <label for="type_unit" class="form-label"><b>Unidad:</b></label>
 	        <input type="text" name="type_unit" id="type_unit" size="25" required autofocus>
 			</div>
 			<div class="form-group" style="padding-left: 6px">
