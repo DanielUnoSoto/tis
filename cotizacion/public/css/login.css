@@ -210,7 +210,7 @@
     
     left: 50%;
     top: 140%;
-    transform: translate(-550px, -700px);
+    transform: translate(-50%, -720px);
     border: 2px solid rgb(46, 46, 46);
     padding:  50px;
     margin-top: 5px;

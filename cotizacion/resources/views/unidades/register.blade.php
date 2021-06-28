@@ -5,7 +5,7 @@
 <br>
 <br>
 <br>
-<div class="d-flex justify-content-center text-center containerSecundario">
+<div class="d-flex justify-content-center text-center containerSolicitudCompleto">
   <form method="POST" action="{{ route('unidades.store') }}" class="bg-light">
   <label class="title-inicio">
 		<h2><b>

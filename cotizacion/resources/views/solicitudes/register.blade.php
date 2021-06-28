@@ -2,7 +2,8 @@
 
 @section('mycontent')
 <link href="../css/login.css" rel="stylesheet">
-<div class="d-flex justify-content-center text-center containerSolicitud">
+<script src="https://kit.fontawesome.com/f5ab984d8e.js" crossorigin="anonymous"></script>
+<div class="d-flex justify-content-center text-center containerSolicitudCompleto">
 	<form method="POST" action="{{ route('solicitudes.store') }}" class="bg-light">
     <label class="title-inicio">
       <h2><b> Nueva solicitud </b></h2>
@@ -19,7 +20,9 @@
         <input type="text" name="description" id="description" size="25" required>
     </div>
     <h2><b> Adquirir </b></h2>
-      <table>
+    <button type="button" class="btn btn-primary  rounded-pill" onclick="agregarFila()"><i class="fas fa-plus-square"></i> Agregar fila</button>
+    <button type="button" class="btn btn-primary  rounded-pill" onclick="eliminarFila()"><i class="fas fa-minus-square"></i> Eliminar fila</button>  
+      <table class="table">
       <thead>
         <tr>
           <th>Nombre</th>
@@ -46,5 +49,29 @@
   </form>
   estoy aquiiiiiii
 </div>
+<script>
+  var myTable = document.querySelector("table"); 
+       function agregarFila(){ 
+        var row = myTable.insertRow(myTable.rows.length);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        cell1.innerHTML = '<input type="text" name="name" id="name" >';
+        cell2.innerHTML = '<input type="text" name="details" id="details" size="25">';;
+        cell3.innerHTML = '<input type="text" name="unit_type" id="unit_type" size="25">';;
+        cell4.innerHTML = '<input type="text" name="quantity" id="quantity" size="25">';;
+       }
+  
+       function eliminarFila(){
+        var rowCount = myTable.rows.length;
+        if(rowCount <= 1) {
+          alert('No se puede eliminar el encabezado');
+        } else {
+          myTable.deleteRow(rowCount -1);
+        }
+    
+       }
+</script>
 
 @stop

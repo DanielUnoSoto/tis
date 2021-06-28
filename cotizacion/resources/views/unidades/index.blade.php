@@ -3,8 +3,6 @@
 @section('mycontent')
 <link href="../css/login.css" rel="stylesheet">
 <br>
-<br>
-<br>
 <div>
 	<div>
   <h1 class="d-flex justify-content-center text-center">UNIDADES</h1>
