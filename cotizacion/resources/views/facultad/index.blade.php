@@ -5,7 +5,7 @@
 <br>
 <br>
 <br>
-<div class="d-flex justify-content-center text-center containerPrincipal">
+<div class="d-flex justify-content-center text-center containerSolicitudCompleto">
 	<form class="bg-light">
 	<label class="title-inicio">
 		<h2><b>

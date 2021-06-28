@@ -51,16 +51,16 @@
 		@if(auth('companies')->user())
 		<br>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-				<a class="btn btn-primary" href="{{route('cotizaciones.create', ['id' => $petition->id]) }}">Cotizar</a>		
+				<a class="btn btn-primary" style="background-color: rgb(46, 46, 46)" href="{{route('cotizaciones.create', ['id' => $petition->id]) }}">Cotizar</a>		
 			</div>
 			@else
 			@if(Auth::user()->role->name == 'jefe' && $petition->comment == null)
 				<br>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-center">
 					<div style="padding-right: 5px">
-						<a class="btn btn-primary" href="{{route('solicitudes.index')}}">Atrás</a>
+						<a class="btn btn-primary" style="background-color: rgb(46, 46, 46)" href="{{route('solicitudes.index')}}">Atrás</a>
 					</div>
-					<a class="btn btn-primary" href="{{ route('solicitudes.edit', $petition->id) }}">Responder</a>
+					<a class="btn btn-primary" style="background-color: rgb(46, 46, 46)" href="{{ route('solicitudes.edit', $petition->id) }}">Responder</a>
 				</div>
 			@endif
 		@endif
