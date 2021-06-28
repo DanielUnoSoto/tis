@@ -67,7 +67,7 @@
 			<div class="form-group" style="padding-left: 328px">
 	        <label for="total_value" class="form-label"><b>Valor total:</b></label>
 			<label id="Costo" name="Costo" id="Costo">
-				<input type="text" name="total_value" id="total_value" size="25" disabled required>
+				<input type="text" name="total_value" id="total_value" size="25" readonly >
 			</label>
 			</div>
 			<script>
@@ -83,7 +83,7 @@
 				 // Si se modifico el valor , retornamos la multiplicación
 				 // caso contrario 0
 				 total = (change)? total:0;
-				 document.getElementById('Costo').innerHTML = total;
+				 document.getElementById('total_value').value = total;
 			 }
 			 </script>
 			 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
