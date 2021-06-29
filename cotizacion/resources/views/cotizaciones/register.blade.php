@@ -2,7 +2,7 @@
 
 @section('mycontent')
 <link href="../css/login.css" rel="stylesheet">
-<div class="d-flex justify-content-center  containerCotEmpr">
+<div class="d-flex justify-content-center containerSolicitudCompleto">
 	<form method="POST" action="{{route('cotizaciones.store', ['petition_id' => $petition->id])}}">
 <div>
 	<div class= "transformacion1 text-center font-weight-bold">
@@ -43,33 +43,32 @@
 	<h3 class= "transformacion1 text-center font-weight-bold">Formulario de Cotización</h3>
 		@csrf
 		<br>
-		<div>
-			<div class="form-group" style="padding-left: 340px">
-	        <label for="quantity" class="form-label"><b>Cantidad:</b></label>
-			<label>
-				<input type="text" name="quantity" id="quantity" size="25" class="monto" onkeyup="multi();" required autofocus>
-			</label>
-			</div>
-			<div class="form-group" style="padding-left: 354px">
-	        <label for="type_unit" class="form-label"><b>Unidad:</b></label>
-	        <input type="text" name="type_unit" id="type_unit" size="25" required autofocus>
-			</div>
-			<div class="form-group" style="padding-left: 354px">
-	        <label for="details" class="form-label"><b>Detalle:</b></label>
-	        <input type="text" name="details" id="details" size="25" required autofocus>
-			</div>
-			<div class="form-group" style="padding-left: 304px">
-	        <label for="unit_value" class="form-label"><b>Valor unitario:</b></label>
-			<label>
-				<input type="text" name="unit_value" id="unit_value" size="25" class="monto" onkeyup="multi();" required autofocus>
-			  </label>
-    		</div>
-			<div class="form-group" style="padding-left: 328px">
-	        <label for="total_value" class="form-label"><b>Valor total:</b></label>
-			<label id="Costo" name="Costo" id="Costo">
-				<input type="text" name="total_value" id="total_value" size="25" readonly >
-			</label>
-			</div>
+		<div class="justify-content-center text-center">
+			<button type="button" class="btn btn-primary  rounded-pill" onclick="agregarFila()"><i class="fas fa-plus-square"></i> Agregar fila</button>
+			<button type="button" class="btn btn-primary  rounded-pill" onclick="eliminarFila()"><i class="fas fa-minus-square"></i> Eliminar fila</button>  
+			<table class="miTabla">
+				<thead>
+				  <tr>
+					<th>Cantidad</th>
+					<th>Unidad</th>
+					<th>Detalle</th>
+					<th>Valor unitario</th>
+					<th>Valor total</th>
+				  </tr>
+				</thead>
+				<tbody>
+					<tr>
+					  <td> <input type="text" name="quantity" id="quantity" size="20" class="monto" onkeyup="multi();" required autofocus> </td>
+					  <td> <input type="text" name="type_unit" id="type_unit" size="20" required autofocus> </td>
+					  <td> <input type="text" name="details" id="details" size="20" required autofocus> </td>
+					  <td> <input type="text" name="unit_value" id="unit_value" size="20" class="monto" onkeyup="multi();" required autofocus> </td>
+					  <td> <input type="text" name="total_value" id="total_value" size="20" readonly > </td>
+					</tr>
+				</tbody>
+			  </table>
+			  <br>
+
+
 			<script>
 				function multi(){
 				 var total = 1;
@@ -86,6 +85,32 @@
 				 document.getElementById('total_value').value = total;
 			 }
 			 </script>
+			 <script>
+				var myTable = document.querySelector(".miTabla"); 
+					 function agregarFila(){ 
+					  var row = myTable.insertRow(myTable.rows.length);
+					  var cell1 = row.insertCell(0);
+					  var cell2 = row.insertCell(1);
+					  var cell3 = row.insertCell(2);
+					  var cell4 = row.insertCell(3);
+					  var cell5 = row.insertCell(4);
+					  cell1.innerHTML = '<input type="text" name="quantity" id="quantity" size="20" class="monto" onkeyup="multi();" required autofocus>';
+					  cell2.innerHTML = '<input type="text" name="type_unit" id="type_unit" size="20" required autofocus>';;
+					  cell3.innerHTML = '<input type="text" name="details" id="details" size="20" required autofocus>';;
+					  cell4.innerHTML = '<input type="text" name="unit_value" id="unit_value" size="20" class="monto" onkeyup="multi();" required autofocus>';;
+					  cell5.innerHTML = '<input type="text" name="total_value" id="total_value" size="20" readonly>';;
+					 }
+				
+					 function eliminarFila(){
+					  var rowCount = myTable.rows.length;
+					  if(rowCount <= 1) {
+						alert('No se puede eliminar el encabezado');
+					  } else {
+						myTable.deleteRow(rowCount -1);
+					  }
+				  
+					 }
+			  </script>
 			 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     	</div>
     	<div class="d-grid gap-2 d-md-flex justify-content-md-center">
