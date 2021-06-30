@@ -5,18 +5,19 @@
 <div class="d-flex justify-content-center containerSolicitudCompleto">
 	<form method="POST" action="{{route('cotizaciones.store', ['petition_id' => $petition->id])}}">
 <div>
-	<div class= "transformacion1 text-center font-weight-bold">
-		<h3>Solicitud</h3>
+	<div >
+		<h3 class="transformacion1 text-center font-weight-bold">Solicitud</h3>
 	</div>
 	<br>
-	<div class= "container">
+	<div class= "card border-dark bg-light mb-3" >
+		<div class="card-body">
 		<p class="font-weight-bold" style = "float: left">Título: </p>
-		<p> &nbsp{{$petition->title}}</p>
+		<p> &nbsp{{$petition->title}}</p >
 		<p class="font-weight-bold" style = "float: left">Descripción: </p>
 		<p> &nbsp{{$petition->description}}</p>
-	</div>
-	<table class= "table-dark" width="1000" border="1" >
-		<thead>
+	
+	<table class= "table table-hover table-bordered" >
+		<thead class="thead-dark">
 			<tr>
 				<th>N°</th>
 				<th>Nombre</th>
@@ -27,7 +28,7 @@
 		</thead>
 		<tbody>	
 			@foreach($petition->acquisitions as $acquisition)
-				<tr>
+				<tr >
 					<td>  </td>
 					<td> {{$acquisition->name}} </td>
 					<td> {{$acquisition->details}} </td>
@@ -37,18 +38,30 @@
 			@endforeach
 		</tbody>
 	</table>
+	</div>
+	</div>
 </div>
 <div>
 	<br>
 	<h3 class= "transformacion1 text-center font-weight-bold">Formulario de Cotización</h3>
 		@csrf
 		<br>
-
+<div class= "card border-dark bg-light mb-3" >
+	<div class="card-body">
+	<div class="row align-items-start">
+		<div class="col">
 		<div class="form-group">
-			<label for="petitioner" >solicitante del pedido::</label>
-			<input type="text"  name="petitioner" id="petitioner" size="40" value=" {{$petition->unit->name}}">
+			<label class="font-weight-bold" for="petitioner" >Solicitante del pedido:</label>
+			<input class="text-capitalize form-control" type="text"  name="petitioner" id="petitioner" size="30" value=" {{$petition->unit->name}}  "  readonly>
 		</div>
-		<p>fecha: {{date('Y-m-d')}}</p>
+		</div>
+		<div class="col">
+		<div class="form-group">
+			<label class= "font-weight-bold" for="petitioner" >Fecha:</label>
+			<input class="text-capitalize form-control" type="text"  name="petitioner" id="petitioner" size="30" value=" {{date('Y-m-d')}}" readonly>
+		</div>
+		</div>
+	</div>
 		<div class="justify-content-center text-center">
 			<button type="button" class="btn btn-primary  rounded-pill" onclick="agregarFila()"><i class="fas fa-plus-square"></i> Agregar fila</button>
 			<button type="button" class="btn btn-primary  rounded-pill" onclick="eliminarFila()"><i class="fas fa-minus-square"></i> Eliminar fila</button>  
@@ -73,28 +86,9 @@
 				</tbody>
 			</table>
 			<div class="form-group">
-				<label for="total" >total: </label>
-				<input type="text" name="total" id="total" size="40">
+				<label for="total" >Total: </label>
+				<input class= "form-control"type="text" name="total" id="total" size="40">
 			</div>
-			<br>
-			<div class="form-group">
-				<label for="company_name" >Nombre de la Empresa:</label>
-				<input type="text"  name="company_name" id="company_name" size="40" value=" {{auth('companies')->user()->name}}">
-			</div>
-			<div class="form-group">
-				<label for="company_nit" >No de NIT:</label>
-				<input type="text"  name="company_nit" id="company_nit" size="40" value="{{auth('companies')->user()->nit}}">
-			</div>
-			<div class="form-group">
-				<label for="safeguard" >Garantia(opcional):</label>
-				<input type="text"  name="safeguard" id="safeguard" size="40">
-			</div>
-			<div class="form-group">
-				<label for="company_phone" >Telefono:</label>
-				<input type="text"  name="company_phone" id="company_phone" size="40" value="{{auth('companies')->user()->phone}}">
-			</div>
-
-
 			<script>
 				function multi(){
 				 var total = 1;
@@ -139,15 +133,38 @@
 			  </script>
 			 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     	</div>
-    	<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+    	
+		
+	</form>
+	</div>
+	</div>
+	<div class= "card border-dark bg-light mb-3" >
+		<div class="card-body">
+			<br>
+			<div class="form-group text-start">
+				<label class= "font-weight-bold" for="company_name" >Nombre de la Empresa:</label>
+				<input class="form-control" type="text"  name="company_name" id="company_name" size="40" value=" {{auth('companies')->user()->name}}">
+			</div>
+			<div class="form-group text-start">
+				<label class= "font-weight-bold" for="company_nit" >No de NIT:</label>
+				<input class="form-control" type="text"  name="company_nit" id="company_nit" size="40" value="{{auth('companies')->user()->nit}}">
+			</div>
+			<div class="form-group text-start" >
+				<label class= "font-weight-bold" for="safeguard" >Garantia(opcional):</label>
+				<input class="form-control" type="text"  name="safeguard" id="safeguard" size="40">
+			</div>
+			<div class="form-group text-start">
+				<label class= "font-weight-bold" for="company_phone" >Telefono:</label>
+				<input class="form-control"  type="text"  name="company_phone" id="company_phone" size="40" value="{{auth('companies')->user()->phone}}">
+			</div>
+		</div>
+	</div>
+	<div class="d-grid gap-2 d-md-flex justify-content-md-center">
 			<div style="padding-right: 5px">
 				<a class="btn btn-primary" href="{{ URL::previous() }}">Volver</a>
 			</div>
 			<button class="btn btn-primary" type="submit">Registrar</button>        	
     	</div>
-		
-	</form>
-	
 </div>
 </div>
 
