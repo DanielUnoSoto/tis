@@ -71,18 +71,41 @@
 				<div  class="card text-white bg-dark mb-3">
 					<div class="card-body">
 						<p class="font-weight-bold" style = "float: left">Empresa: </p>
-						<p> &nbsp{{ $quotation->company->name }}</p>
-						<p class="font-weight-bold" style = "float: left">Cantidad: </p>
-						<p> &nbsp{{ $quotation->quantity }}</p>
-						<p class="font-weight-bold" style = "float: left">Unidad: </p>
-						<p> &nbsp{{ $quotation->type_unit }}</p>
-						<p class="font-weight-bold" style = "float: left">Detalles: </p>
-						<p> &nbsp{{ $quotation->details }}</p>
-						<p class="font-weight-bold" style = "float: left">Valor unitario: </p>
-						<p> &nbsp{{ $quotation->unit_value }}</p>
-						<p class="font-weight-bold" style = "float: left">Valor total: </p>
-						<p> &nbsp{{ $quotation->total_value }}</p>
+						<p> &nbsp{{ $quotation->company_name }}</p>
+						<p class="font-weight-bold" style = "float: left">NIT: </p>
+						<p> &nbsp{{ $quotation->company_nit }}</p>
+						<p class="font-weight-bold" style = "float: left">Garantia: </p>
+						<p> &nbsp{{ $quotation->safeguard }}</p>
+						<p class="font-weight-bold" style = "float: left">Telefono: </p>
+						<p> &nbsp{{ $quotation->company_phone }}</p>
 					</div>		
+				</div>
+				<div>
+					<table class= "table table-hover table-bordered"  >
+						<thead class="thead-dark">
+							<tr>
+								<th>N°</th>
+								<th>Cantidad</th>
+								<th>Unidad</th>
+								<th>Detalles</th>
+								<th>Precio Unitario</th>
+								<th>Precio total</th>
+							</tr>
+						</thead>
+						<tbody>	
+							@foreach($quotation->items as $item)
+								<tr>
+									<td>  </td>
+									<td> {{$item->quantity}} </td>
+									<td> {{$item->type_unit}} </td>
+									<td> {{$item->details}} </td>
+									<td> {{$item->unit_value}} </td>
+									<td> {{$item->total_value}} </td>
+								</tr>
+							@endforeach
+						</tbody>
+					</table>
+					<p> TOTAL: {{ $quotation->total }}</p>
 				</div>
 			@endforeach
 			@if(count($quotations) >= 3)

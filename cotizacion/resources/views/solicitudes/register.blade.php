@@ -32,12 +32,12 @@
         </tr>
       </thead>
       <tbody>
-          <tr>
-            <td> <input type="text" name="name" id="name" > </td>
-            <td> <input type="text" name="details" id="details" size="25"> </td>
-            <td> <input type="text" name="unit_type" id="unit_type" size="25"> </td>
-            <td> <input type="text" name="quantity" id="quantity" size="25"> </td>
-          </tr>
+            <tr>
+              <td> <input type="text" name="name[]" id="name" > </td>
+              <td> <input type="text" name="details[]" id="details" size="25"> </td>
+              <td> <input type="text" name="unit_type[]" id="unit_type" size="25"> </td>
+              <td> <input type="text" name="quantity[]" id="quantity" size="25"> </td>
+            </tr>
       </tbody>
     </table>
     <br>
@@ -54,10 +54,10 @@
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
-        cell1.innerHTML = '<input type="text" name="name" id="name" >';
-        cell2.innerHTML = '<input type="text" name="details" id="details" size="25">';;
-        cell3.innerHTML = '<input type="text" name="unit_type" id="unit_type" size="25">';;
-        cell4.innerHTML = '<input type="text" name="quantity" id="quantity" size="25">';;
+        cell1.innerHTML = '<input type="text" name="name[]" id="name" >';
+        cell2.innerHTML = '<input type="text" name="details[]" id="details" size="25">';;
+        cell3.innerHTML = '<input type="text" name="unit_type[]" id="unit_type" size="25">';;
+        cell4.innerHTML = '<input type="text" name="quantity[]" id="quantity" size="25">';;
        }
   
        function eliminarFila(){
