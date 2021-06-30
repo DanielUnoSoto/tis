@@ -52,9 +52,9 @@ class ComparativeController extends Controller
     public function show($id)
     {
         $petition = Petition::where('id', $id)
-                            ->with('unit', 'user')->first();
+                            ->with('unit', 'user', 'acquisitions')->first();
         $quotations = Quotation::where('petition_id', $id)
-                        ->with('company')->get();
+                        ->with('items')->get();
 
         return view('comparaciones.show', compact('petition', 'quotations'));
     }
