@@ -16,12 +16,13 @@ class CreateQuotationsTable extends Migration
         Schema::create('quotations', function (Blueprint $table) {
             $table->id();
             $table->integer('petition_id');
-            $table->integer('company_id');
-            $table->integer('quantity');
-            $table->string('type_unit');
-            $table->string('details');
-            $table->integer('unit_value');
-            $table->integer('total_value');
+            $table->integer('company_id')->nullable();
+            $table->string('petitioner');
+            $table->string('company_name');
+            $table->integer('company_nit');
+            $table->string('safeguard')->nullable();
+            $table->integer('company_phone');
+            $table->integer('total');
             $table->timestamps();
         });
     }

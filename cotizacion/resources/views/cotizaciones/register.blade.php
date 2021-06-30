@@ -43,7 +43,11 @@
 	<h3 class= "transformacion1 text-center font-weight-bold">Formulario de Cotización</h3>
 		@csrf
 		<br>
-		<p>solicitante del pedido: {{$petition->unit->name}}</p>
+
+		<div class="form-group">
+			<label for="petitioner" >solicitante del pedido::</label>
+			<input type="text"  name="petitioner" id="petitioner" size="40" value=" {{$petition->unit->name}}">
+		</div>
 		<p>fecha: {{date('Y-m-d')}}</p>
 		<div class="justify-content-center text-center">
 			<button type="button" class="btn btn-primary  rounded-pill" onclick="agregarFila()"><i class="fas fa-plus-square"></i> Agregar fila</button>
@@ -60,31 +64,33 @@
 				</thead>
 				<tbody>
 					<tr>
-					  <td> <input type="text" name="quantity" id="quantity" size="20" class="monto" onkeyup="multi();" required autofocus> </td>
-					  <td> <input type="text" name="type_unit" id="type_unit" size="20" required autofocus> </td>
-					  <td> <input type="text" name="details" id="details" size="20" required autofocus> </td>
-					  <td> <input type="text" name="unit_value" id="unit_value" size="20" class="monto" onkeyup="multi();" required autofocus> </td>
-					  <td> <input type="text" name="total_value" id="total_value" size="20" readonly > </td>
+					  <td> <input type="text" name="quantity[]" id="quantity" size="20" class="monto" onkeyup="multi();" required autofocus> </td>
+					  <td> <input type="text" name="type_unit[]" id="type_unit" size="20" required autofocus> </td>
+					  <td> <input type="text" name="details[]" id="details" size="20" required autofocus> </td>
+					  <td> <input type="text" name="unit_value[]" id="unit_value" size="20" class="monto" onkeyup="multi();" required autofocus> </td>
+					  <td> <input type="text" name="total_value[]" id="total_value" size="20"> </td>
 					</tr>
 				</tbody>
 			</table>
 			<br>
 			<div class="form-group">
-				<label for="inputPassword4" >Nombre de la Empresa:</label>
-				<input type="text"  name="password" id="inputPassword4" size="40" value=" {{auth('companies')->user()->name}}">
+				<label for="company_name" >Nombre de la Empresa:</label>
+				<input type="text"  name="company_name" id="company_name" size="40" value=" {{auth('companies')->user()->name}}">
 			</div>
 			<div class="form-group">
-				<label for="inputPassword4" >No de NIT:</label>
-				<input type="text"  name="password" id="inputPassword4" size="40" value="{{auth('companies')->user()->nit}}">
+				<label for="company_nit" >No de NIT:</label>
+				<input type="text"  name="company_nit" id="company_nit" size="40" value="{{auth('companies')->user()->nit}}">
 			</div>
 			<div class="form-group">
-				<label for="inputPassword4" >Garantia(opcional):</label>
-				<input type="text"  name="password" id="inputPassword4" size="40">
+				<label for="safeguard" >Garantia(opcional):</label>
+				<input type="text"  name="safeguard" id="safeguard" size="40">
 			</div>
 			<div class="form-group">
-				<label for="inputPassword4" >Telefono:</label>
-				<input type="text"  name="password" id="inputPassword4" size="40" value="{{auth('companies')->user()->phone}}">
+				<label for="company_phone" >Telefono:</label>
+				<input type="text"  name="company_phone" id="company_phone" size="40" value="{{auth('companies')->user()->phone}}">
 			</div>
+
+
 			<script>
 				function multi(){
 				 var total = 1;
@@ -110,11 +116,11 @@
 					  var cell3 = row.insertCell(2);
 					  var cell4 = row.insertCell(3);
 					  var cell5 = row.insertCell(4);
-					  cell1.innerHTML = '<input type="text" name="quantity" id="quantity" size="20" class="monto" onkeyup="multi();" required autofocus>';
-					  cell2.innerHTML = '<input type="text" name="type_unit" id="type_unit" size="20" required autofocus>';;
-					  cell3.innerHTML = '<input type="text" name="details" id="details" size="20" required autofocus>';;
-					  cell4.innerHTML = '<input type="text" name="unit_value" id="unit_value" size="20" class="monto" onkeyup="multi();" required autofocus>';;
-					  cell5.innerHTML = '<input type="text" name="total_value" id="total_value" size="20" readonly>';;
+					  cell1.innerHTML = '<input type="text" name="quantity[]" id="quantity" size="20" class="monto" onkeyup="multi();" required autofocus>';
+					  cell2.innerHTML = '<input type="text" name="type_unit[]" id="type_unit" size="20" required autofocus>';;
+					  cell3.innerHTML = '<input type="text" name="details[]" id="details" size="20" required autofocus>';;
+					  cell4.innerHTML = '<input type="text" name="unit_value[]" id="unit_value" size="20" class="monto" onkeyup="multi();" required autofocus>';;
+					  cell5.innerHTML = '<input type="text" name="total_value[]" id="total_value" size="20">';;
 					 }
 				
 					 function eliminarFila(){

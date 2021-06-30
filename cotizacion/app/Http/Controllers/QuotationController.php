@@ -53,16 +53,17 @@ class QuotationController extends Controller
         //estoy reciviendo el id de la solicitud por la url
         //la creo como un array en el action del form [id => $petition_id]
         //$request->get('petition_id')
+        dd($request->all());
 
         $company_id = auth('companies')->user()->id;
         Quotation::create([
             "petition_id" => $request->input('petition_id'),
             "company_id" => $company_id,
-            "quantity" => $request->input('quantity'),
-            "type_unit" => $request->input('type_unit'),
-            "details" => $request->input('details'),
-            "unit_value" => $request->input('unit_value'),
-            "total_value" => $request->input('total_value'),
+            "petitioner" => $request->input('quantity'),
+            "company_name" => $request->input('type_unit'),
+            "safeguard" => $request->input('details'),
+            "company_phone" => $request->input('unit_value'),
+            "total" => $request->input('total_value'),
         ]);
 
         return redirect()->route('solicitudes.index');
