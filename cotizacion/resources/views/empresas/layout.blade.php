@@ -39,9 +39,6 @@
 		  </li>
 	    </ul>
   		</div>
-
-  		
-
 	</nav>
     @yield('mycontent')
 </body>

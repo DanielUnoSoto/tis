@@ -43,6 +43,8 @@
 	<h3 class= "transformacion1 text-center font-weight-bold">Formulario de Cotización</h3>
 		@csrf
 		<br>
+		<p>solicitante del pedido: {{$petition->unit->name}}</p>
+		<p>fecha: {{date('Y-m-d')}}</p>
 		<div class="justify-content-center text-center">
 			<button type="button" class="btn btn-primary  rounded-pill" onclick="agregarFila()"><i class="fas fa-plus-square"></i> Agregar fila</button>
 			<button type="button" class="btn btn-primary  rounded-pill" onclick="eliminarFila()"><i class="fas fa-minus-square"></i> Eliminar fila</button>  
@@ -65,10 +67,24 @@
 					  <td> <input type="text" name="total_value" id="total_value" size="20" readonly > </td>
 					</tr>
 				</tbody>
-			  </table>
-			  <br>
-
-
+			</table>
+			<br>
+			<div class="form-group">
+				<label for="inputPassword4" >Nombre de la Empresa:</label>
+				<input type="text"  name="password" id="inputPassword4" size="40" value=" {{auth('companies')->user()->name}}">
+			</div>
+			<div class="form-group">
+				<label for="inputPassword4" >No de NIT:</label>
+				<input type="text"  name="password" id="inputPassword4" size="40" value="{{auth('companies')->user()->nit}}">
+			</div>
+			<div class="form-group">
+				<label for="inputPassword4" >Garantia(opcional):</label>
+				<input type="text"  name="password" id="inputPassword4" size="40">
+			</div>
+			<div class="form-group">
+				<label for="inputPassword4" >Telefono:</label>
+				<input type="text"  name="password" id="inputPassword4" size="40" value="{{auth('companies')->user()->phone}}">
+			</div>
 			<script>
 				function multi(){
 				 var total = 1;
