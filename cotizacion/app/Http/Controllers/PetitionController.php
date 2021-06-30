@@ -92,7 +92,7 @@ class PetitionController extends Controller
                                 ->with('acquisitions','user','unit')
                                 ->first();
 
-        $quotations = Quotation::where('petition_id', $id)->with('company')->get();
+        $quotations = Quotation::where('petition_id', $id)->with('items')->get();
 
         if (auth('companies')->user()) {
             $navbar = 'empresas.layout';

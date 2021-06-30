@@ -12,7 +12,6 @@ class Item extends Model
 	}
 
 	protected $fillable = [
-    	'quotation_id''quantity', 'type_unit', 'details', 'unit_value', 'total_value'
+    	'quotation_id','quantity', 'type_unit', 'details', 'unit_value', 'total_value'
    	];
 }
-1

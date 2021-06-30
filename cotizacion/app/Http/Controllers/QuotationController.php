@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Quotation;
 use App\Petition;
-
+use App\Item;
 class QuotationController extends Controller
 {
     /**
@@ -53,18 +53,33 @@ class QuotationController extends Controller
         //estoy reciviendo el id de la solicitud por la url
         //la creo como un array en el action del form [id => $petition_id]
         //$request->get('petition_id')
-        dd($request->all());
 
         $company_id = auth('companies')->user()->id;
         Quotation::create([
             "petition_id" => $request->input('petition_id'),
             "company_id" => $company_id,
-            "petitioner" => $request->input('quantity'),
-            "company_name" => $request->input('type_unit'),
-            "safeguard" => $request->input('details'),
-            "company_phone" => $request->input('unit_value'),
-            "total" => $request->input('total_value'),
+            "petitioner" => $request->input('petitioner'),
+            "company_name" => $request->input('company_name'),
+            "company_nit" => $request->input('company_nit'),
+            "safeguard" => $request->input('safeguard'),
+            "company_phone" => $request->input('company_phone'),
+            "total" => $request->input('total'),
         ]);
+
+
+        $quotation_id = Quotation::get()->last()->id;
+        $items = $request->input('quantity');
+
+        for ($i=0; $i < count($items); $i++) { 
+            Item::create([
+                "quotation_id" => $quotation_id,
+                "quantity" => $request->input('quantity')[$i],
+                "type_unit" => $request->input('type_unit')[$i],
+                "details" => $request->input('details')[$i],
+                "unit_value" => $request->input('unit_value')[$i],
+                "total_value" => $request->input('total_value')[$i],
+            ]);
+        }
 
         return redirect()->route('solicitudes.index');
     }

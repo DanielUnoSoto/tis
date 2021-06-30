@@ -72,6 +72,10 @@
 					</tr>
 				</tbody>
 			</table>
+			<div class="form-group">
+				<label for="total" >total: </label>
+				<input type="text" name="total" id="total" size="40">
+			</div>
 			<br>
 			<div class="form-group">
 				<label for="company_name" >Nombre de la Empresa:</label>
