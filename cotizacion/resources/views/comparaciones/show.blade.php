@@ -16,6 +16,20 @@
 			<p class="text-capitalize">&nbsp {{$petition->user->name}} {{$petition->user->last_name}} </p>
 		</div>
 	</div>
+	<div>
+		<p>aquisiciones de una solicitud:</p>
+		@foreach($petition->acquisitions as $acquisition)
+			<p> {{$acquisition->name}},{{$acquisition->details}},{{$acquisition->unit_type}}, {{$acquisition->quantity}} </p>
+		@endforeach
+		<p>COTIZACIONES</p>
+		@foreach($quotations as $quotation)
+			<p> empresa: {{$quotation->company->name}} </p>
+			@foreach($quotation->items as $item)
+				<p> cantidad: {{$item->quantity}},valor unitatio: {{$item->unit_value}} valor total: {{$item->total_value}}</p>
+			@endforeach
+			<hr>
+		@endforeach
+	</div>
 		<div>
 			<h2 class= "transformacion1 text-center font-weight-bold">Tabla comparativa</h2>
 			<table class="table table-hover table-bordered"  >
