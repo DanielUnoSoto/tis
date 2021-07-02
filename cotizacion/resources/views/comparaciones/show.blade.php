@@ -16,39 +16,63 @@
 			<p class="text-capitalize">&nbsp {{$petition->user->name}} {{$petition->user->last_name}} </p>
 		</div>
 	</div>
+	<div>
+		<p>aquisiciones de una solicitud:</p>
+		@foreach($petition->acquisitions as $acquisition)
+			<p> {{$acquisition->name}},{{$acquisition->details}},{{$acquisition->unit_type}}, {{$acquisition->quantity}} </p>
+		@endforeach
+		<p>COTIZACIONES</p>
+		@foreach($quotations as $quotation)
+			<p> empresa: {{$quotation->company->name}} </p>
+			@foreach($quotation->items as $item)
+				<p> cantidad: {{$item->quantity}},valor unitatio: {{$item->unit_value}} valor total: {{$item->total_value}}</p>
+			@endforeach
+			<hr>
+		@endforeach
+	</div>
 		<div>
 			<h2 class= "transformacion1 text-center font-weight-bold">Tabla comparativa</h2>
 			<table class="table table-hover table-bordered"  >
 			<thead class="thead-dark">
 				<tr>
+					<th>Empresa</th>
 					<th>Cantidad</th>
+					<th>Detalles</th>
 					<th>Unidad</th>
-					<th>Producto</th>
-					@foreach($quotations as $quotation)
-						<th>{{$quotation->company_name}}</th>
-					@endforeach
+					<th>Valor Unitario</th>
+					<th>Valor Total</th>
 				</tr>
 				<tbody>	
-					@foreach($petition->acquisitions as $acquisition)
-						<tr class="table-success">
-							<td> {{$acquisition->quantity}} </td>
-							<td> {{$acquisition->unit_type}} </td>
-							<td> {{$acquisition->details}} </td>
-						</tr>
-					@endforeach
-					@foreach($quotations as $quotation)
-							@foreach($quotation->items as $item)
-								<td> {{$item->total_value}} </td>
-							@endforeach
-					@endforeach
-					<tr>
-						<td> TOTAL: </td>
-						<td></td>
-						<td></td>
-						@foreach($quotations as $quotation)
-							<td>{{$quotation->total}}</td>
-						@endforeach
+				@foreach($quotations as $quotation)
+				<?php
+					foreach ($quotations as $k => $v) {
+						$tArray[$k] = $v['total_value'];
+					}
+					$min_value = min($tArray);
+					$max_value = max($tArray);
+				?>
+				@if($min_value == $quotation->total_value)
+				<tr class="table-success">
+				
+						<td> {{$quotation->company->name}} </td>
+						<td> {{$quotation->quantity}} </td>
+						<td> {{$quotation->details}} </td>
+						<td> {{$quotation->type_unit}} </td>
+						<td> {{$quotation->unit_value}} </td>
+						<td> {{$quotation->total_value}}  </td>
 					</tr>
+				@else
+				<tr>
+				
+						<td> {{$quotation->company->name}} </td>
+						<td> {{$quotation->quantity}} </td>
+						<td> {{$quotation->details}} </td>
+						<td> {{$quotation->type_unit}} </td>
+						<td> {{$quotation->unit_value}} </td>
+						<td> {{$quotation->total_value}}  </td>
+					</tr>
+				@endif
+					@endforeach
 				</tbody>
 			</thead>
 			</table>
