@@ -2,7 +2,7 @@
 
 @section('mycontent')
 <link href="../css/login.css" rel="stylesheet">
-<div class="d-flex justify-content-center text-center containerPrincipal">
+<div class="d-flex justify-content-center text-center containerSolicitudCompleto">
   <form method="POST" action="{{ route('facultades.store') }}" class="bg-light">
     <label class="title-inicio">
       <h2><b>

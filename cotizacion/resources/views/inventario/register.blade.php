@@ -12,24 +12,24 @@
 			@csrf
 			<div class="form-group">
 				<br>
-			  <label for="title" class="form-label">Título:</label>
+			  <label for="title" class="form-label"><b>Título:</b></label>
 			  <input type="text" name="title" id="title" size="25" required autofocus>
 			</div>
 
-			<div class="form-group">
+			<div class="form-group" style="padding-right: 42px">
 				<br>
-			  <label for="description" class="form-label">Descripción:</label>
+			  <label for="description" class="form-label"><b>Descripción:</b></label>
 			  <input type="text" name="description" id="description" size="25" required autofocus>
 			</div>
 
 			<div class="form-group">
 				<br>
-			  	<label for="year" class="form-label">Año:</label>
+			  	<label for="year" class="form-label"><b>Año:</b></label>
 			  	<input type="number" name="year" id="year" size="25" required autofocus>
 			</div>
 
 			<div class="form-group">
-				<label for="inputRol" class="form-label">Unidad:</label>
+				<label for="inputRol" class="form-label"><b>Unidad:</b></label>
 				<select class="form-select" name="unit_id">
 					<option  value="{{$unit->id}}">{{$unit->name}}</option>
 				</select>

@@ -33,7 +33,7 @@
   color:rgb(255, 255, 255)
 }
 .btn-primary:active {
-  background: rgb(2, 173, 185);
+  background: rgb(51, 73, 75);
   border-color: rgba(124, 210, 250, 0.623);
   color:white
 }

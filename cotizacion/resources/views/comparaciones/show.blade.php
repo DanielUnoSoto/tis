@@ -62,7 +62,16 @@
 				</tbody>
 			</thead>
 			</table>
-		
+		<div class="text-center justufy-content-center">
+			<select class="form-select" aria-label=".form-select-sm example" name="">
+				<option selected></option>
+				@foreach($quotations as $quotation)
+					<option value="{{$quotation->company->name}}">{{$quotation->company->name}}</option>
+				@endforeach
+			</select>
+			<br> <br>
+			<button class="btn btn-primary" style="background-color: rgb(46, 46, 46)">Enviar</button>
+		</div>
 		</div>
 
 </div>
