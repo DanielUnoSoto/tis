@@ -30,6 +30,36 @@
 			<hr>
 		@endforeach
 	</div>
+	<div>
+		<h2 class= "transformacion1 text-center font-weight-bold">Tabla comparativa</h2>
+		<table class="table table-hover table-bordered">
+			<thead class="thead-dark">
+				<tr>
+				<th>Nombre</th>
+				<th>Cantidad</th>
+				<th>Detalles</th>
+				<th>Unidad</th>
+				@foreach ($quotations as $quotation)
+				<th>{{$quotation->company->name}}</th>
+				@endforeach
+				</tr>
+			</thead>
+				<tbody>
+				@foreach ($petition->acquisitions as $acquisition)
+					<tr>
+						<td>{{$acquisition->name}}</td>
+						<td>{{$acquisition->quantity}}</td>
+						<td>{{$acquisition->details}}</td>
+						<td>{{$acquisition->unit_type}}</td>
+						@foreach ($quotations as $quotation)
+							<td>{{$item->total_value}}</td>
+							
+						@endforeach
+				@endforeach	
+					</tr>
+				</tbody>
+		</table>
+	</div>
 		<div>
 			<h2 class= "transformacion1 text-center font-weight-bold">Tabla comparativa</h2>
 			<table class="table table-hover table-bordered"  >
