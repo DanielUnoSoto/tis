@@ -63,8 +63,6 @@
 		</div>
 	</div>
 		<div class="justify-content-center text-center">
-			<button type="button" class="btn btn-primary  rounded-pill" onclick="agregarFila()"><i class="fas fa-plus-square"></i> Agregar fila</button>
-			<button type="button" class="btn btn-primary  rounded-pill" onclick="eliminarFila()"><i class="fas fa-minus-square"></i> Eliminar fila</button>  
 			<table class="miTabla">
 				<thead>
 				  <tr>
@@ -76,13 +74,15 @@
 				  </tr>
 				</thead>
 				<tbody>
-					<tr>
-					  <td> <input type="text" name="quantity[]" id="quantity" size="20" class="monto" onkeyup="multi();" required autofocus> </td>
-					  <td> <input type="text" name="type_unit[]" id="type_unit" size="20" required autofocus> </td>
-					  <td> <input type="text" name="details[]" id="details" size="20" required autofocus> </td>
-					  <td> <input type="text" name="unit_value[]" id="unit_value" size="20" class="monto" onkeyup="multi();" required autofocus> </td>
-					  <td> <input type="text" name="total_value[]" id="total_value" size="20"> </td>
-					</tr>
+					@foreach($petition->acquisitions as $acquisition)
+						<tr>
+						  <td> <input type="text" name="quantity[]" id="quantity" size="20"  value="{{$acquisition->quantity}}" class="monto" required autofocus> </td>
+						  <td> <input type="text" name="type_unit[]" id="type_unit" value="{{$acquisition->unit_type}}" size="20" required autofocus> </td>
+						  <td> <input type="text" name="details[]" id="details" size="20" required autofocus> </td>
+						  <td> <input type="text" name="unit_value[]" id="unit_value" size="20" class="monto" required autofocus> </td>
+						  <td> <input type="text" name="total_value[]" id="total_value" size="20"> </td>
+						</tr>
+					@endforeach
 				</tbody>
 			</table>
 			<div class="form-group">
@@ -105,32 +105,6 @@
 				 document.getElementById('total_value').value = total;
 			 }
 			 </script>
-			 <script>
-				var myTable = document.querySelector(".miTabla"); 
-					 function agregarFila(){ 
-					  var row = myTable.insertRow(myTable.rows.length);
-					  var cell1 = row.insertCell(0);
-					  var cell2 = row.insertCell(1);
-					  var cell3 = row.insertCell(2);
-					  var cell4 = row.insertCell(3);
-					  var cell5 = row.insertCell(4);
-					  cell1.innerHTML = '<input type="text" name="quantity[]" id="quantity" size="20" class="monto" onkeyup="multi();" required autofocus>';
-					  cell2.innerHTML = '<input type="text" name="type_unit[]" id="type_unit" size="20" required autofocus>';;
-					  cell3.innerHTML = '<input type="text" name="details[]" id="details" size="20" required autofocus>';;
-					  cell4.innerHTML = '<input type="text" name="unit_value[]" id="unit_value" size="20" class="monto" onkeyup="multi();" required autofocus>';;
-					  cell5.innerHTML = '<input type="text" name="total_value[]" id="total_value" size="20">';;
-					 }
-				
-					 function eliminarFila(){
-					  var rowCount = myTable.rows.length;
-					  if(rowCount <= 1) {
-						alert('No se puede eliminar el encabezado');
-					  } else {
-						myTable.deleteRow(rowCount -1);
-					  }
-				  
-					 }
-			  </script>
 			 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     	</div>
     	

@@ -49,11 +49,11 @@
 			</tbody>
 		</table>
 		@if(auth('companies')->user())
-		<br>
+			<br>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-center">
 				<a class="btn btn-primary" style="background-color: rgb(46, 46, 46)" href="{{route('cotizaciones.create', ['id' => $petition->id]) }}">Cotizar</a>		
 			</div>
-			@else
+		@else
 			@if(Auth::user()->role->name == 'jefe' && $petition->comment == null)
 				<br>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-center">
