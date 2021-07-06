@@ -77,19 +77,19 @@
 				<tbody id="contenedor">
 					@foreach ($petition->acquisitions as $acquisition)
 					<tr id="datos2">
-						<td> <input type="text" name="quantity[]" id="quantity" size="20" required autofocus class="cantidad" readonly value="{{$acquisition->quantity}}"></td>
-						<td> <input type="text" name="type_unit[]" id="type_unit" size="20" required autofocus readonly value="{{{$acquisition->unit_type}}}"></td>
-						<td> <input type="text" name="details[]" id="details" size="20" required autofocus> </td>
-						<td> <input   contenteditable type="text" name="unit_value[]" id="unit_value" size="20" required autofocus class="preuni"></td>
-						<td> <input class="total" type="text" name="total_value[]" id="total_value" size="20" readonly> </td>
+						<td> <input type="text" name="quantity[]" id="quantity" size="10" required class="cantidad" readonly value="{{$acquisition->quantity}}"></td>
+						<td> <input type="text" name="type_unit[]" id="type_unit" size="18" required readonly value="{{{$acquisition->unit_type}}}"></td>
+						<td> <input type="text" name="details[]" id="details" size="42" required autofocus> </td>
+						<td> <input type="text" name="unit_value[]" id="unit_value" size="10" required autofocus class="preuni"></td>
+						<td> <input class="total" type="text" name="total_value[]" id="total_value" size="10" readonly> </td>
 					  </tr>	
 					@endforeach
 				</tbody>
 			</table>
 			<br>
 			<div>
-				<b>Total:</b> 
-				<span id="gran-total" class= "form-control" type="text" name="total" id="gran-total" size="40">0</span>
+				<b>Total:</b>
+				<input type="text" id="gran-total" class="" type="text" name="total" size="22" required readonly> 
 			</div>
 			
 			<script>
@@ -126,10 +126,8 @@
 			});
 
 			function multiplicar(e) {
-				//datos=$("#datos2");
 				let p = $(e.target).closest('tr');
 				// Obtener contenedor desde el elemento que cambió
-			// let p = datos.closest('tr');
 				
 				// Usar .find() para obtener cantidad, precio y total
 				let m1 = parseFloat($(p).find(".cantidad").val()) || 0;
@@ -145,7 +143,7 @@
 				// Recorrer totales para sumar
 				$.each($('.total'), (index, item) => total += parseInt($(item).val()) || 0);
 				// Mostrar total
-				$('#gran-total').text(total);
+				$('#gran-total').val(total);
 			}
 			 </script>
     	</div>
