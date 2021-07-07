@@ -116,7 +116,12 @@
 				@endforeach
 			</select>
 			<br> <br>
-			<button class="btn btn-primary" style="background-color: rgb(46, 46, 46)">Enviar</button>
+			<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+				<div style="padding-right: 5px">
+					<a class="btn btn-primary" style="background-color: rgb(46, 46, 46)" href="{{route('comparaciones.index')}}">Atrás</a>
+				</div>
+				<button class="btn btn-primary" style="background-color: rgb(46, 46, 46)">Enviar</button>
+			</div>
 		</div>
 		</div>
 

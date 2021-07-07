@@ -46,7 +46,7 @@
         <a class="nav-link" href=" {{route('comparaciones.index')}} ">Cuadro Comparativo</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Solicitudes</a>
+        <a class="nav-link" href="{{route('recibidos.index')}}">Solicitudes</a>
       </li>
       
 {{--        <li class="nav-item dropdown">

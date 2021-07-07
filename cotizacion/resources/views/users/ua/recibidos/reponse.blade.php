@@ -1,9 +1,9 @@
-@extends('users.ug.layout')
+@extends('users.ua.layout')
 
 @section('mycontent')
 <link href="../../css/login.css" rel="stylesheet">
 <div class="d-flex justify-content-center text-center containerSolicitudCompleto">
-	<form method="POST" action="{{ route('solicitudes.update', $petition->id) }}" class="bg-light">
+	<form method="POST" action="{{ route('recibidos.update', $petition->id) }}" class="bg-light">
 	<div>
 		<h4 style="display: inline; padding: 54px; padding-left: 0px">Id solicitud: {{$petition->id}}</h4>
 		<h4 style="display: inline; padding: 54px; padding-right: 0px">Fecha: {{$petition->created_at}}</h4>
