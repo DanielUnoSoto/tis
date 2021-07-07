@@ -60,6 +60,17 @@
 						@endforeach	
 					</tr>
 				</tbody>
+				<tfoot>
+					<tr>
+						<td><b>TOTAL:</b></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						@foreach ($quotations as $quotation)
+							<td class="datos">{{$quotation->total}}</td>
+						@endforeach
+					</tr>
+				</tfoot>
 		</table>
 	</div>
 		<div>
@@ -124,11 +135,25 @@
 			</div>
 		</div>
 		</div>
+		
+</div>
+</div>
+<script>
+	//var input = document.getElementById("valorTotal").style.color="black";
+	var datos = [document.getElementsByClassName("datos").innerText];
+	let numeros = [1,2,3,4,5,10];
+	console.log(Math.min.apply(null, numeros));
+	console.log(datos);
+	var x = document.getElementsByClassName("datos");
+var y = document.getElementsByClassName("datos");
 
-</div>
-</div>
-<script type="text/javascript">
-	var input = document.getElementById("valorTotal").style.color="black"; 				
+for (var  i = 0; i < x.length; i++){
+  var text = y[i].innerText;
+  // text es una variable que va cambiando su valor a medida que se ejecuta el bucle
+  console.log(text);
+  console.log(Math.min(text));
+}
+var z = Math.min(text);
+  console.log(z);
 </script>
-
 @stop
