@@ -41,3 +41,5 @@ Route::resource('cotizaciones', 'QuotationController');
 
 Route::resource('comparaciones', 'ComparativeController');
 
+Route::resource('recibidos', 'ReceivedController');
+

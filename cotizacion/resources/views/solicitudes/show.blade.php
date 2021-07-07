@@ -10,6 +10,8 @@
 	<br>
 	<div class="card border-dark mb-3">
 			<div class="card-body">
+			<p class="font-weight-bold" style = "float: left">Fecha: </p>
+			<p> &nbsp{{$petition->created_at}}</p>
 			<p class="font-weight-bold" style = "float: left">Descripcion: </p>
 			<p> &nbsp{{$petition->description}}</p>
 			<p class="font-weight-bold" style = "float: left">Solicitante:  </p>
@@ -53,16 +55,6 @@
 			<div class="d-grid gap-2 d-md-flex justify-content-md-center">
 				<a class="btn btn-primary" style="background-color: rgb(46, 46, 46)" href="{{route('cotizaciones.create', ['id' => $petition->id]) }}">Cotizar</a>		
 			</div>
-		@else
-			@if(Auth::user()->role->name == 'jefe' && $petition->comment == null)
-				<br>
-				<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-					<div style="padding-right: 5px">
-						<a class="btn btn-primary" style="background-color: rgb(46, 46, 46)" href="{{route('solicitudes.index')}}">Atrás</a>
-					</div>
-					<a class="btn btn-primary" style="background-color: rgb(46, 46, 46)" href="{{ route('solicitudes.edit', $petition->id) }}">Responder</a>
-				</div>
-			@endif
 		@endif
 		<br>
 		@if(Auth::user() && $petition->state->name == 'aceptado')	
@@ -117,7 +109,6 @@
 						Enviar
 					</button>
 				</div>
-				
 				</form>
 			@endif
 		@endif
