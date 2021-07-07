@@ -25,7 +25,7 @@
 		@foreach($quotations as $quotation)
 			<p> empresa: {{$quotation->company->name}} </p>
 			@foreach($quotation->items as $item)
-				<p> cantidad: {{$item->quantity}},valor unitatio: {{$item->unit_value}} valor total: {{$item->total_value}}</p>
+				<p> cantidad: {{$item->quantity}},valor unitario: {{$item->unit_value}} valor total: {{$item->total_value}}</p>
 			@endforeach
 			<hr>
 		@endforeach
@@ -51,11 +51,13 @@
 						<td>{{$acquisition->quantity}}</td>
 						<td>{{$acquisition->details}}</td>
 						<td>{{$acquisition->unit_type}}</td>
+				
 						@foreach ($quotations as $quotation)
+							@foreach ($quotation->items as $item)
 							<td>{{$item->total_value}}</td>
-							
+							@endforeach							
 						@endforeach
-				@endforeach	
+						@endforeach	
 					</tr>
 				</tbody>
 		</table>
