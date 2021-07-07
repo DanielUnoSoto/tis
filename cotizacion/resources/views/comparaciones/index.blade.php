@@ -20,9 +20,6 @@
 					<ul>
 						<b>Unidad:</b> {{$petition->unit->name}}
 					</ul>
-					<ul>
-						<b>Estado:</b> {{$petition->state->name}}
-					</ul>
 					<div class="d-grid gap-2 d-md-flex justify-content-md-center">
 					<a class="btn btn-primary" href=" {{route('comparaciones.show', $petition->id)}} ">Crear</a>
 					</div>

@@ -10,7 +10,7 @@
 	<br>
 	<div class="card border-dark mb-3">
 			<div class="card-body">
-				<p class="font-weight-bold" style = "float: left">Fecha: </p>
+			<p class="font-weight-bold" style = "float: left">Fecha: </p>
 			<p> &nbsp{{$petition->created_at}}</p>
 			<p class="font-weight-bold" style = "float: left">Descripcion: </p>
 			<p> &nbsp{{$petition->description}}</p>

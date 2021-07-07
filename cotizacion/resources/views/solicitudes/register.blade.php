@@ -35,7 +35,13 @@
             <tr>
               <td> <input type="text" name="name[]" id="name" > </td>
               <td> <input type="text" name="details[]" id="details" size="25"> </td>
-              <td> <input type="text" name="unit_type[]" id="unit_type" size="25"> </td>
+              <td> {{-- <input type="text" name="unit_type[]" id="unit_type" size="25"> --}}
+                <select class="form-select" name="unit_type[]">
+                    <option selected></option>
+                    <option value="pieza">pieza</option>
+                    <option value="paquete">paquete</option>
+                </select>
+              </td>
               <td> <input type="text" name="quantity[]" id="quantity" size="25"> </td>
             </tr>
       </tbody>
@@ -56,7 +62,7 @@
         var cell4 = row.insertCell(3);
         cell1.innerHTML = '<input type="text" name="name[]" id="name" >';
         cell2.innerHTML = '<input type="text" name="details[]" id="details" size="25">';;
-        cell3.innerHTML = '<input type="text" name="unit_type[]" id="unit_type" size="25">';;
+        cell3.innerHTML = '<select class="form-select" name="unit_type[]"><option selected></option><option value="pieza">pieza</option><option value="paquete">paquete</option></select>';;
         cell4.innerHTML = '<input type="text" name="quantity[]" id="quantity" size="25">';;
        }
   
