@@ -48,7 +48,7 @@ class ReceivedController extends Controller
                                 ->with('acquisitions','user','unit')
                                 ->first();
         
-        return view('users.ua.recibidos.show', compact('petition', 'quotations'));
+        return view('users.ua.recibidos.show', compact('petition'));
     }
 
     /**
