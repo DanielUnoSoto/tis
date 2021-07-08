@@ -81,7 +81,7 @@
 					<tr id="datos2">
 						<td> <input type="text" name="quantity[]" id="quantity" size="10" required class="cantidad" readonly value="{{$acquisition->quantity}}"></td>
 						<td> <input type="text" name="type_unit[]" id="type_unit" size="18" required readonly value="{{{$acquisition->unit_type}}}"></td>
-						<td> <input type="text" name="details[]" id="details" size="42" required autofocus> </td>
+				<td> <input type="text" name="details[]" id="details" size="42" value="{{$acquisition->details}}" required autofocus> </td>
 						<td> <input type="text" name="unit_value[]" id="unit_value" size="10" required autofocus class="preuni"></td>
 						<td> <input class="total" type="text" name="total_value[]" id="total_value" size="10" readonly> </td>
 					  </tr>	
