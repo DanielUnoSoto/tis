@@ -60,8 +60,7 @@
 		</div>
 		<div class="col">
 		<div class="form-group">
-			<label class= "font-weight-bold" for="petitioner" >Fecha:</label>
-			<input class="text-capitalize form-control" type="text"  name="petitioner" id="petitioner" size="30" value=" {{date('Y-m-d')}}" readonly>
+			<label class= "font-weight-bold" for="petitioner" >Fecha: {{date('Y-m-d')}}</label>
 		</div>
 		</div>
 	</div>

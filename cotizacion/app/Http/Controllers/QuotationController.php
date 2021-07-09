@@ -16,12 +16,19 @@ class QuotationController extends Controller
      */
     public function index()
     {
-
+        $petitions = array();
         $company_id = auth('companies')->user()->id;
 
-        $quotations = Quotation::where('company_id', $company_id)->get();
+        $quotations = Quotation::get()->where('company_id', $company_id);
+        foreach ($quotations as $quotation) {
+            $petition = Petition::with('state')->get()->where('id', $quotation->petition_id)
+                                ->where('state.name', 'aprobado')->first();
+            if ($petition != null) {
+                array_push($petitions, $petition);
+            }
+        }
 
-        return view('cotizaciones.index', compact('quotations'));
+        return view('cotizaciones.index', compact('petitions'));
     }
 
     /**

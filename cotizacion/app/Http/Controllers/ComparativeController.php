@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Petition;
 use App\PetitionState;
 use App\Quotation;
@@ -51,12 +52,18 @@ class ComparativeController extends Controller
      */
     public function show($id)
     {
+        $navbar = 'users.ua.layout';
         $petition = Petition::where('id', $id)
                             ->with('unit', 'user', 'acquisitions')->first();
         $quotations = Quotation::where('petition_id', $id)
                         ->with('items')->get();
 
-        return view('comparaciones.show', compact('petition', 'quotations'));
+        if (Auth::user() == 'unidad de gatos') {
+            $navbar = 'users.ug.layout';
+        }else {
+            $navbar = 'empresas.layout';
+        }
+        return view('comparaciones.show', compact('petition', 'navbar', 'quotations'));
     }
 
     /**
@@ -79,7 +86,14 @@ class ComparativeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $new_state = PetitionState::where('name', $request->input('estado'))->first();
+
+        Petition::where('id', $id)->update([
+            'winner' => $request->input('winner'),
+            'petitionstate_id' => $new_state->id,  
+        ]);
+
+        return redirect()->route('comparaciones.index');
     }
 
     /**

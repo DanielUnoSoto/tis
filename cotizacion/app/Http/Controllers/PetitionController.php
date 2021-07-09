@@ -60,8 +60,6 @@ class PetitionController extends Controller
             "unit_id" => $unit_id,
             "petitionstate_id" => $state->id,
             "description" => $request->input('description'),
-            "price" => $request->input('price')
-
         ]);
 
         $petition_id = Petition::get()->last()->id;
@@ -128,16 +126,7 @@ class PetitionController extends Controller
     {
         // actualizamos
         $new_state = PetitionState::where('name', $request->input('estado'))->first();
-
-        // if ($request->input('comment')) {
         
-        //     $petition = Petition::where('id', $id)->update([
-        //     "petitionstate_id" => $new_state->id,
-        //     "comment" => $request->input('comment'),
-        //     ]);
-
-        // } else {
-        // }
         $petition = Petition::where('id', $id)->update([
             "petitionstate_id" => $new_state->id
         ]);
