@@ -12,7 +12,7 @@
 			<div class="card-body">
 			<p class="font-weight-bold" style = "float: left">Fecha: </p>
 			<p> &nbsp{{$petition->created_at}}</p>
-			<p class="font-weight-bold" style = "float: left">Descripcion: </p>
+			<p class="font-weight-bold" style = "float: left">Descripción: </p>
 			<p> &nbsp{{$petition->description}}</p>
 			<p class="font-weight-bold" style = "float: left">Solicitante:  </p>
 			<p class="transformacion1"> &nbsp{{$petition->user->name}} {{$petition->user->last_name}} </p>
@@ -96,8 +96,13 @@
 								</tr>
 							@endforeach
 						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="5"><b>TOTAL:</b></td>
+								<td><b>{{ $quotation->total }}</b></td>
+							</tr>
+						</tfoot>
 					</table>
-					<p> TOTAL: {{ $quotation->total }}</p>
 				</div>
 			@endforeach
 			@if(count($quotations) >= 3)

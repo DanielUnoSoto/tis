@@ -8,18 +8,32 @@
 	<br>
 	</div>
 	<div>
-		<ul>
 		@foreach($petitions as $petition)
-			<li>
-				<a href=" {{ route('comparaciones.show', $petition->id) }} "> {{$petition->title}} </a>
-				<p> estado: {{$petition->state->name}} </p>
+		<button class="accordion"><a href=" {{ route('comparaciones.show', $petition->id) }} "> {{$petition->title}} </a></button>
+		<div class="panelesacordion">
+				<p> Estado: {{$petition->state->name}} </p>
 				@if($petition->winner == auth('companies')->user()->name)
 					<h5 class="text-success">FELICIDADES</h5>
 				@endif
-				<p>adjunticado a: {{$petition->winner}}</p>
-			</li>
+				<p>Adjudicado a: <b>{{$petition->winner}}</b></p>
+		</div>
 		@endforeach
-		</ul>
 	</div>
 </div>
+<script>
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+	
+	for (i = 0; i < acc.length; i++) {
+	  acc[i].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var panelesacordion = this.nextElementSibling;
+		if (panelesacordion.style.display === "block") {
+		  panelesacordion.style.display = "none";
+		} else {
+		  panelesacordion.style.display = "block";
+		}
+	  });
+	}
+	</script>
 @stop
