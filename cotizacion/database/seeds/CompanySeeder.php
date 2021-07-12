@@ -16,9 +16,9 @@ class CompanySeeder extends Seeder
 	   $company->area = 'material de escritorio';
 	   $company->description = 'Empresa fabricadora de hojas de papel de escritorio';
 	   $company->direction = 'AV america';
-	   $company->nit = 123123123;
+	   $company->nit = '123123123';
 	   $company->city = 'Cochabamba';
-	   $company->phone = 123456;
+	   $company->phone = '123456';
 	   $company->email = 'boreal@gmail.com';
 	   $company->password = bcrypt('123456');
 	   $company->save();

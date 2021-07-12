@@ -21,7 +21,7 @@ class CreatePetitionsTable extends Migration
             $table->integer('petitionstate_id');
             $table->mediumText('description');
             $table->text('comment')->nullable();
-            $table->integer('price')->nullable();
+            $table->string('winner')->nullable();
             $table->timestamps();
         });
     }

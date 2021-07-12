@@ -1,4 +1,4 @@
-@extends('users.ua.layout')
+@extends($navbar)
 
 @section('mycontent')
 
@@ -193,28 +193,27 @@
 			@endforeach
 		
 		<div>
-		<br>
-		<br>
-		
-		<div class="text-center justufy-content-center">
-			<select class="form-select  form-control" aria-label=".form-select-lg example"name="">
-				<option selected>Selecciona a la empresa ganadora:</option>
-				@foreach($quotations as $quotation)
-					<option value="{{$quotation->company->name}}">{{$quotation->company->name}}</option>
-				@endforeach
-				
-			</select>
-		
-			<br> <br>
-			<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-				<div style="padding-right: 5px">
-					<a class="btn btn-primary" style="background-color: rgb(46, 46, 46)" href="{{route('comparaciones.index')}}">Atrás</a>
+		@if($petition->state->name !== 'aprobado')
+			<br>
+			<div class="text-center justufy-content-center">
+				<br>
+				<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+					<form method="POST" action="{{route('comparaciones.update', $petition->id) }}" >
+						@csrf
+						@method('PUT')
+						<select class="form-select  form-control" aria-label=".form-select-lg example"name="winner">
+							<option disabled selected>Selecciona a la empresa ganadora:</option>
+							@foreach($quotations as $quotation)
+								<option value="{{$quotation->company->name}}">{{$quotation->company->name}}</option>
+							@endforeach
+						</select>
+						<input type="hidden" name="estado" value="aprobado">
+						<button class="btn btn-primary" style="background-color: rgb(46, 46, 46)">Enviar</button>
+					</form>
 				</div>
-				<button class="btn btn-primary" style="background-color: rgb(46, 46, 46)">Enviar</button>
 			</div>
+		@endif
 		</div>
-		</div>
-
 </div>
 </div>
 <script type="text/javascript">

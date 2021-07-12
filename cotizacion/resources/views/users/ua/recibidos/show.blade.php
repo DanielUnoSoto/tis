@@ -50,12 +50,14 @@
 			</tbody>
 		</table>
 		<br>
+		@if($petition->state->name == 'espera')
 		<div class="d-grid gap-2 d-md-flex justify-content-md-center">
 			<div style="padding-right: 5px">
 				<a class="btn btn-primary" style="background-color: rgb(46, 46, 46)" href="{{route('recibidos.index')}}">Atrás</a>
 			</div>
 			<a class="btn btn-primary" style="background-color: rgb(46, 46, 46)" href="{{ route('recibidos.edit', $petition->id) }}">Responder</a>
 		</div>
+		@endif
 	</div>
 </div>
 @stop

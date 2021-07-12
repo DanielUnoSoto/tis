@@ -20,13 +20,9 @@
 				<b>Estado:</b> {{$petition->state->name}}
 				</ul>
 			@endif
-			
-			@if($petition->state->name == 'aceptado')
+			@if($petition->state->name == 'aprobado')
 				<ul>
-					<b>Cotizaciones:</b> {{count($petition->quotations)}}
-					@if( Auth::user() && count($petition->quotations) >= 3)
-						<p class="text-info">listo para enviarse</p>
-					@endif
+					<a href="{{ route('comparaciones.show', $petition->id) }}">cuadro comparativo</a>
 				</ul>
 			@endif
 			@if (auth('companies')->user())
