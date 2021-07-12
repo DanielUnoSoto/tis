@@ -20,7 +20,7 @@
     <br>
     <h6> <b>Empresa: </b> {{$company->name}} </h6><br>
     <h6> <b>Descripción: </b> {{$company->description}} </h6><br>
-    <h6> <b>Area: </b> {{$company->area}} </h6><br>
+    <h6> <b>Area: </b> {{$company->area->description}} </h6><br>
     <h6> <b>Dirección: </b> {{$company->direction}} </h6><br>
     <h6> <b>Ciudad: </b> {{$company->city}} </h6><br>
   </div>

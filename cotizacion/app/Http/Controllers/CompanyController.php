@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Company; 
-
+use App\Area;
 
 class CompanyController extends Controller
 {
@@ -26,7 +26,8 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('empresas.register');
+        $areas = Area::all('id', 'description');
+        return view('empresas.register', compact('areas'));
     }
 
     /**
@@ -39,7 +40,7 @@ class CompanyController extends Controller
     {
          Company::create([
             "name" => $request->input('name'),
-            "area" => $request->input('area'),
+            "area_id" => $request->input('area'),
             "description" => $request->input('descrip'),
             "direction" => $request->input('direction'),
             "nit" => $request->input('nit'),
@@ -50,50 +51,5 @@ class CompanyController extends Controller
         ]);
 
         return redirect()->route('empresas.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

@@ -13,7 +13,7 @@ class CompanySeeder extends Seeder
     {
       $company = new App\Company;
 	   $company->name = 'Boreal';
-	   $company->area = 'material de escritorio';
+	   $company->area_id = 1;//material de escritorio
 	   $company->description = 'Empresa fabricadora de hojas de papel de escritorio';
 	   $company->direction = 'AV america';
 	   $company->nit = '123123123';
@@ -25,7 +25,7 @@ class CompanySeeder extends Seeder
 
 	   $company = new App\Company;
 	   $company->name = 'ElectroTech';
-	   $company->area = 'tecnologia';
+	   $company->area_id = 2;//tecnologia
 	   $company->description = 'Empresa comercializadora de productos tecnologicos';
 	   $company->direction = 'AV san martin';
 	   $company->nit = '789456123';

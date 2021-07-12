@@ -8,7 +8,8 @@ use App\Petition;
 use App\PetitionState;
 use App\Acquisition;
 use App\Quotation;
-use App\Company;
+use App\Area;
+
 class PetitionController extends Controller
 {
     /**
@@ -39,8 +40,8 @@ class PetitionController extends Controller
      */
     public function create()
     {
-        $areas = Company::get('area');
-        //dd($areas);
+        $areas = Area::get('description');
+
         return view('solicitudes.register', compact('areas'));
     }
 

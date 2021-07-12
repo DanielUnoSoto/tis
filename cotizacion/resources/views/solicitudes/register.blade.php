@@ -22,9 +22,9 @@
     <div class="form-group" style="padding-right: 42px">
         <label class="form-label"><b>Area:</b></label>
         <select class="form-select" name="area">
-          <option selected></option>
+          <option disabled selected>seleciona un area</option>
           @foreach($areas as $area)
-            <option value='{{ $area['area'] }}'>{{$area['area']}}</option>
+            <option value='{{ $area->description }}'>{{$area->description}}</option>
           @endforeach
         </select>
     </div>
