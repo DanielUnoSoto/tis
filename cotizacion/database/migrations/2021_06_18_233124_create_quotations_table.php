@@ -21,7 +21,7 @@ class CreateQuotationsTable extends Migration
             $table->string('company_name');
             $table->integer('company_nit');
             $table->string('safeguard')->nullable();
-            $table->integer('company_phone');
+            $table->string('company_phone');
             $table->integer('total');
             $table->timestamps();
         });

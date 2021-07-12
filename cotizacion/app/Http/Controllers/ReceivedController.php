@@ -10,7 +10,7 @@ class ReceivedController extends Controller
 {
     public function index()
     {
-    	$petitions = Petition::with('state')->get()->where('state.name', 'espera');
+        $petitions = Petition::with('state')->get()->where('state.name', 'espera');
 
     	return view('users.ua.recibidos.index', compact('petitions'));
     }

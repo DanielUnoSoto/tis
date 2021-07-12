@@ -52,18 +52,23 @@ class ComparativeController extends Controller
      */
     public function show($id)
     {
-        $navbar = 'users.ua.layout';
+        $navbar = '';
         $petition = Petition::where('id', $id)
                             ->with('unit', 'user', 'acquisitions')->first();
         $quotations = Quotation::where('petition_id', $id)
                         ->with('items')->get();
 
-        if (Auth::user() == 'unidad de gatos') {
-            $navbar = 'users.ug.layout';
-        }else {
+        if (Auth::user()) {
+            if (Auth::user()->unit->type->description == 'unidad de gastos') {
+                $navbar = 'users.ug.layout';
+            }else {
+                $navbar = 'users.ua.layout';
+            }
+        }else{
             $navbar = 'empresas.layout';
         }
-        return view('comparaciones.show', compact('petition', 'navbar', 'quotations'));
+
+        return view('comparaciones.show', compact('navbar', 'petition', 'quotations'));
     }
 
     /**

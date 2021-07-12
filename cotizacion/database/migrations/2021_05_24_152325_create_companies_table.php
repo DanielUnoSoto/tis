@@ -19,9 +19,9 @@ class CreateCompaniesTable extends Migration
             $table->string('area');
             $table->string('description');
             $table->string('direction');
-            $table->integer('nit');
+            $table->string('nit');
             $table->string('city');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
