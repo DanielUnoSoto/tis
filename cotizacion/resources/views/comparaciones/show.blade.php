@@ -32,46 +32,61 @@
 	<div>
 		<h2 class= "transformacion1 font-weight-bold">Tabla comparativa</h2>
 		<br>
-		<table class="table table-hover table-bordered">
-			<thead class="thead-dark">
-				<tr>
-				<th>Nombre</th>
-				<th>Cantidad</th>
-				<th>Detalles</th>
-				<th>Unidad</th>
-				@foreach ($quotations as $quotation)
-				<th >{{$quotation->company->name}}</th>
-				@endforeach
-				</tr>
-			</thead>
-				<tbody>
-				@foreach ($petition->acquisitions as $acquisition)
-				<?php
-					foreach ($quotations as $k => $v) {
-						$tArray[$k] = $v['total'];
-					}
-					$min_value = min($tArray);
-					$max_value = max($tArray);
-				?>
+<div  class="card border-dark  mb-3" border-width="3px">
+<div class="card-body">	
+
+
+	
+				<table class="table table-hover table-bordered">
+					<thead class="thead-dark " >
+					
+						<tr>
+							
+							<th class="text-center">Empresa</th>
+							@foreach ($petition->acquisitions as $acquisition)
+							<th >{{$acquisition->name}} <br>Cantidad:&nbsp{{$acquisition->quantity}}&nbsp{{$acquisition->unit_type}}</br></th>
 				
-					<tr>
+							@endforeach
+							<th class="text-center" >Valor Total</th>
+							
+						</tr>
+						</thead>
+				<tbody>
+				<?php
+						foreach ($quotations as $k => $v) {
+							$tArray[$k] = $v['total'];
+						}
+						$min_value = min($tArray);
+						$max_value = max($tArray);
+					?>
 					
-						<td>{{$acquisition->name}}</td>
-						<td>{{$acquisition->quantity}}</td>
-						<td>{{$acquisition->details}}</td>
-						<td>{{$acquisition->unit_type}}</td>
-						@endforeach	
-						@foreach($quotations as $quotation)
-							@if($min_value == $quotation->total)
-							<td class="table-success" >{{$quotation->total}}</td>
+					@foreach($quotations as $quotation)
+					@if($min_value == $quotation->total)
+							<tr class="table-success">
+								<td >{{$quotation->company->name}}</td>
+								@foreach($quotation->items as $item)
+								<td> {{$item->total_value}} </td>
+								@endforeach
+								<td  >{{$quotation->total}}</td>
+							</tr>
+						
 							@else
-							<td >{{$quotation->total}}</td>
+							<tr >
+								<td >{{$quotation->company->name}}</td>
+								@foreach($quotation->items as $item)
+								<td> {{$item->total_value}} </td>
+								@endforeach
+								<td  >{{$quotation->total}}</td>
+							</tr>
 							@endif
-						@endforeach
+							@endforeach
+							
 					
-					</tr>
 				</tbody>
 		</table>
+				</div>
+				</div>
+		
 	</div>
 	<br>
 	<div>
