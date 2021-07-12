@@ -19,6 +19,15 @@
         <label for="description" class="form-label"><b>Descripción:</b></label>
         <input type="text" name="description" id="description" size="25" required>
     </div>
+    <div class="form-group" style="padding-right: 42px">
+        <label class="form-label"><b>Area:</b></label>
+        <select class="form-select" name="area">
+          <option selected></option>
+          @foreach($areas as $area)
+            <option value='{{ $area['area'] }}'>{{$area['area']}}</option>
+          @endforeach
+        </select>
+    </div>
     <h2><b> Adquirir </b></h2>
     <button type="button" class="btn btn-primary  rounded-pill" onclick="agregarFila()"><i class="fas fa-plus-square"></i> Agregar fila</button>
     <button type="button" class="btn btn-primary  rounded-pill" onclick="eliminarFila()"><i class="fas fa-minus-square"></i> Eliminar fila</button>  

@@ -22,5 +22,17 @@ class CompanySeeder extends Seeder
 	   $company->email = 'boreal@gmail.com';
 	   $company->password = bcrypt('123456');
 	   $company->save();
+
+	   $company = new App\Company;
+	   $company->name = 'ElectroTech';
+	   $company->area = 'tecnologia';
+	   $company->description = 'Empresa comercializadora de productos tecnologicos';
+	   $company->direction = 'AV san martin';
+	   $company->nit = '789456123';
+	   $company->city = 'Cochabamba';
+	   $company->phone = '485129';
+	   $company->email = 'electrotech@gmail.com';
+	   $company->password = bcrypt('123456');
+	   $company->save();
     }
 }

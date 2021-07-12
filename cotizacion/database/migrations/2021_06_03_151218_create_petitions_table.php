@@ -18,6 +18,7 @@ class CreatePetitionsTable extends Migration
             $table->string('title');
             $table->integer('user_id');
             $table->integer('unit_id');
+            $table->string('area');
             $table->integer('petitionstate_id');
             $table->mediumText('description');
             $table->text('comment')->nullable();

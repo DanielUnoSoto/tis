@@ -8,7 +8,7 @@ use App\Petition;
 use App\PetitionState;
 use App\Acquisition;
 use App\Quotation;
-
+use App\Company;
 class PetitionController extends Controller
 {
     /**
@@ -18,13 +18,15 @@ class PetitionController extends Controller
      */
     public function index()
     {
-        //dd(!auth('companies')->user()->role);
+        // dd(auth('companies')->user()->area);
         $navbar = 'users.ug.layout';
         $petitions = Petition::with('user','unit','state', 'quotations')->get();
 
         if (auth('companies')->user()) {
+            $area = auth('companies')->user()->area;
             $navbar = 'empresas.layout';
-            $petitions = $petitions->where('state.name', 'aceptado');
+            $petitions = $petitions->where('state.name', 'aceptado')
+                                    ->where('area', $area);
         }
         
         return view('solicitudes.index', compact('petitions', 'navbar'));
@@ -37,7 +39,9 @@ class PetitionController extends Controller
      */
     public function create()
     {
-        return view('solicitudes.register');
+        $areas = Company::get('area');
+        //dd($areas);
+        return view('solicitudes.register', compact('areas'));
     }
 
     /**
@@ -60,6 +64,7 @@ class PetitionController extends Controller
             "unit_id" => $unit_id,
             "petitionstate_id" => $state->id,
             "description" => $request->input('description'),
+            "area" => $request->input('area'),
         ]);
 
         $petition_id = Petition::get()->last()->id;
