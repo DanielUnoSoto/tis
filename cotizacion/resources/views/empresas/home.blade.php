@@ -20,6 +20,7 @@
     <br>
     <h6> <b>Empresa: </b> {{$company->name}} </h6><br>
     <h6> <b>Descripción: </b> {{$company->description}} </h6><br>
+    <h6> <b>Area: </b> {{$company->area->description}} </h6><br>
     <h6> <b>Dirección: </b> {{$company->direction}} </h6><br>
     <h6> <b>Ciudad: </b> {{$company->city}} </h6><br>
   </div>
@@ -39,6 +40,16 @@
     <p id="caption">Felicidades se te ha adjudicado la cotización: <a href="#"> NOMBRE COTIZACION </a></p>
   </div>
 
+</div>
+<div>
+  @foreach($petitions as $petition)
+  <a href=" {{ route('comparaciones.show', $petition->id) }} "> {{$petition->title}} </a>
+        <p> estado: {{$petition->state->name}} </p>
+        @if($petition->winner == auth('companies')->user()->name)
+          <h5 class="text-success">FELICIDADES</h5>
+        @endif
+        <p>adjunticado a: {{$petition->winner}}</p>
+  @endforeach
 </div>
 <script>
   var slideIndex = 1;

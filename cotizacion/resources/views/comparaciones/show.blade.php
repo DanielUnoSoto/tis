@@ -34,9 +34,6 @@
 		<br>
 <div  class="card border-dark  mb-3" border-width="3px">
 <div class="card-body">	
-
-
-	
 				<table class="table table-hover table-bordered">
 					<thead class="thead-dark " >
 					
@@ -59,9 +56,8 @@
 						$min_value = min($tArray);
 						$max_value = max($tArray);
 					?>
-					
 					@foreach($quotations as $quotation)
-					@if($min_value == $quotation->total)
+						@if($min_value == $quotation->total)
 							<tr class="table-success">
 								<td >{{$quotation->company->name}}</td>
 								@foreach($quotation->items as $item)
@@ -69,8 +65,7 @@
 								@endforeach
 								<td  >{{$quotation->total}}</td>
 							</tr>
-						
-							@else
+						@else
 							<tr >
 								<td >{{$quotation->company->name}}</td>
 								@foreach($quotation->items as $item)
@@ -78,8 +73,8 @@
 								@endforeach
 								<td  >{{$quotation->total}}</td>
 							</tr>
-							@endif
-							@endforeach
+						@endif
+					@endforeach
 							
 					
 				</tbody>
@@ -107,6 +102,7 @@
 					<div class="card-header text-white bg-success">
 						<p class="font-weight-bold" style = "float: left">Empresa: </p>
 						<p> &nbsp{{ $quotation->company_name }}</p>
+						<p>telefono: &nbsp{{ $quotation->company_phone }}</p>
 						</div>
 						
 				<div class="card-body">		
@@ -151,6 +147,7 @@
 					<div class="card-header">
 						<p class="font-weight-bold" style = "float: left">Empresa: </p>
 						<p> &nbsp{{ $quotation->company_name }}</p>
+						<p> telefono: &nbsp{{ $quotation->company_phone }}</p>
 						</div>
 						
 				<div class="card-body">		

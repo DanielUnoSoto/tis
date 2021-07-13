@@ -20,6 +20,9 @@
 			<ul>
 				<b>Unidad:</b> {{$petition->unit->name}}
 			</ul>
+			<ul>
+				<b>Area:</b> {{$petition->area}}
+			</ul>
 			@if(Auth::user())
 				<ul>
 				<b>Estado:</b> {{$petition->state->name}}
@@ -34,6 +37,9 @@
 				</ul>
 			@endif
 			@if($petition->state->name == 'aprobado')
+				<ul>
+					<b>Adjuntado:</b> {{$petition->winner}}
+				</ul>
 				<ul>
 					<a href="{{ route('comparaciones.show', $petition->id) }}">cuadro comparativo</a>
 				</ul>

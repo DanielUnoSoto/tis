@@ -25,7 +25,12 @@
 			</div>
 			<div class="form-group">
 				<label for="inputArea" class="form-label">Área:</label>
-				<input type="text" class="form-control" name="area" id="area" placeholder="Ingrese su área" size="40" required>
+				<select class="form-select" name="area">
+		          <option disabled selected>seleciona un area</option>
+		          @foreach($areas as $area)
+		            <option value='{{ $area->id }}'>{{$area->description}}</option>
+		          @endforeach
+        		</select>
 			</div>
 			<div class="form-group">
 				<label for="inputDescrip" class="form-label">Descripción:</label>
