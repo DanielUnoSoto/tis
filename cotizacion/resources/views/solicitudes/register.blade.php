@@ -21,7 +21,7 @@
     </div>
     <div class="form-group" style="padding-right: 42px">
         <label class="form-label"><b>Area:</b></label>
-        <select class="form-select" name="area">
+        <select class="form-select" name="area" required>
           <option disabled selected>seleciona un area</option>
           @foreach($areas as $area)
             <option value='{{ $area->description }}'>{{$area->description}}</option>
@@ -42,16 +42,16 @@
       </thead>
       <tbody>
             <tr>
-              <td> <input type="text" name="name[]" id="name" > </td>
-              <td> <input type="text" name="details[]" id="details" size="25"> </td>
+              <td> <input type="text" name="name[]" id="name" required> </td>
+              <td> <input type="text" name="details[]" id="details" size="25" required> </td>
               <td> {{-- <input type="text" name="unit_type[]" id="unit_type" size="25"> --}}
-                <select class="form-select" name="unit_type[]">
+                <select class="form-select" name="unit_type[]" required>
                     <option selected></option>
                     <option value="pieza">pieza</option>
                     <option value="paquete">paquete</option>
                 </select>
               </td>
-              <td> <input type="text" name="quantity[]" id="quantity" size="25"> </td>
+              <td> <input type="text" name="quantity[]" id="quantity" size="25" required> </td>
             </tr>
       </tbody>
     </table>

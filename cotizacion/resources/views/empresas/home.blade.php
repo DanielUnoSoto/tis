@@ -17,7 +17,6 @@
 <div class="contenedor" class="fw-bold">
   <div class="text-center caja1">
     <h2>INFORMACIÓN PERSONAL:</h2>
-    <br>
     <h6> <b>Empresa: </b> {{$company->name}} </h6><br>
     <h6> <b>Descripción: </b> {{$company->description}} </h6><br>
     <h6> <b>Area: </b> {{$company->area->description}} </h6><br>
@@ -26,60 +25,55 @@
   </div>
   <div class="caja2">
     <h2 class="text-center">AVISOS IMPORTANTES</h2>
-
-<div class="container">
-  <div class="mySlides">
-    <div class="numbertext"></div>
-    <div class="text-center"><img class="justify-content-center" src="../imagenes/congrats.jpg" width="170" height="170"></div>
-  </div>
+@foreach ($petitions as $petition)
+    @if ($petition->winner == auth('companies')->user()->name)
+    <div class="container">
+      <div class="mySlides">
+        <div class="numbertext"></div>
+        <div class="text-center"><img class="justify-content-center" src="../imagenes/congrats.jpg" width="170" height="170"></div>
+      </div>
+        
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
     
-  <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a>
+      <div class="caption-container">
+        <p id="caption">Felicidades se te ha adjudicado la cotización: <a href=" {{ route('comparaciones.show', $petition->id) }} "> {{$petition->title}} </a></p>
+      </div>
+    
+    </div>
 
-  <div class="caption-container">
-    <p id="caption">Felicidades se te ha adjudicado la cotización: <a href="#"> NOMBRE COTIZACION </a></p>
-  </div>
+    @endif
+@endforeach
 
-</div>
-<div>
-  @foreach($petitions as $petition)
-  <a href=" {{ route('comparaciones.show', $petition->id) }} "> {{$petition->title}} </a>
-        <p> estado: {{$petition->state->name}} </p>
-        @if($petition->winner == auth('companies')->user()->name)
-          <h5 class="text-success">FELICIDADES</h5>
-        @endif
-        <p>adjunticado a: {{$petition->winner}}</p>
-  @endforeach
-</div>
 <script>
   var slideIndex = 1;
-  showSlides(slideIndex);
-  
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
   }
-  
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
   }
-  
-  function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("demo");
-    var captionText = document.getElementById("caption");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-    captionText.innerHTML = dots[slideIndex-1].alt;
-  }
+  slides[slideIndex-1].style.display = " block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
   </script>
   </div>
   </div>  
