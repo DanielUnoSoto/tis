@@ -27,21 +27,21 @@
     <h2 class="text-center">AVISOS IMPORTANTES</h2>
     <div class="container">
 @foreach ($petitions as $petition)
-    @if ($petition->winner == auth('companies')->user()->name)
-      <div class="mySlides">
-        <div class="numbertext"></div>
-        <div class="text-center"><img class="justify-content-center" src="../imagenes/congrats.jpg" width="170" height="170"></div>
-        <div class="caption-container">
-          <p id="caption">Felicidades se te ha adjudicado la cotización: <a href=" {{ route('comparaciones.show', $petition->id) }} "> {{$petition->title}} </a></p>
-        </div>
+  @if ($petition->winner == auth('companies')->user()->name)
+    <div class="mySlides">
+      <div class="numbertext"></div>
+      <div class="text-center"><img class="justify-content-center" src="../imagenes/congrats.jpg" width="170" height="170"></div>
+      <div class="caption-container">
+        <p id="caption">Felicidades se te ha adjudicado la cotización: <a href=" {{ route('comparaciones.show', $petition->id) }} "> {{$petition->title}} </a></p>
       </div>
-      @endif
-      @endforeach
-      @if ($petition->winner == auth('companies')->user()->name)
-      <a class="prev" onclick="plusSlides(-1)">❮</a>
-      <a class="next" onclick="plusSlides(1)">❯</a>
-      @endif   
     </div>
+  @endif
+  @if ($petition->winner == auth('companies')->user()->name)
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  @endif   
+  </div>
+@endforeach
     
 <script>
   var slideIndex = 1;
