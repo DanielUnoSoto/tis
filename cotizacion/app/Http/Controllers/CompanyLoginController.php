@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use App\Quotation;
+use App\Petition;
 
 class CompanyLoginController extends Controller
 {
@@ -36,7 +38,22 @@ class CompanyLoginController extends Controller
 
     public function home(){
         $company = auth('companies')->user();
-        return view('empresas.home', compact('company'));
+
+
+        $petitions = array();
+        $company_id = $company->id;
+
+        $quotations = Quotation::get()->where('company_id', $company_id);
+        foreach ($quotations as $quotation) {
+            $petition = Petition::with('state')->get()->where('id', $quotation->petition_id)
+                                ->where('state.name', 'aprobado')->first();
+            if ($petition != null) {
+                array_push($petitions, $petition);
+            }
+        }
+
+
+        return view('empresas.home', compact('company', 'petitions'));
     }
 
 }

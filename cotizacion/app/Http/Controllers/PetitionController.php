@@ -24,7 +24,7 @@ class PetitionController extends Controller
         $petitions = Petition::with('user','unit','state', 'quotations')->get();
 
         if (auth('companies')->user()) {
-            $area = auth('companies')->user()->area;
+            $area = auth('companies')->user()->area->description;
             $navbar = 'empresas.layout';
             $petitions = $petitions->where('state.name', 'aceptado')
                                     ->where('area', $area);

@@ -41,6 +41,16 @@
   </div>
 
 </div>
+<div>
+  @foreach($petitions as $petition)
+  <a href=" {{ route('comparaciones.show', $petition->id) }} "> {{$petition->title}} </a>
+        <p> estado: {{$petition->state->name}} </p>
+        @if($petition->winner == auth('companies')->user()->name)
+          <h5 class="text-success">FELICIDADES</h5>
+        @endif
+        <p>adjunticado a: {{$petition->winner}}</p>
+  @endforeach
+</div>
 <script>
   var slideIndex = 1;
   showSlides(slideIndex);
