@@ -36,12 +36,10 @@
       </div>
     </div>
   @endif
-  @if ($petition->winner == auth('companies')->user()->name)
+@endforeach
     <a class="prev" onclick="plusSlides(-1)">❮</a>
     <a class="next" onclick="plusSlides(1)">❯</a>
-  @endif   
   </div>
-@endforeach
     
 <script>
   var slideIndex = 1;
