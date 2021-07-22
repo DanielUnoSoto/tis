@@ -24,9 +24,11 @@ class PetitionController extends Controller
 
         if (!empty($request->all())) {
             if ($request->first == $request->second) {
-                $petitions = $petitions->where('created_at', '>=', $request->first);
+                //$petitions = $petitions->where('created_at', '==', $request->first);
+                $petitions = $petitions->where('created_at','>=',$request->first.' 00:00:00')
+                                        ->where('created_at','<=',$request->second.' 23:59:59');
             }else{
-                $petitions = $petitions->whereBetween('created_at', [$request->first,$request->second]);
+                $petitions = $petitions->whereBetween('created_at', [$request->first.' 00:00:00',$request->second.' 23:59:59']);
             }
         }
 

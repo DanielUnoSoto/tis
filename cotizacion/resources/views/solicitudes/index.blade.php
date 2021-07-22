@@ -16,11 +16,11 @@
 	<div>
 	<label>
 		fecha inicio
-	<input required type="date" name="first" value={{Request::query('first') ? date("Y-m-d", strtotime(Request::query('first'))) : date('Y-m-d') }}>
+	<input required type="date" name="first" value={{Request::query('first') ? date("Y-m-d", strtotime(Request::query('first'))) : '' }}>
 	</label>
 	<label>
 		fecha fin
-		<input required type="date" name="second" value= {{ Request::query('second') ? date("Y-m-d", strtotime(Request::query('second'))) : date('Y-m-d') }}>
+		<input required type="date" name="second" value= {{ Request::query('second') ? date("Y-m-d", strtotime(Request::query('second'))) : ''}}>
 	</label>
 	<button type="submit" class="btn btn-success">obtener</button>
 	</div>
