@@ -10,6 +10,27 @@
 		</h2>
 	</div>
 </div>
+@if(Auth::user())
+<div>	
+<form method="GET" action=" {{route('solicitudes.index') }} ">
+	<div>
+	<label>
+		fecha inicio
+	<input required type="date" name="first" value={{Request::query('first') ? date("Y-m-d", strtotime(Request::query('first'))) : date('Y-m-d') }}>
+	</label>
+	<label>
+		fecha fin
+		<input required type="date" name="second" value= {{ Request::query('second') ? date("Y-m-d", strtotime(Request::query('second'))) : date('Y-m-d') }}>
+	</label>
+	<button type="submit" class="btn btn-success">obtener</button>
+	</div>
+</form>
+	<a type="button" class="btn btn-info" href=" {{route('solicitudes.index') }} ">listar todos</a>
+	@if(Request::query('first'))
+		<h4 class="text-primary"> Solicitudes del {{ date("d-m-Y", strtotime(Request::query('first'))) }} al {{date("d-m-Y", strtotime(Request::query('second')))}} </h4>
+	@endif
+@endif
+</div>
 <div>
 	@foreach($petitions as $petition)
 		<button class="accordion"><b>Solicitud:</b> <a href=" {{route('solicitudes.show', $petition->id)}} ">{{$petition->title}} </a></button>

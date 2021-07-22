@@ -17,11 +17,18 @@ class PetitionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // dd(auth('companies')->user()->area);
-        $navbar = 'users.ug.layout';
         $petitions = Petition::with('user','unit','state', 'quotations')->get();
+        $navbar = 'users.ug.layout';
+
+        if (!empty($request->all())) {
+            if ($request->first == $request->second) {
+                $petitions = $petitions->where('created_at', '>=', $request->first);
+            }else{
+                $petitions = $petitions->whereBetween('created_at', [$request->first,$request->second]);
+            }
+        }
 
         if (auth('companies')->user()) {
             $area = auth('companies')->user()->area->description;
