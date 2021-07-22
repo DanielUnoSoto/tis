@@ -18,9 +18,5 @@ class AreaSeeder extends Seeder
 	    $area = new App\Area;
 	    $area->description = 'tecnologia';//2
 	    $area->save();
-
-	    $area = new App\Area;
-	    $area->description = 'muebles';//3
-	    $area->save();
     }
 }
