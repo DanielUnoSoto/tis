@@ -198,8 +198,8 @@
 					<form method="POST" action="{{route('comparaciones.update', $petition->id) }}" >
 						@csrf
 						@method('PUT')
-						<select class="form-select  form-control" aria-label=".form-select-lg example"name="winner">
-							<option disabled selected>Selecciona a la empresa ganadora:</option>
+						<select class="form-select  form-control" aria-label=".form-select-lg example"name="winner" required>
+							<option value="">--Selecciona a la empresa ganadora--</option>
 							@foreach($quotations as $quotation)
 								<option value="{{$quotation->company->name}}">{{$quotation->company->name}}</option>
 							@endforeach

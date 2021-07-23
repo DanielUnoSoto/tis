@@ -25,8 +25,8 @@
 			</div>
 			<div class="form-group">
 				<label for="inputArea" class="form-label">Área:</label>
-				<select class="form-select" name="area">
-		          <option disabled selected>seleciona un area</option>
+				<select class="form-select" name="area" required>
+		          <option value="">--Seleciona un área--</option>
 		          @foreach($areas as $area)
 		            <option value='{{ $area->id }}'>{{$area->description}}</option>
 		          @endforeach

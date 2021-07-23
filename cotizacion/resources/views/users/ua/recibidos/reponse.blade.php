@@ -16,7 +16,7 @@
 	    <br>
 	    @method('PUT')
 	    @csrf
-		<input type="radio" id="aceptado" name="estado" value="aceptado">
+		<input type="radio" id="aceptado" name="estado" value="aceptado" required>
   		<label for="aceptado">Aceptado</label>
   		<br>
   		<input type="radio" id="denegado" name="estado" value="denegado">

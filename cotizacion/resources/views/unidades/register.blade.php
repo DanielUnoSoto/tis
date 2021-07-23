@@ -22,7 +22,7 @@
     </div>
     <div class="form-group">
         <label for="inputTypeUnit" class="form-label">Tipo de unidad:</</label>
-        <select name="type_id">
+        <select name="type_id" required>
           <option selected></option>
           @foreach($types as $type)
             <option value="{{$type->id}}">{{$type->description}}</option>
@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
         <label for="inputSch" class="form-label">Facultad:</label>
-        <select name="school_id">
+        <select name="school_id" required>
           <option selected></option>
           @foreach($schools as $school)
             <option value="{{$school->id}}">{{$school->name}}</option>

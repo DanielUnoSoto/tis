@@ -22,7 +22,7 @@
     <div class="form-group" style="padding-right: 42px">
         <label class="form-label"><b>Area:</b></label>
         <select class="form-select" name="area" required>
-          <option disabled selected>seleciona un area</option>
+          <option value="">--Seleciona un área--</option>
           @foreach($areas as $area)
             <option value='{{ $area->description }}'>{{$area->description}}</option>
           @endforeach
@@ -69,10 +69,10 @@
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
-        cell1.innerHTML = '<input type="text" name="name[]" id="name" >';
-        cell2.innerHTML = '<input type="text" name="details[]" id="details" size="25">';;
-        cell3.innerHTML = '<select class="form-select" name="unit_type[]"><option selected></option><option value="pieza">pieza</option><option value="paquete">paquete</option></select>';;
-        cell4.innerHTML = '<input type="text" name="quantity[]" id="quantity" size="25">';;
+        cell1.innerHTML = '<input type="text" name="name[]" id="name" required>';
+        cell2.innerHTML = '<input type="text" name="details[]" id="details" size="25" required>';;
+        cell3.innerHTML = '<select class="form-select" name="unit_type[]" required><option selected></option><option value="pieza">pieza</option><option value="paquete">paquete</option></select>';;
+        cell4.innerHTML = '<input type="text" name="quantity[]" id="quantity" size="25" required>';;
        }
   
        function eliminarFila(){
